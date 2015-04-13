@@ -1,5 +1,5 @@
 {
-    "name": "wordplate/wordplate",
+    "name": "wordplate/framework",
     "description": "The WordPlate framework.",
     "keywords": ["wordplate", "wordpress", "boilerplate"],
     "support": {
@@ -19,7 +19,6 @@
             "url": "http://wpackagist.org"
         }
     ],
-    
     "require": {
         "composer/installers": "~1.0",
         "illuminate/support": "~5.0",

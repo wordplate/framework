@@ -12,14 +12,14 @@
 namespace WordPlate;
 
 /**
- * This is the application class.
+ * This is the framework class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Application
+class Framework
 {
     /**
-     * Initialize WordPlate.
+     * Initialize WordPlate framework.
      *
      * @return void
      */

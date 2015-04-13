@@ -36,7 +36,7 @@ class Framework
      */
     private function loadConfigHelper()
     {
-        $this->loadFilePath(__DIR__.'/helpers.php');
+        $this->loadFilePath(__DIR__.'/config.php');
     }
 
     /**
@@ -54,7 +54,7 @@ class Framework
     /**
      * Load file by their path.
      *
-     * @param $path
+     * @param string $path
      *
      * @return void
      */

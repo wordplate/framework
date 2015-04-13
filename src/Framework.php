@@ -25,16 +25,16 @@ class Framework
      */
     public function __construct()
     {
-        $this->loadHelpers();
+        $this->loadConfigHelper();
         $this->loadModules();
     }
 
     /**
-     * Load the helpers file.
+     * Load the config helper file.
      *
      * @return void
      */
-    private function loadHelpers()
+    private function loadConfigHelper()
     {
         $this->loadFilePath(__DIR__.'/helpers.php');
     }

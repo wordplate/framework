@@ -18,14 +18,13 @@
         "johnpbloch/wordpress": "~4.0",
         "roots/soil": "~3.0",
         "symfony/var-dumper": "~2.0",
-        "vlucas/phpdotenv": "~1.0"
+        "vlucas/phpdotenv": "~1.0",
+        "symfony/filesystem": "~3.0@dev"
     },
     "autoload": {
-        "files": [
-            "src/helpers.php",
-            "src/config.php",
-            "src/autoload.php"
-        ]
+        "psr-4": {
+            "WordPlate\\": "src/"
+        }
     },
     "extra": {
         "installer-paths": {

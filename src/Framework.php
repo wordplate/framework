@@ -58,7 +58,8 @@ class Framework
      *
      * @return void
      */
-    private function loadFilePath($path) {
+    private function loadFilePath($path) 
+    {
         if (is_file($path)) {
             require $path;
         }

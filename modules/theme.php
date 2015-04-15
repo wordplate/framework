@@ -10,10 +10,10 @@
  */
 
  /**
- * Fix home URL on theme activation
- *
- * @return void
- */
+  * Fix home URL on theme activation
+  *
+  * @return void
+  */
 add_action('after_setup_theme', function () {
     $url = get_option('home');
     if (ends_with($url, '/wordpress')) {

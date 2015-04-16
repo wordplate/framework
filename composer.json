@@ -11,14 +11,14 @@
     ],
     "require": {
         "php": ">=5.4.0",
+        "johnpbloch/wordpress": "4.1.*",
         "composer/installers": "~1.0",
-        "filp/whoops": "~1.0",
         "illuminate/support": "~5.0",
-        "jjgrainger/wp-custom-post-type-class": "~1.0",
-        "johnpbloch/wordpress": "~4.0",
-        "roots/soil": "~3.0",
         "symfony/var-dumper": "~2.0",
-        "vlucas/phpdotenv": "~1.0"
+        "vlucas/phpdotenv": "~1.0",
+        "filp/whoops": "~1.0",
+        "roots/soil": "~3.0",
+        "jjgrainger/wp-custom-post-type-class": "~1.0"
     },
     "autoload": {
         "files": [

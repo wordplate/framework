@@ -11,6 +11,25 @@ use Illuminate\Support\Str;
  * file that was distributed with this source code.
  */
 
+if (!function_exists('server')) {
+    /**
+     * Get the server configuration by key.
+     *
+     * @param $key
+     * @param string $default
+     *
+     * @return mixed
+     */
+    function server($key, $default = 'N/A')
+    {
+        if (isset($_SERVER[$key])) {
+            return $_SERVER[$key];
+        }
+
+        return value($default);
+    }
+}
+
 if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable.

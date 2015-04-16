@@ -28,24 +28,25 @@
         </tr>
         <tr>
             <td>Software</td>
-            <td><?php echo $_SERVER['SERVER_SOFTWARE'] ?: 'N/A'; ?></td>
+            <td><?php echo server('SERVER_SOFTWARE'); ?></td>
         </tr>
         <tr>
             <td>Hostname</td>
-            <td><?php echo $_SERVER['SERVER_NAME'] ?: 'N/A'; ?></td>
+            <td><?php  echo server('SERVER_NAME'); ?></td>
         </tr>
         <tr>
             <td>IP</td>
-            <td><?php echo sprintf('%s:%s', $_SERVER['SERVER_ADDR'], $_SERVER['SERVER_PORT']) ?: 'N/A'; ?></td>
+            <td><?php echo sprintf('%s:%s', server('SERVER_ADDR'), server('SERVER_PORT')) ?: 'N/A'; ?></td>
         </tr>
         <tr>
             <td>Admin</td>
-            <td><?php echo $_SERVER['SERVER_ADMIN'] ?: 'N/A'; ?></td>
+            <td><?php echo server('SERVER_ADMIN'); ?></td>
         </tr>
         <tr>
             <td>Document Root</td>
-            <td><?php echo $_SERVER['DOCUMENT_ROOT'] ?: 'N/A'; ?></td>
+            <td><?php echo server('DOCUMENT_ROOT'); ?></td>
         </tr>
+
         <tr>
             <td>Date/Time</td>
             <td><?php echo date(sprintf('%s @ %s', get_option('date_format'), get_option('time_format')), current_time('timestamp')) ?: 'N/A'; ?></td>

@@ -13,8 +13,12 @@
         "php": ">=5.4.0",
         "johnpbloch/wordpress": "4.1.*",
         "composer/installers": "~1.0",
+        "illuminate/container": "~5.0",
+        "illuminate/contracts": "~5.0",
         "illuminate/support": "~5.0",
+        "illuminate/config": "~5.0",
         "symfony/var-dumper": "~2.0",
+        "symfony/finder": "~2.0",
         "vlucas/phpdotenv": "~1.0",
         "filp/whoops": "~1.0",
         "roots/soil": "~3.0",
@@ -25,16 +29,10 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "WordPlate\\Foundation\\": "src/"
+            "WordPlate\\": "src/"
         }
     },
     "extra":{
-    	"wordpress-install-dir": "public/wordpress",
-    	"installer-paths": {
-    	    "public/wp-content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
-    	    "public/wp-content/plugins/{$name}": ["type:wordpress-plugin"],
-    	    "public/wp-content/themes/{$name}": ["type:wordpress-theme"]
-    	},
         "branch-alias": {
             "dev-master": "2.1-dev"
         }

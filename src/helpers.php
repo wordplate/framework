@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Str;
-
 /*
  * This file is part of WordPlate.
  *
@@ -11,22 +9,50 @@ use Illuminate\Support\Str;
  * file that was distributed with this source code.
  */
 
-if (!function_exists('server')) {
+use Illuminate\Container\Container;
+use Illuminate\Support\Str;
+
+if (!function_exists('app')) {
     /**
-     * Get the server configuration by key.
+     * Get the available container instance.
      *
-     * @param $key
-     * @param string $default
+     * @param string $make
+     * @param array $parameters
+     *
+     * @return mixed|\Illuminate\Foundation\Application
+     */
+    function app($make = null, $parameters = [])
+    {
+        if (is_null($make)) {
+            return Container::getInstance();
+        }
+
+        return Container::getInstance()->make($make, $parameters);
+    }
+}
+
+if (!function_exists('config')) {
+    /**
+     * Get / set the specified configuration value.
+     *
+     * If an array is passed as the key, we will assume you want to set an array of values.
+     *
+     * @param array|string $key
+     * @param mixed $default
      *
      * @return mixed
      */
-    function server($key, $default = 'N/A')
+    function config($key = null, $default = null)
     {
-        if (isset($_SERVER[$key])) {
-            return $_SERVER[$key];
+        if (is_null($key)) {
+            return app('config');
         }
 
-        return value($default);
+        if (is_array($key)) {
+            return app('config')->set($key);
+        }
+
+        return app('config')->get($key, $default);
     }
 }
 
@@ -93,5 +119,24 @@ if (!function_exists('format_bytes')) {
         $bytes /= pow(1024, $pow);
 
         return sprintf('%s %s', round($bytes, $precision), $units[$pow]);
+    }
+}
+
+if (!function_exists('server')) {
+    /**
+     * Get the server configuration by key.
+     *
+     * @param $key
+     * @param string $default
+     *
+     * @return mixed
+     */
+    function server($key, $default = 'N/A')
+    {
+        if (isset($_SERVER[$key])) {
+            return $_SERVER[$key];
+        }
+
+        return value($default);
     }
 }

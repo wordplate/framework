@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace WordPlate;
+namespace WordPlate\Foundation;
 
 /**
  * This is the framework class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Framework
+class Application
 {
     /**
      * Initialize WordPlate framework.

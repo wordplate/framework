@@ -25,16 +25,16 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "WordPlate\\": "src/"
+            "WordPlate\\Foundation\\": "src/"
         }
     },
     "extra": {
         "installer-paths": {
-            "wp-content/plugins/{$name}": [
+            "public/wp-content/plugins/{$name}": [
                 "type:wordpress-plugin"
             ]
         },
-        "wordpress-install-dir": "wordpress"
+        "wordpress-install-dir": "public/wordpress"
     },
     "extra":{
         "branch-alias": {

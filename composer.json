@@ -28,15 +28,13 @@
             "WordPlate\\Foundation\\": "src/"
         }
     },
-    "extra": {
-        "installer-paths": {
-            "public/wp-content/plugins/{$name}": [
-                "type:wordpress-plugin"
-            ]
-        },
-        "wordpress-install-dir": "public/wordpress"
-    },
     "extra":{
+    	"wordpress-install-dir": "public/wordpress",
+    	"installer-paths": {
+    	    "public/wp-content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+    	    "public/wp-content/plugins/{$name}": ["type:wordpress-plugin"],
+    	    "public/wp-content/themes/{$name}": ["type:wordpress-theme"]
+    	},
         "branch-alias": {
             "dev-master": "2.1-dev"
         }

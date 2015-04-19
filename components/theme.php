@@ -28,7 +28,7 @@ add_action('after_setup_theme', function () {
  *
  * @return void
  */
-add_action('switch_theme', function() {
+add_action('switch_theme', function () {
     if (strlen(config('theme.slug')) <= 0) {
         throw new WordPlateException('Theme slug is not defined in config/theme.php');
     }

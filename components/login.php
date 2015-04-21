@@ -15,7 +15,7 @@
  * @return void
  */
 add_action('login_head', function () {
-    $path = config('login.image_path');
+    $path = get_template_directory_uri().config('login.image_path');
     $width = sprintf('%spx', config('login.image_width'));
 
     echo "<style> h1 a { background-image:url($path) !important; background-size: 100% auto !important; width: $width !important; } </style>";

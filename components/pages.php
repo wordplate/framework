@@ -25,7 +25,7 @@ add_action('admin_init', function () {
     foreach ($pages as $page) {
         if (!isset($page['title'])) {
             continue;
-        } 
+        }
         
         if (!post_exists($page['title'])) {
             wp_insert_post([

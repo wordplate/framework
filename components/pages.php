@@ -23,21 +23,19 @@ add_action('admin_init', function () {
 
     // Create the default pages.
     foreach ($pages as $page) {
-        if (!isset($page['title'])) {
+        if (!isset($page['title']) || post_exists($page['title'])) {
             continue;
         }
         
-        if (!post_exists($page['title'])) {
-            wp_insert_post([
-                'post_title' => $page['title'],
-                'post_status' => 'publish',
-                'post_type' => 'page',
-            ]);
-        }
+        wp_insert_post([
+            'post_title' => $page['title'],
+            'post_status' => 'publish',
+            'post_type' => 'page',
+        ]);
     }
 
     foreach ($pages as $page) {
-        if (!isset($page['title'])) {
+        if (!isset($page['title']) || post_exists($page['title'])) {
             continue;
         }
         

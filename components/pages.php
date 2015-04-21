@@ -23,6 +23,10 @@ add_action('admin_init', function () {
 
     // Create the default pages.
     foreach ($pages as $page) {
+        if (!isset($page['title'])) {
+            continue;
+        } 
+        
         if (!post_exists($page['title'])) {
             wp_insert_post([
                 'post_title' => $page['title'],
@@ -33,6 +37,10 @@ add_action('admin_init', function () {
     }
 
     foreach ($pages as $page) {
+        if (!isset($page['title'])) {
+            continue;
+        }
+        
         $page_id = get_page_by_title($page['title'])->ID;
 
         if (isset($page['template'])) {

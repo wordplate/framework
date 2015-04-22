@@ -12,6 +12,21 @@
 use WordPlate\Exceptions\WordPlateException;
 
 /**
+ * Enable Gzip if available.
+ */
+if (extension_loaded('zlib') && (ini_get('output_handler') !== 'ob_gzhandler') && config('theme.gzip')) {
+    add_action('wp', create_function('', '@ob_end_clean();@ini_set("zlib.output_compression", 1);'));
+}
+
+/**
+ * Prevent file edit from WordPress administrator dashboard.
+ */
+if (!defined('DISALLOW_FILE_EDIT')) {
+    define('DISALLOW_FILE_EDIT', config('theme.disallow_file_edit'));
+}
+
+
+/**
  * Fix home URL on theme activation
  *
  * @return void

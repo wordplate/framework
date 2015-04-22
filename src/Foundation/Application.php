@@ -12,8 +12,8 @@
 namespace WordPlate\Foundation;
 
 use Illuminate\Container\Container;
-use WordPlate\Foundation\Bootstrap\LoadConfiguration;
 use WordPlate\Foundation\Bootstrap\LoadComponents;
+use WordPlate\Foundation\Bootstrap\LoadConfiguration;
 
 /**
  * This is the application class.

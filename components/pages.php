@@ -35,7 +35,7 @@ add_action('admin_init', function () {
     }
 
     foreach ($pages as $page) {
-        if (!isset($page['title']) || post_exists($page['title'])) {
+        if (!isset($page['title']) || !post_exists($page['title'])) {
             continue;
         }
         

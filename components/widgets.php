@@ -23,7 +23,5 @@ add_action('widgets_init', function () {
 /**
  * Filters that allow shortcodes in text widgets.
  */
-if (config('widgets.shortcodes')) {
-    add_filter('widget_text', 'shortcode_unautop');
-    add_filter('widget_text', 'do_shortcode');
-}
+add_filter('widget_text', 'shortcode_unautop');
+add_filter('widget_text', 'do_shortcode');

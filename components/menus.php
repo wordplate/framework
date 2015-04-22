@@ -19,9 +19,9 @@ add_action('admin_head', function () {
     $separator = ', #menu-';
 
     if (current_user_can('manage_options')) {
-        $elements .= implode($separator, config('menus.remove_menu_items.administrator'));
+        $elements .= implode($separator, config('menus.items.administrator'));
     } else {
-        $elements .= implode($separator, config('menus.remove_menu_items.default'));
+        $elements .= implode($separator, config('menus.items.default'));
     }
 
     echo sprintf('<style> %s { display: none !important; } </style>', $elements);
@@ -35,7 +35,7 @@ add_action('admin_head', function () {
  * @return void
  */
 add_action('admin_bar_menu', function ($wp_admin_bar) {
-    $nodes = config('menus.remove_menu_bar_links');
+    $nodes = config('menus.links');
 
     foreach ($nodes as $node) {
         $wp_admin_bar->remove_node($node);
@@ -48,7 +48,7 @@ add_action('admin_bar_menu', function ($wp_admin_bar) {
  * @return void
  */
 add_action('admin_head', function () {
-    if (!config('menus.panel_tabs.help')) {
+    if (!config('menus.tabs.help')) {
         $screen = get_current_screen();
         $screen->remove_help_tabs();
     }
@@ -60,5 +60,5 @@ add_action('admin_head', function () {
  * @return void
  */
 add_filter('screen_options_show_screen', function () {
-    return config('menus.panel_tabs.screen_options', true);
+    return config('menus.tabs.screen_options', true);
 });

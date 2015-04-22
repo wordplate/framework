@@ -67,14 +67,14 @@ add_filter('wp_insert_post_data', function ($data, $post) {
  */
 add_filter('tiny_mce_before_init', function ($init) {
     // Add block format elements you want to show in dropdown.
-    $init['block_formats'] = implode(';', config('editor.tinymce_blockformats'));
+    $init['block_formats'] = implode(';', config('editor.tinymce.blockformats'));
 
     // Disable buttons for the two toolbars.
     $toolbar1 = explode(',', $init['toolbar1']);
-    $buttons1 = array_diff($toolbar1, config('editor.tinymce_disabled'));
+    $buttons1 = array_diff($toolbar1, config('editor.tinymce.disabled'));
 
     $toolbar2 = explode(',', $init['toolbar2']);
-    $buttons2 = array_diff($toolbar2, config('editor.tinymce_disabled'));
+    $buttons2 = array_diff($toolbar2, config('editor.tinymce.disabled'));
 
     $init['toolbar1'] = implode(',', $buttons1);
     $init['toolbar2'] = implode(',', $buttons2);

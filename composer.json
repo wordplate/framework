@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "johnpbloch/wordpress": "4.1.*",
+        "johnpbloch/wordpress": "4.2.*",
         "composer/installers": "~1.0",
         "illuminate/container": "~5.0",
         "illuminate/contracts": "~5.0",

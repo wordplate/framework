@@ -37,7 +37,7 @@ class LoadConfiguration
 
         $this->loadConfigurationFiles($app, $config);
 
-        date_default_timezone_set($config['app.timezone']);
+        date_default_timezone_set($config['theme.timezone']);
 
         mb_internal_encoding('UTF-8');
     }

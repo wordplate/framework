@@ -27,7 +27,7 @@ if (!defined('DISALLOW_FILE_EDIT')) {
 
 
 /**
- * Fix home URL on theme activation
+ * Fix home URL on theme activation.
  *
  * @return void
  */
@@ -49,4 +49,20 @@ add_action('switch_theme', function () {
     }
 
     delete_option(config('theme.slug').'_activated');
+});
+
+/**
+ * Add HTML5 tag support.
+ *
+ * @return void
+ */
+add_action('after_setup_theme', function () {
+    add_theme_support('html5', [
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'widgets'
+    ]);
 });

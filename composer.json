@@ -1,7 +1,7 @@
 {
     "name": "wordplate/framework",
     "description": "The WordPlate Framework.",
-    "keywords": ["wordplate", "wordpress", "boilerplate"],
+    "keywords": ["wordplate", "framework", "wordpress", "boilerplate"],
     "license": "MIT",
     "authors": [
         {

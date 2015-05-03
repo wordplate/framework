@@ -30,7 +30,7 @@ class SaltsGenerate extends Command
      *
      * @var string
      */
-    protected $description = 'Generate WordPress security salt keys.';
+    protected $description = 'Generate WordPress security salt keys';
 
     /**
      * Environment file name.

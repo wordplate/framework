@@ -16,7 +16,7 @@ class ClearCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Remove application files for development.';
+    protected $description = 'Remove application files for development';
 
     /**
      * Files to remove.
@@ -41,6 +41,6 @@ class ClearCommand extends Command
             @unlink($this->app->basePath.'/'.$file);
         }
 
-        $this->info('Files removed successfully');
+        $this->info('Files removed successfully.');
     }
 }

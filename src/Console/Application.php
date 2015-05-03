@@ -12,6 +12,7 @@
 namespace WordPlate\Console;
 
 use Symfony\Component\Console\Application as SymfonyApplication;
+use WordPlate\Console\Commands\ClearCommand;
 use WordPlate\Console\Commands\SaltsGenerate;
 
 /**
@@ -52,6 +53,7 @@ class Application extends SymfonyApplication
      */
     private function registerCommands()
     {
+        $this->add(new ClearCommand($this));
         $this->add(new SaltsGenerate($this));
     }
 }

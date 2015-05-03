@@ -11,8 +11,11 @@
 
 namespace WordPlate\Console\Commands;
 
-use Illuminate\Support\Str;
-
+/**
+ * This is the salts generate command.
+ *
+ * @author Vincent Klaiber <hello@vinkla.com>
+ */
 class SaltsGenerate extends Command
 {
     /**
@@ -27,7 +30,7 @@ class SaltsGenerate extends Command
      *
      * @var string
      */
-    protected $description = 'Generate WordPress salt keys.';
+    protected $description = 'Generate WordPress security salt keys.';
 
     /**
      * Environment file name.

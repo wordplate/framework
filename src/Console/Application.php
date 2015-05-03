@@ -39,7 +39,6 @@ class Application extends SymfonyApplication
     /**
      * Create new console application instance.
      *
-     * @param string $version
      * @param string $basePath
      *
      * @return void

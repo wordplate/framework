@@ -12,6 +12,7 @@
 namespace WordPlate\Console;
 
 use Symfony\Component\Console\Application as SymfonyApplication;
+use WordPlate\Console\Commands\SaltsGenerate;
 
 /**
  * This is the application console class.
@@ -21,12 +22,36 @@ use Symfony\Component\Console\Application as SymfonyApplication;
 class Application extends SymfonyApplication
 {
     /**
-     * @param string $version
+     * The applications base path.
+     *
+     * @var string
      */
-    public function __construct($version)
+    public $basePath;
+
+    /**
+     * Create new console application instance.
+     *
+     * @param string $version
+     * @param string $basePath
+     *
+     * @return void
+     */
+    public function __construct($version, $basePath)
     {
         parent::__construct('WordPlate Framework', $version);
 
-        $this->add(new \WordPlate\Console\Commands\SaltGenerate);
+        $this->basePath = $basePath;
+
+        $this->registerCommands();
+    }
+
+    /**
+     * Register the console commands.
+     *
+     * @return void
+     */
+    private function registerCommands()
+    {
+        $this->add(new SaltsGenerate($this));
     }
 }

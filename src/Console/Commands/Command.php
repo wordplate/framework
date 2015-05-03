@@ -14,6 +14,7 @@ namespace WordPlate\Console\Commands;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use WordPlate\Console\Application;
 
 /**
  * This is the command class.
@@ -50,13 +51,24 @@ class Command extends SymfonyCommand
     protected $output;
 
     /**
+     * The console application instance.
+     *
+     * @var \WordPlate\Console\Application
+     */
+    protected $app;
+
+    /**
      * Create a new console command instance.
+     *
+     * @param \WordPlate\Console\Application $app
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Application $app)
     {
         parent::__construct($this->name);
+
+        $this->app = $app;
 
         $this->setDescription($this->description);
     }

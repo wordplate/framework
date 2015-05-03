@@ -25,19 +25,6 @@ if (!defined('DISALLOW_FILE_EDIT')) {
     define('DISALLOW_FILE_EDIT', config('theme.disallow_file_edit'));
 }
 
-
-/**
- * Fix home URL on theme activation.
- *
- * @return void
- */
-add_action('after_setup_theme', function () {
-    $url = get_option('home');
-    if (ends_with($url, '/wordpress')) {
-        update_option('home', str_replace('/wordpress', '', $url));
-    }
-});
-
 /**
  * Delete WordPlate specific data from database.
  *

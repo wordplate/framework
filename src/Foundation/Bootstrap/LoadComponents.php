@@ -22,9 +22,13 @@ use WordPlate\Foundation\Application;
 class LoadComponents
 {
     /**
+     * Load application components.
+     *
      * @param \WordPlate\Foundation\Application $app
+     *
+     * @return void
      */
-    public function bootstrap(Application $app)
+    public function __construct(Application $app)
     {
         foreach ($this->getComponentFiles($app) as $key => $path) {
             require $path;

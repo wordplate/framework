@@ -28,8 +28,10 @@ class LoadConfiguration
      * Bootstrap the given application.
      *
      * @param \WordPlate\Foundation\Application $app
+     *
+     * @return void
      */
-    public function bootstrap(Application $app)
+    public function __construct(Application $app)
     {
         $items = [];
 
@@ -47,6 +49,8 @@ class LoadConfiguration
      *
      * @param \WordPlate\Foundation\Application $app
      * @param \Illuminate\Contracts\Config\Repository $config
+     *
+     * @return void
      */
     protected function loadConfigurationFiles(Application $app, RepositoryContract $config)
     {

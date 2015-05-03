@@ -17,6 +17,8 @@ use Whoops\Run as Whoops;
  */
 if (config('app.debug', false)) {
     $whoops = new Whoops;
+    $whoops->allowQuit(false);
+    $whoops->writeToOutput(false);
     $whoops->pushHandler(new PrettyPageHandler);
     $whoops->register();
 }

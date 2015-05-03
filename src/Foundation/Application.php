@@ -12,6 +12,7 @@
 namespace WordPlate\Foundation;
 
 use Illuminate\Container\Container;
+use WordPlate\Debug\ExceptionHandler;
 use WordPlate\Foundation\Bootstrap\LoadComponents;
 use WordPlate\Foundation\Bootstrap\LoadConfiguration;
 
@@ -44,6 +45,18 @@ class Application extends Container
 
         $this->loadConfiguration();
         $this->loadComponents();
+
+        $this->registerExceptionHandler();
+    }
+
+    /**
+     * Register the exception handler.
+     *
+     * @return void
+     */
+    protected function registerExceptionHandler()
+    {
+        new ExceptionHandler($this);
     }
 
     /**
@@ -105,9 +118,7 @@ class Application extends Container
 
         $this->alias('Illuminate\Config\Repository', 'config');
 
-        $config = new LoadConfiguration;
-
-        $config->bootstrap($this);
+        new LoadConfiguration($this);
     }
 
     /**
@@ -117,8 +128,6 @@ class Application extends Container
      */
     private function loadComponents()
     {
-        $components = new LoadComponents;
-
-        $components->bootstrap($this);
+        new LoadComponents($this);
     }
 }

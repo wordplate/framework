@@ -23,12 +23,19 @@ use WordPlate\Console\Commands\SaltsGenerate;
 class Application extends SymfonyApplication
 {
     /**
+     * The latest version.
+     *
+     * @var string
+     */
+    protected $version = '2.3.0';
+
+    /**
      * The applications base path.
      *
      * @var string
      */
     public $basePath;
-
+    
     /**
      * Create new console application instance.
      *
@@ -37,9 +44,9 @@ class Application extends SymfonyApplication
      *
      * @return void
      */
-    public function __construct($version, $basePath)
+    public function __construct($basePath)
     {
-        parent::__construct('WordPlate Framework', $version);
+        parent::__construct('WordPlate Framework', $this->version);
 
         $this->basePath = $basePath;
 

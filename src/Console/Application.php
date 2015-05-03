@@ -35,7 +35,7 @@ class Application extends SymfonyApplication
      * @var string
      */
     public $basePath;
-    
+
     /**
      * Create new console application instance.
      *

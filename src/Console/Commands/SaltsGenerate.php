@@ -23,18 +23,18 @@ class SaltsGenerate extends Command
     protected $name = 'salts:generate';
 
     /**
-     * Environment file name.
-     *
-     * @var string
-     */
-    protected $filePath = '.env';
-
-    /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Generate WordPress salt keys.';
+
+    /**
+     * Environment file name.
+     *
+     * @var string
+     */
+    protected $file = '.env';
 
     /**
      * The base salt string.
@@ -183,12 +183,12 @@ class SaltsGenerate extends Command
     }
 
     /**
-     * Get the environment file.
+     * Get the environment file path.
      *
      * @return string
      */
     protected function getFilePath()
     {
-        return $this->app->basePath.'/'.$this->filePath;
+        return $this->app->basePath.'/'.$this->file;
     }
 }

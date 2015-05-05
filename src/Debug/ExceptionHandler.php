@@ -11,9 +11,6 @@
 
 namespace WordPlate\Debug;
 
-use ErrorException;
-use Exception;
-use Symfony\Component\Debug\Exception\FatalErrorException;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run as Whoops;
 use WordPlate\Foundation\Application;

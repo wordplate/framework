@@ -11,13 +11,13 @@
 
 if (config('app.updates', false)) {
 
-    /**
+    /*
      * Remove option to update themes.
      */
     remove_action('load-update-core.php', 'wp_update_themes');
     wp_clear_scheduled_hook('wp_update_themes');
 
-    /**
+    /*
      * Prevent from seeing core updates.
      */
     wp_clear_scheduled_hook('wp_version_check');
@@ -26,13 +26,13 @@ if (config('app.updates', false)) {
     remove_action('admin_init', 'wp_auto_update_core');
     wp_clear_scheduled_hook('wp_maybe_auto_update');
 
-    /**
+    /*
      * Removes plugin update notification.
      */
     remove_action('load-update-core.php', 'wp_update_plugins');
     wp_clear_scheduled_hook('wp_update_plugins');
 
-    /**
+    /*
      * Disable all automatic updates.
      */
     add_filter('auto_update_translation', '__return_false');

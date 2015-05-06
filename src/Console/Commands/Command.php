@@ -79,8 +79,9 @@ class Command extends SymfonyCommand
      * @param \Symfony\Component\Console\Input\InputInterface $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
-     * @return int
      * @throws \Exception
+     *
+     * @return int
      */
     public function run(InputInterface $input, OutputInterface $output)
     {
@@ -137,7 +138,7 @@ class Command extends SymfonyCommand
 
         $arguments['command'] = $command;
 
-        return $instance->run(new ArrayInput($arguments), new NullOutput);
+        return $instance->run(new ArrayInput($arguments), new NullOutput());
     }
 
     /**

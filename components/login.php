@@ -21,14 +21,14 @@ add_action('login_head', function () {
     echo "<style> h1 a { background-image:url($path) !important; background-size: 100% auto !important; width: $width !important; } </style>";
 });
 
-/**
+/*
  * Add custom login error message.
  */
 add_filter('login_errors', function () {
     return config('login.error_message');
 });
 
-/**
+/*
  * Custom login logo url.
  *
  * @return string

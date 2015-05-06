@@ -106,6 +106,7 @@ if (!function_exists('format_bytes')) {
      *
      * @param int $bytes
      * @param  int $precision
+     *
      * @return string
      */
     function format_bytes($bytes, $precision = 2)

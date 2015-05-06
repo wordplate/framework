@@ -27,7 +27,7 @@ class ClearCommand extends Command
         '.styleci.yml',
         'CHANGELOG.md',
         'CONTRIBUTING.md',
-        'LICENSE'
+        'LICENSE',
     ];
 
     /**

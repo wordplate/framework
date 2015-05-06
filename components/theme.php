@@ -11,21 +11,21 @@
 
 use WordPlate\Exceptions\WordPlateException;
 
-/**
+/*
  * Enable Gzip if available.
  */
 if (extension_loaded('zlib') && (ini_get('output_handler') !== 'ob_gzhandler') && config('theme.gzip')) {
     add_action('wp', create_function('', '@ob_end_clean();@ini_set("zlib.output_compression", 1);'));
 }
 
-/**
+/*
  * Prevent file edit from WordPress administrator dashboard.
  */
 if (!defined('DISALLOW_FILE_EDIT')) {
     define('DISALLOW_FILE_EDIT', config('theme.disallow_file_edit'));
 }
 
-/**
+/*
  * Delete WordPlate specific data from database.
  *
  * @return void
@@ -38,7 +38,7 @@ add_action('switch_theme', function () {
     delete_option(config('theme.slug').'_activated');
 });
 
-/**
+/*
  * Add HTML5 tag support.
  *
  * @return void
@@ -50,6 +50,6 @@ add_action('after_setup_theme', function () {
         'comment-list',
         'gallery',
         'caption',
-        'widgets'
+        'widgets',
     ]);
 });

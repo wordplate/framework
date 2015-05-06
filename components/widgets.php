@@ -20,7 +20,7 @@ add_action('widgets_init', function () {
     }
 }, 1);
 
-/**
+/*
  * Filters that allow shortcodes in text widgets.
  */
 add_filter('widget_text', 'shortcode_unautop');

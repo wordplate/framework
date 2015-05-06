@@ -27,7 +27,7 @@ add_action('admin_head', function () {
     echo sprintf('<style> %s { display: none !important; } </style>', $elements);
 });
 
-/**
+/*
  * Remove links from admin toolbar.
  *
  * @param $wp_admin_bar
@@ -42,7 +42,7 @@ add_action('admin_bar_menu', function ($wp_admin_bar) {
     }
 }, 999);
 
-/**
+/*
  * Remove help panel tab.
  *
  * @return void
@@ -54,7 +54,7 @@ add_action('admin_head', function () {
     }
 });
 
-/**
+/*
  * Remove screen options tab.
  *
  * @return void

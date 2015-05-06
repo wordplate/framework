@@ -11,7 +11,7 @@
 
 use WordPlate\Exceptions\WordPlateException;
 
-/**
+/*
  * Add Roots Soil plugin features.
  *
  * @return void
@@ -22,7 +22,7 @@ if (count(config('plugins.soil.features')) > 0) {
     }
 }
 
-/**
+/*
  * Activate plugins
  *
  * @return void
@@ -40,7 +40,7 @@ if (config('plugins.activate')) {
 
             // Activate installed plugins.
             if (!function_exists('get_plugins')) {
-                require_once ABSPATH . 'wp-admin/includes/plugin.php';
+                require_once ABSPATH.'wp-admin/includes/plugin.php';
             }
 
             $installed_plugins = get_plugins();
@@ -54,7 +54,7 @@ if (config('plugins.activate')) {
 
                         do_action('activate_plugin', $plugin);
                         update_option('active_plugins', $activated_plugins);
-                        do_action('activate_' . $plugin);
+                        do_action('activate_'.$plugin);
                         do_action('activated_plugin', $plugin);
                     }
                 }

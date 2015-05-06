@@ -18,7 +18,7 @@ add_filter('jpeg_quality', function () {
     return config('editor.jpeg_quality', 100);
 });
 
-/**
+/*
  * Force slug to update on save.
  *
  * @param array $data
@@ -42,7 +42,7 @@ add_filter('wp_insert_post_data', function ($data, $post) {
     return $data;
 }, 99, 2);
 
-/**
+/*
  * Modifying TinyMCE editor to remove unused items.
  *
  * @return array
@@ -70,7 +70,7 @@ add_filter('tiny_mce_before_init', function ($init) {
     return $init;
 });
 
-/**
+/*
  * Remove Microsoft Word formatting on save for TinyMCE.
  *
  * @param $content
@@ -81,7 +81,7 @@ add_filter('content_save_pre', function ($content) {
     return preg_replace('/<!--\[if gte mso.*?-->/ms', '', $content);
 });
 
-/**
+/*
  * Remove meta boxes in post edit.
  *
  * @return void

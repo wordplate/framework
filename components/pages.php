@@ -26,7 +26,7 @@ add_action('admin_init', function () {
         if (!isset($page['title']) || post_exists($page['title'])) {
             continue;
         }
-        
+
         wp_insert_post([
             'post_title' => $page['title'],
             'post_status' => 'publish',
@@ -38,7 +38,7 @@ add_action('admin_init', function () {
         if (!isset($page['title']) || !post_exists($page['title'])) {
             continue;
         }
-        
+
         $page_id = get_page_by_title($page['title'])->ID;
 
         if (isset($page['template'])) {
@@ -56,7 +56,7 @@ add_action('admin_init', function () {
             // Set home page.
             wp_update_post([
                 'ID' => $page_id,
-                'menu_order' => -1
+                'menu_order' => -1,
             ]);
         }
 

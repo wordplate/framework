@@ -9,10 +9,15 @@
  * file that was distributed with this source code.
  */
 
-/**
+/*
+ * Cleanup image edits.
+ */
+if (!define('IMAGE_EDIT_OVERWRITE')) {
+    define('IMAGE_EDIT_OVERWRITE', true);
+}
+
+/*
  * Force perfect JPG images.
- *
- * @return int
  */
 add_filter('jpeg_quality', function () {
     return config('editor.jpeg_quality', 100);
@@ -20,11 +25,6 @@ add_filter('jpeg_quality', function () {
 
 /*
  * Force slug to update on save.
- *
- * @param array $data
- * @param array $post
- *
- * @return array
  */
 add_filter('wp_insert_post_data', function ($data, $post) {
     if (!in_array($data['post_status'], ['draft', 'pending', 'auto-draft'])) {
@@ -44,8 +44,6 @@ add_filter('wp_insert_post_data', function ($data, $post) {
 
 /*
  * Modifying TinyMCE editor to remove unused items.
- *
- * @return array
  */
 add_filter('tiny_mce_before_init', function ($init) {
     // Add block format elements you want to show in dropdown.
@@ -72,10 +70,6 @@ add_filter('tiny_mce_before_init', function ($init) {
 
 /*
  * Remove Microsoft Word formatting on save for TinyMCE.
- *
- * @param $content
- *
- * @return var
  */
 add_filter('content_save_pre', function ($content) {
     return preg_replace('/<!--\[if gte mso.*?-->/ms', '', $content);
@@ -83,8 +77,6 @@ add_filter('content_save_pre', function ($content) {
 
 /*
  * Remove meta boxes in post edit.
- *
- * @return void
  */
 add_action('admin_menu', function () {
     $types = config('editor.meta_boxes');

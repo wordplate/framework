@@ -26,14 +26,6 @@ if (!defined('DISALLOW_FILE_EDIT')) {
 }
 
 /*
- * Require SSL for admin and logins.
- */
-if (!defined('FORCE_SSL_LOGIN') && !defined('FORCE_SSL_ADMIN')) {
-    define('FORCE_SSL_LOGIN', config('theme.secure'));
-    define('FORCE_SSL_ADMIN', config('theme.secure'));
-}
-
-/*
  * Delete WordPlate specific data from database.
  */
 add_action('switch_theme', function () {

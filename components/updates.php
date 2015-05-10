@@ -11,6 +11,11 @@
 
 if (config('app.updates', false) && !current_user_can('manage_options')) {
     /*
+     * Disable all core updates.
+     */
+    define('WP_AUTO_UPDATE_CORE', false);
+
+    /*
      * Disable plugin and theme update and installation.
      */
     define('DISALLOW_FILE_MODS', true);

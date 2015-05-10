@@ -10,19 +10,19 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.4.7",
         "composer/installers": "~1.0",
         "filp/whoops": "~1.0",
-        "illuminate/config": "5.0.*",
-        "illuminate/container": "5.0.*",
-        "illuminate/support": "5.0.*",
+        "illuminate/config": "5.1.*",
+        "illuminate/container": "5.1.*",
+        "illuminate/support": "5.1.*",
         "jjgrainger/wp-custom-post-type-class": "~1.0",
         "johnpbloch/wordpress": "4.2.*",
         "roots/soil": "~3.0",
-        "symfony/console": "2.6.*",
-        "symfony/debug": "2.6.*",
-        "symfony/finder": "2.6.*",
-        "symfony/var-dumper": "2.6.*",
+        "symfony/console": "2.7.*",
+        "symfony/debug": "2.7.*",
+        "symfony/finder": "2.7.*",
+        "symfony/var-dumper": "2.7.*",
         "vlucas/phpdotenv": "~1.0"
     },
     "autoload": {
@@ -35,7 +35,7 @@
     },
     "extra":{
         "branch-alias": {
-            "dev-master": "2.3-dev"
+            "dev-master": "2.4-dev"
         }
     },
     "minimum-stability": "dev",

@@ -26,9 +26,15 @@ if (!defined('DISALLOW_FILE_EDIT')) {
 }
 
 /*
+ * Require SSL for admin and logins.
+ */
+if (!defined('FORCE_SSL_LOGIN') && !defined('FORCE_SSL_ADMIN')) {
+    define('FORCE_SSL_LOGIN', config('theme.secure'));
+    define('FORCE_SSL_ADMIN', config('theme.secure'));
+}
+
+/*
  * Delete WordPlate specific data from database.
- *
- * @return void
  */
 add_action('switch_theme', function () {
     if (strlen(config('theme.slug')) <= 0) {
@@ -40,8 +46,6 @@ add_action('switch_theme', function () {
 
 /*
  * Add HTML5 tag support.
- *
- * @return void
  */
 add_action('after_setup_theme', function () {
     add_theme_support('html5', [

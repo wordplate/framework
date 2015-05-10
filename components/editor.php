@@ -12,7 +12,7 @@
 /*
  * Cleanup image edits.
  */
-if (!define('IMAGE_EDIT_OVERWRITE')) {
+if (!defined('IMAGE_EDIT_OVERWRITE')) {
     define('IMAGE_EDIT_OVERWRITE', true);
 }
 

@@ -40,7 +40,7 @@
     "autoload-dev": {
         "classmap": [
             "tests"
-        ],
+        ]
     },
     "extra":{
         "branch-alias": {

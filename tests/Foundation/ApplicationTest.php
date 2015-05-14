@@ -11,6 +11,7 @@
 
 namespace WordPlate\tests\Foundation;
 
+use PHPUnit_Framework_TestCase;
 use WordPlate\Foundation\Application;
 
 /**
@@ -18,7 +19,7 @@ use WordPlate\Foundation\Application;
  *
  * @author Fredrik Forsmo <fredrik.forsmo@gmail.com>
  */
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test application class.

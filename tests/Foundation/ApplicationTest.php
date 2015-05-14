@@ -11,6 +11,7 @@
 
 namespace WordPlate\tests\Foundation;
 
+use Exception;
 use PHPUnit_Framework_TestCase;
 use WordPlate\Foundation\Application;
 
@@ -30,7 +31,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
     {
         try {
             new Application;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->assertEquals('The "/config" directory does not exist.', $e->getMessage());
         }
     }

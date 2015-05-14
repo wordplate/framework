@@ -13,7 +13,6 @@ namespace WordPlate\Foundation;
 
 use Illuminate\Container\Container;
 use WordPlate\Debug\ExceptionHandler;
-use WordPlate\Foundation\Bootstrap\LoadComponents;
 use WordPlate\Foundation\Bootstrap\LoadConfiguration;
 
 /**
@@ -44,8 +43,8 @@ class Application extends Container
         }
 
         $this->loadConfiguration();
-        $this->loadComponents();
 
+        $this->registerComponents();
         $this->registerExceptionHandler();
     }
 
@@ -122,12 +121,21 @@ class Application extends Container
     }
 
     /**
-     * Load the module files.
+     * Register components.
      *
      * @return void
      */
-    private function loadComponents()
+    private function registerComponents()
     {
-        new LoadComponents($this);
+        $components = [
+            'WordPlate\\Components\\Mail',
+        ];
+
+        foreach ($components as $component) {
+            $instance = new $component($this);
+            $instance->bootstrap();
+        }
     }
+
+
 }

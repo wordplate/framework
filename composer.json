@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.7",
+        "ext-mbstring": "*",
         "composer/installers": "~1.0",
         "filp/whoops": "~1.0",
         "illuminate/config": "5.1.*",
@@ -27,7 +28,7 @@
     },
     "autoload": {
         "files": [
-            "src/helpers.php"
+            "src/Foundation/helpers.php"
         ],
         "psr-4": {
             "WordPlate\\": "src/"
@@ -35,7 +36,7 @@
     },
     "extra":{
         "branch-alias": {
-            "dev-master": "2.4-dev"
+            "dev-master": "2.5-dev"
         }
     },
     "minimum-stability": "dev",

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace WordPlate\tests\Foundation;
+namespace WordPlate\Tests\Foundation;
 
 use Exception;
 use PHPUnit_Framework_TestCase;

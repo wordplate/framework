@@ -9,26 +9,41 @@
  * file that was distributed with this source code.
  */
 
+namespace WordPlate\Components;
+
 use WordPlate\Exceptions\WordPlateException;
 
-/*
- * Add Roots Soil plugin features.
+/**
+ * This is the plugin component class.
  *
- * @return void
+ * @author Vincent Klaiber <hello@vinkla.com>
  */
-if (count(config('plugins.soil.features')) > 0) {
-    foreach (config('plugins.soil.features') as $feature) {
-        add_theme_support($feature);
-    }
-}
+class Plugin extends AbstractComponent
+{
+    /**
+     * Bootstrap the component.
+     *
+     * @return void
+     */
+    public function bootstrap()
+    {
+        $this->registerSoil();
 
-/*
- * Activate plugins
- *
- * @return void
- */
-if (config('plugins.activate')) {
-    add_action('admin_init', function () {
+        $this->action->add('admin_init', [$this, 'activatePlugins']);
+    }
+
+    /**
+     * Activate plugins.
+     *
+     * @throws \WordPlate\Exceptions\WordPlateException
+     *
+     * @return void
+     */
+    public function activatePlugins()
+    {
+        if (!config('plugins.activate')) {
+            return;
+        }
 
         if (strlen(config('theme.slug')) <= 0) {
             throw new WordPlateException('Theme slug is not defined in config/theme.php');
@@ -63,5 +78,19 @@ if (config('plugins.activate')) {
             // Set theme is activated to true.
             update_option($option_key, 1);
         }
-    });
+    }
+
+    /**
+     * Add Roots Soil plugin features.
+     *
+     * @return void
+     */
+    public function registerSoil()
+    {
+        if (count(config('plugins.soil.features')) > 0) {
+            foreach (config('plugins.soil.features') as $feature) {
+                add_theme_support($feature);
+            }
+        }
+    }
 }

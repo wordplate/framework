@@ -21,48 +21,15 @@ class Action
     /**
      * Add WordPress action.
      *
-     * @return bool Always true
-     */
-    public function add()
-    {
-        return call_user_func('add_action', func_get_args());
-    }
-
-    /**
-     * Check if a function has a action.
+     * @param string $hook
+     * @param $callback
+     * @param int $priority
+     * @param int $args
      *
      * @return bool
      */
-    public function has()
+    public function add($hook, $callback, $priority = 10, $args = 1)
     {
-        return call_user_func('has_action', func_get_args());
-    }
-
-    /**
-     * Get number of times a action is fired.
-     *
-     * @return int
-     */
-    public function did()
-    {
-        return call_user_func('did_action', func_get_args());
-    }
-
-    /**
-     * Dispatch a WordPress action.
-     */
-    public function dispatch()
-    {
-        return call_user_func('do_action', func_get_args());
-    }
-
-    /**
-     * Remove a action.
-     *
-     * @return bool
-     */
-    public function remove()
-    {
-        return call_user_func('remove_action', func_get_args());
+        return add_action($hook, $callback, $priority, $args);
     }
 }

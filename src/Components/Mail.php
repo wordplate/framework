@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of WordPlate.
+ *
+ * (c) Vincent Klaiber <hello@vinkla.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace WordPlate\Components;
 
 use PHPMailer;
 
 /**
- * This is the mail component
+ * This is the mail component.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Mail extends Component
+class Mail extends AbstractComponent
 {
     /**
      * Bootstrap the component.
@@ -22,11 +31,14 @@ class Mail extends Component
     }
 
     /**
+     * Register custom SMTP mailer.
+     *
      * @param \PHPMailer $mail
      *
      * @return \PHPMailer
      */
-    protected function register(PHPMailer $mail) {
+    public function register(PHPMailer $mail)
+    {
         $mail->IsSMTP();
         $mail->SMTPAuth = true;
         $mail->Host = config('mail.host');

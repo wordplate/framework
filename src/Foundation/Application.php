@@ -128,7 +128,17 @@ class Application extends Container
     private function registerComponents()
     {
         $components = [
+            'WordPlate\\Components\\Dashboard',
+            'WordPlate\\Components\\Editor',
+            'WordPlate\\Components\\Footer',
+            'WordPlate\\Components\\Login',
             'WordPlate\\Components\\Mail',
+            'WordPlate\\Components\\Menu',
+            'WordPlate\\Components\\Page',
+            'WordPlate\\Components\\Plugin',
+            'WordPlate\\Components\\Server',
+            'WordPlate\\Components\\Theme',
+            'WordPlate\\Components\\Widget',
         ];
 
         foreach ($components as $component) {
@@ -136,6 +146,4 @@ class Application extends Container
             $instance->bootstrap();
         }
     }
-
-
 }

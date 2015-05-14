@@ -15,7 +15,7 @@
          verbose="true"
         >
     <testsuites>
-        <testsuite name="WordPlate framework test suite">
+        <testsuite name="WordPlate Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>

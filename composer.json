@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4.7",
+        "php": ">=5.5.9",
         "ext-mbstring": "*",
         "composer/installers": "~1.0",
         "filp/whoops": "~1.0",
@@ -27,7 +27,7 @@
         "vlucas/phpdotenv": "~1.0"
     },
     "require-dev": {
-		"frozzare/wp-test-suite": "~1.0"
+		"phpunit/phpunit": "~4.0"
     },
     "autoload": {
         "files": [

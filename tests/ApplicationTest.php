@@ -9,30 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace WordPlate\Tests\Foundation;
+namespace Tests\WordPlate;
 
-use Exception;
 use PHPUnit_Framework_TestCase;
-use WordPlate\Foundation\Application;
 
 /**
  * This is the application test class.
  *
- * @author Fredrik Forsmo <fredrik.forsmo@gmail.com>
+ * @author Vincent Klaiber <hello@vinkla.com>
  */
 class ApplicationTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test application class.
+     * This is a stupid test, I know! This is just to
+     * bootstrap our tests. More coming in the future.
      *
      * @return void
      */
-    public function testApplicationClass()
+    public function testApplicationInstance()
     {
-        try {
-            new Application;
-        } catch (Exception $e) {
-            $this->assertEquals('The "/config" directory does not exist.', $e->getMessage());
-        }
+        $this->assertFileExists(__DIR__.'/../src/Foundation/Application.php');
     }
 }

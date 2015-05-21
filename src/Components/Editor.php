@@ -30,7 +30,6 @@ class Editor extends AbstractComponent
         $this->filter->add('content_save_pre', [$this, 'contentSavePre']);
         $this->filter->add('jpeg_quality', [$this, 'jpegQuality']);
         $this->filter->add('tiny_mce_before_init', [$this, 'tinyMceBeforeInit']);
-        $this->filter->add('wp_insert_post_data', [$this, 'wpInsertPostData'], 99, 2);
 
         $this->action->add('admin_menu', [$this, 'removeMetaBoxes']);
     }
@@ -56,32 +55,7 @@ class Editor extends AbstractComponent
     {
         return preg_replace('/<!--\[if gte mso.*?-->/ms', '', $content);
     }
-
-    /**
-     * Force slug to update on save.
-     *
-     * @param array $data
-     * @param $post
-     *
-     * @return mixed
-     */
-    public function wpInsertPostData($data, $post)
-    {
-        if (!in_array($data['post_status'], ['draft', 'pending', 'auto-draft'])) {
-            $title = remove_accents($data['post_title']);
-            $title = sanitize_title($title);
-            $data['post_name'] = wp_unique_post_slug(
-                $title,
-                $post['ID'],
-                $data['post_status'],
-                $data['post_type'],
-                $data['post_parent']
-            );
-        }
-
-        return $data;
-    }
-
+    
     /**
      * Modifying TinyMCE editor to remove unused items.
      *

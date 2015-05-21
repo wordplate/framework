@@ -55,7 +55,7 @@ class Editor extends AbstractComponent
     {
         return preg_replace('/<!--\[if gte mso.*?-->/ms', '', $content);
     }
-    
+
     /**
      * Modifying TinyMCE editor to remove unused items.
      *

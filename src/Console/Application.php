@@ -14,7 +14,6 @@ namespace WordPlate\Console;
 use Symfony\Component\Console\Application as SymfonyApplication;
 use WordPlate\Console\Commands\ClearCommand;
 use WordPlate\Console\Commands\SaltsGenerate;
-use WordPlate\Console\Commands\ThemeNameCommand;
 
 /**
  * This is the application console class.
@@ -62,6 +61,5 @@ class Application extends SymfonyApplication
     {
         $this->add(new ClearCommand($this));
         $this->add(new SaltsGenerate($this));
-        $this->add(new ThemeNameCommand($this));
     }
 }

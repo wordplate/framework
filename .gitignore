@@ -1,4 +1,4 @@
-/vendor
-/wordpress
-/wp-content
 composer.lock
+wp-content
+wordpress
+vendor

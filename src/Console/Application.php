@@ -27,7 +27,7 @@ class Application extends SymfonyApplication
      *
      * @var string
      */
-    protected $version = '2.5.2';
+    protected $version = '2.5.3';
 
     /**
      * The applications base path.

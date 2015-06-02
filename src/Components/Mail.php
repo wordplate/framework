@@ -45,8 +45,14 @@ class Mail extends AbstractComponent
         $mail->Port = config('mail.port');
         $mail->Username = config('mail.username');
         $mail->Password = config('mail.password');
-        $mail->From = config('mail.from.address');
-        $mail->FromName = config('mail.from.name');
+
+        if (empty($mail->From)) {
+            $mail->From = config('mail.from.address');
+        }
+
+        if (empty($mail->FromName)) {
+            $mail->From = config('mail.from.name');
+        }
 
         return $mail;
     }

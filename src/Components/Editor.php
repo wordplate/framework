@@ -53,7 +53,7 @@ class Editor extends AbstractComponent
     public function sanitizeFileName($filename)
     {
         $sanitized_filename = remove_accents($filename);
-	    return $sanitized_filename;
+        return $sanitized_filename;
     }
 
     /**

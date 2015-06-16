@@ -29,6 +29,7 @@ class Editor extends AbstractComponent
 
         $this->filter->add('content_save_pre', [$this, 'contentSavePre']);
         $this->filter->add('jpeg_quality', [$this, 'jpegQuality']);
+        $this->filter->add('sanitize_file_name', [$this, 'sanitizeFileName'], 10, 2);
         $this->filter->add('tiny_mce_before_init', [$this, 'tinyMceBeforeInit']);
 
         $this->action->add('admin_menu', [$this, 'removeMetaBoxes']);
@@ -42,6 +43,17 @@ class Editor extends AbstractComponent
     public function jpegQuality()
     {
         return config('editor.jpeg_quality', 100);
+    }
+    
+    /**
+     * Remove special characters in file names.
+     *
+     * @return string
+     */
+    public function sanitizeFileName($filename)
+    {
+        $sanitized_filename = remove_accents($filename);
+	    return $sanitized_filename;
     }
 
     /**

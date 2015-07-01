@@ -47,19 +47,20 @@ class Editor extends AbstractComponent
     
     /**
      * Remove special characters in file names.
+     * 
+     * @param string $name
      *
      * @return string
      */
-    public function sanitizeFileName($filename)
+    public function sanitizeFileName($name)
     {
-        $sanitized_filename = remove_accents($filename);
-        return $sanitized_filename;
+        return remove_accents($name);
     }
 
     /**
      * Remove Microsoft Word formatting on save for TinyMCE.
      *
-     * @param $content
+     * @param string $content
      *
      * @return mixed
      */
@@ -71,7 +72,7 @@ class Editor extends AbstractComponent
     /**
      * Modifying TinyMCE editor to remove unused items.
      *
-     * @param $init
+     * @param array $init
      *
      * @return mixed
      */

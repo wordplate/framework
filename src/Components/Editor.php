@@ -44,7 +44,7 @@ class Editor extends AbstractComponent
     {
         return config('editor.jpeg_quality', 100);
     }
-    
+
     /**
      * Remove special characters in file names.
      * 

@@ -24,7 +24,6 @@ class ClearCommand extends Command
      * @var array
      */
     protected $files = [
-        '.styleci.yml',
         'CHANGELOG.md',
         'CONTRIBUTING.md',
         'LICENSE',

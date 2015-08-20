@@ -136,7 +136,6 @@ class Application extends Container
             'WordPlate\\Components\\Menu',
             'WordPlate\\Components\\Page',
             'WordPlate\\Components\\Plugin',
-            'WordPlate\\Components\\Server',
             'WordPlate\\Components\\Theme',
             'WordPlate\\Components\\Widget',
         ];

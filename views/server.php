@@ -11,7 +11,7 @@
 
 ?>
 <div class="wrap">
-    <h2>Server Information</h2>
+    <h1>Server Information</h1>
     <p>Server settings information like operating system, IP address, Hostname, date/time configuration, PHP version, MySQL data usage and much more.</p>
 
     <table class="widefat" style="margin:0 0 20px;">

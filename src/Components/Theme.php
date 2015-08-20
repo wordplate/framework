@@ -29,7 +29,6 @@ class Theme extends AbstractComponent
     {
         $this->enableGzip();
         $this->disallowFileEdit();
-        $this->disableUpdates();
 
         $this->action->add('switch_theme', [$this, 'switchTheme']);
         $this->action->add('after_setup_theme', [$this, 'html5Support']);
@@ -44,22 +43,6 @@ class Theme extends AbstractComponent
     {
         if (extension_loaded('zlib') && (ini_get('output_handler') !== 'ob_gzhandler') && config('theme.gzip')) {
             $this->action->add('wp', create_function('', '@ob_end_clean();@ini_set("zlib.output_compression", 1);'));
-        }
-    }
-
-    /**
-     * Disable WordPress updates.
-     *
-     * @return void
-     */
-    public function disableUpdates()
-    {
-        if (config('app.updates', false) && !current_user_can('manage_options')) {
-            // Disable all core updates.
-            define('WP_AUTO_UPDATE_CORE', false);
-
-            // Disable plugin and theme update and installation.
-            define('DISALLOW_FILE_MODS', true);
         }
     }
 

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\WordPlate;
+namespace WordPlate\Tests;
 
 use PHPUnit_Framework_TestCase;
 

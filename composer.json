@@ -42,9 +42,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests"
-        ]
+        "psr-4": {
+            "WordPlate\\Tests\\": "tests/"
+        }
     },
     "extra":{
         "branch-alias": {

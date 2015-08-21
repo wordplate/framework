@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.7.1 (released 2015-08-21)
+
+- Remove clear command
+
 ## 2.7.0 (released 2015-08-20)
 
 - Updated to WordPress 4.3

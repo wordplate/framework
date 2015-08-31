@@ -61,8 +61,6 @@ class Command extends SymfonyCommand
      * Create a new console command instance.
      *
      * @param \WordPlate\Console\Application $app
-     *
-     * @return void
      */
     public function __construct(Application $app)
     {

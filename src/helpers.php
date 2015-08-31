@@ -19,7 +19,7 @@ if (!function_exists('app')) {
      * @param string $make
      * @param array $parameters
      *
-     * @return mixed|\Illuminate\Foundation\Application
+     * @return mixed|\WordPlate\Application
      */
     function app($make = null, $parameters = [])
     {

@@ -9,35 +9,28 @@
  * file that was distributed with this source code.
  */
 
-namespace WordPlate\Debug;
+namespace WordPlate\Bootstrap;
 
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run as Whoops;
-use WordPlate\Foundation\Application;
+use WordPlate\Application;
 
 /**
- * This is the exception handler.
+ * This is the handle exceptions class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class ExceptionHandler
+class HandleExceptions
 {
     /**
-     * The application instance.
+     * Bootstrap the given application.
      *
-     * @var \WordPlate\Foundation\Application
-     */
-    private $app;
-
-    /**
-     * Create new exception handler instance.
+     * @param \WordPlate\Application $app
      *
-     * @param \WordPlate\Foundation\Application $app
+     * @return void
      */
-    public function __construct(Application $app)
+    public function bootstrap(Application $app)
     {
-        $this->app = $app;
-
         if (config('theme.debug')) {
             $this->whoops()->register();
         }

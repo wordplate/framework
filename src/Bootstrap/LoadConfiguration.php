@@ -27,11 +27,11 @@ class LoadConfiguration
     /**
      * Bootstrap the given application.
      *
-     * @param \WordPlate\Foundation\Application $app
+     * @param \WordPlate\Application $app
      *
      * @return void
      */
-    public function __construct(Application $app)
+    public function bootstrap(Application $app)
     {
         $items = [];
 
@@ -47,7 +47,7 @@ class LoadConfiguration
     /**
      * Load the configuration items from all of the files.
      *
-     * @param \WordPlate\Foundation\Application $app
+     * @param \WordPlate\Application $app
      * @param \Illuminate\Contracts\Config\Repository $config
      *
      * @return void
@@ -62,7 +62,7 @@ class LoadConfiguration
     /**
      * Get all of the configuration files for the application.
      *
-     * @param \WordPlate\Foundation\Application $app
+     * @param \WordPlate\Application $app
      *
      * @return array
      */
@@ -82,7 +82,7 @@ class LoadConfiguration
     /**
      * Get the configuration file nesting path.
      *
-     * @param \WordPlate\Foundation\Application $app
+     * @param \WordPlate\Application $app
      * @param \Symfony\Component\Finder\SplFileInfo $file
      *
      * @return string

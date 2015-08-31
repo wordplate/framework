@@ -12,8 +12,7 @@
 namespace WordPlate;
 
 use Illuminate\Container\Container;
-use WordPlate\Debug\ExceptionHandler;
-use WordPlate\Foundation\Bootstrap\LoadConfiguration;
+use Illuminate\Contracts\Config\Repository;
 
 /**
  * This is the application class.
@@ -30,6 +29,31 @@ class Application extends Container
     protected $basePath;
 
     /**
+     * The bootstrap classes for the application.
+     *
+     * @var array
+     */
+    protected $bootstrappers = [
+        'WordPlate\Bootstrap\DetectEnvironment',
+        'WordPlate\Bootstrap\LoadConfiguration',
+        'WordPlate\Bootstrap\HandleExceptions',
+    ];
+
+    /**
+     * The custom environment path defined by the developer.
+     *
+     * @var string
+     */
+    protected $environmentPath;
+
+    /**
+     * The environment file to load during bootstrapping.
+     *
+     * @var string
+     */
+    protected $environmentFile = '.env';
+
+    /**
      * Initialize the application.
      *
      * @param null $basePath
@@ -41,21 +65,6 @@ class Application extends Container
         if ($basePath) {
             $this->setBasePath($basePath);
         }
-
-        $this->loadConfiguration();
-
-        $this->registerComponents();
-        $this->registerExceptionHandler();
-    }
-
-    /**
-     * Register the exception handler.
-     *
-     * @return void
-     */
-    protected function registerExceptionHandler()
-    {
-        new ExceptionHandler($this);
     }
 
     /**
@@ -68,8 +77,10 @@ class Application extends Container
         static::setInstance($this);
 
         $this->instance('app', $this);
+        $this->instance(Container::class, $this);
 
-        $this->instance('Illuminate\Container\Container', $this);
+        $this->instance('config', $this->getConfigPath());
+        $this->alias(Repository::class, 'config');
     }
 
     /**
@@ -83,13 +94,23 @@ class Application extends Container
     }
 
     /**
-     * Get the path to the component files.
+     * Get the environment file the application is using.
      *
      * @return string
      */
-    public function getComponentsPath()
+    public function getEnvironmentFile()
     {
-        return __DIR__.'/../../components';
+        return $this->environmentFile ?: '.env';
+    }
+
+    /**
+     * Get the path to the environment file directory.
+     *
+     * @return string
+     */
+    public function getEnvironmentPath()
+    {
+        return $this->environmentPath ?: $this->basePath;
     }
 
     /**
@@ -104,45 +125,5 @@ class Application extends Container
         $this->basePath = $basePath;
 
         return $this;
-    }
-
-    /**
-     * Load the configuration files.
-     *
-     * @return void
-     */
-    private function loadConfiguration()
-    {
-        $this->instance('config', $this->getConfigPath());
-
-        $this->alias('Illuminate\Config\Repository', 'config');
-
-        new LoadConfiguration($this);
-    }
-
-    /**
-     * Register components.
-     *
-     * @return void
-     */
-    private function registerComponents()
-    {
-        $components = [
-            'WordPlate\\Components\\Dashboard',
-            'WordPlate\\Components\\Editor',
-            'WordPlate\\Components\\Footer',
-            'WordPlate\\Components\\Login',
-            'WordPlate\\Components\\Mail',
-            'WordPlate\\Components\\Menu',
-            'WordPlate\\Components\\Page',
-            'WordPlate\\Components\\Plugin',
-            'WordPlate\\Components\\Theme',
-            'WordPlate\\Components\\Widget',
-        ];
-
-        foreach ($components as $component) {
-            $instance = new $component($this);
-            $instance->bootstrap();
-        }
     }
 }

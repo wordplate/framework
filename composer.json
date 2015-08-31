@@ -22,7 +22,7 @@
         "illuminate/container": "5.1.*",
         "illuminate/support": "5.1.*",
         "jjgrainger/wp-custom-post-type-class": "^1.4.0",
-        "johnpbloch/wordpress": "4.3.*",
+        "johnpbloch/wordpress": "^4.0.0",
         "roots/soil": "^3.4.0",
         "symfony/console": "2.7.*",
         "symfony/debug": "2.7.*",

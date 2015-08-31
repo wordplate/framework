@@ -34,7 +34,7 @@
     },
     "autoload": {
         "files": [
-            "src/Foundation/helpers.php"
+            "src/helpers.php"
         ],
         "psr-4": {
             "WordPlate\\": "src/"

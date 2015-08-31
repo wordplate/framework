@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace WordPlate\Foundation;
+namespace WordPlate;
 
 use Illuminate\Container\Container;
 use WordPlate\Debug\ExceptionHandler;

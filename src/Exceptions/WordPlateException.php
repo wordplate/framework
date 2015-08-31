@@ -20,5 +20,5 @@ use Exception;
  */
 class WordPlateException extends Exception
 {
-    // 
+    //
 }

@@ -39,8 +39,6 @@ class Application extends SymfonyApplication
      * Create new console application instance.
      *
      * @param string $basePath
-     *
-     * @return void
      */
     public function __construct($basePath)
     {

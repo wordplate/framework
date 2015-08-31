@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace WordPlate\Foundation\Bootstrap;
+namespace WordPlate\Bootstrap;
 
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Config\Repository as RepositoryContract;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
-use WordPlate\Foundation\Application;
+use WordPlate\Application;
 
 /**
  * This is the configuration loader class.

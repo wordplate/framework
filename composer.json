@@ -49,9 +49,6 @@
             "dev-master": "3.0-dev"
         }
     },
-    "suggest": {
-        "jjgrainger/wp-custom-post-type-class": "Required to easily setup custom post types (~1.0)."
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

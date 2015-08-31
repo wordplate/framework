@@ -37,6 +37,7 @@ class Application extends Container
         'WordPlate\Bootstrap\DetectEnvironment',
         'WordPlate\Bootstrap\LoadConfiguration',
         'WordPlate\Bootstrap\HandleExceptions',
+        'WordPlate\Bootstrap\RegisterComponents',
     ];
 
     /**
@@ -64,6 +65,18 @@ class Application extends Container
 
         if ($basePath) {
             $this->setBasePath($basePath);
+        }
+    }
+
+    /**
+     * Run the given array of bootstrap classes.
+     *
+     * @return void
+     */
+    public function bootstrap()
+    {
+        foreach ($this->bootstrappers as $bootstrapper) {
+            $this->make($bootstrapper)->bootstrap($this);
         }
     }
 

@@ -14,15 +14,14 @@
         }
     ],
     "require": {
-        "ext-mbstring": "*",
         "php": ">=5.5.9",
-        "composer/installers": "^1.0.29",
-        "filp/whoops": "^1.1.7",
+        "ext-mbstring": "*",
+        "composer/installers": "^1.0.0",
+        "filp/whoops": "^1.1.0",
         "illuminate/config": "5.1.*",
         "illuminate/container": "5.1.*",
         "illuminate/support": "5.1.*",
         "johnpbloch/wordpress": "^4.0.0",
-        "roots/soil": "^3.4.0",
         "symfony/console": "2.7.*",
         "symfony/debug": "2.7.*",
         "symfony/finder": "2.7.*",

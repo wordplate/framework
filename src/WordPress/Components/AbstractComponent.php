@@ -11,7 +11,7 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Foundation\Application;
+use WordPlate\Application;
 use WordPlate\WordPress\Action;
 use WordPlate\WordPress\Filter;
 
@@ -32,7 +32,7 @@ abstract class AbstractComponent
     /**
      * The WordPlate application.
      *
-     * @var \WordPlate\Foundation\Application
+     * @var \WordPlate\Application
      */
     private $app;
 
@@ -46,7 +46,7 @@ abstract class AbstractComponent
     /**
      * Create a new component instance.
      *
-     * @param \WordPlate\Foundation\Application $app
+     * @param \WordPlate\Application $app
      */
     public function __construct(Application $app)
     {

@@ -28,6 +28,6 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
      */
     public function testApplicationInstance()
     {
-        $this->assertFileExists(__DIR__.'/../src/Foundation/Application.php');
+        $this->assertFileExists(__DIR__.'/../src/Application.php');
     }
 }

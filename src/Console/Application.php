@@ -26,7 +26,7 @@ class Application extends SymfonyApplication
      *
      * @var string
      */
-    protected $version = '2.7.0';
+    protected $version = '3.0.0';
 
     /**
      * The applications base path.
@@ -46,16 +46,6 @@ class Application extends SymfonyApplication
 
         $this->basePath = $basePath;
 
-        $this->registerCommands();
-    }
-
-    /**
-     * Register the console commands.
-     *
-     * @return void
-     */
-    private function registerCommands()
-    {
         $this->add(new SaltsGenerate($this));
     }
 }

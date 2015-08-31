@@ -22,7 +22,6 @@ class RegisterComponents
         'WordPlate\WordPress\Components\Login',
         'WordPlate\WordPress\Components\Mail',
         'WordPlate\WordPress\Components\Menu',
-        'WordPlate\WordPress\Components\Page',
         'WordPlate\WordPress\Components\Plugin',
         'WordPlate\WordPress\Components\Theme',
         'WordPlate\WordPress\Components\Widget',

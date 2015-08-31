@@ -3,8 +3,10 @@
 ## 3.0.0 (upcoming)
 
 - Allow any 4.* WordPress version
-- Update phpdotenv package
+- Code cleanup
+- Dropped default pages support
 - Make jjgrainger/wp-custom-post-type-class optional
+- Update phpdotenv package
 
 ## 2.7.1 (released 2015-08-21)
 

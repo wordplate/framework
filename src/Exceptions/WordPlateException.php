@@ -11,11 +11,14 @@
 
 namespace WordPlate\Exceptions;
 
+use Exception;
+
 /**
  * This is the WordPlate exception class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class WordPlateException extends \Exception
+class WordPlateException extends Exception
 {
+    // 
 }

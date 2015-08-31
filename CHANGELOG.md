@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.0 (upcoming)
+
+- Allow any 4.* WordPress version
+- Make jjgrainger/wp-custom-post-type-class optional
+
 ## 2.7.1 (released 2015-08-21)
 
 - Remove clear command

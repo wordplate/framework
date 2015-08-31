@@ -1,4 +1,6 @@
 composer.lock
-wp-content
-wordpress
+phpunit.xml
 vendor
+
+/wp-content
+/wordpress

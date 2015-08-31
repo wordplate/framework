@@ -11,6 +11,7 @@
 
 namespace WordPlate;
 
+use Dotenv\Dotenv;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Config\Repository;
 
@@ -34,25 +35,10 @@ class Application extends Container
      * @var array
      */
     protected $bootstrappers = [
-        'WordPlate\Bootstrap\DetectEnvironment',
         'WordPlate\Bootstrap\LoadConfiguration',
         'WordPlate\Bootstrap\HandleExceptions',
         'WordPlate\Bootstrap\RegisterComponents',
     ];
-
-    /**
-     * The custom environment path defined by the developer.
-     *
-     * @var string
-     */
-    protected $environmentPath;
-
-    /**
-     * The environment file to load during bootstrapping.
-     *
-     * @var string
-     */
-    protected $environmentFile = '.env';
 
     /**
      * Initialize the application.
@@ -97,6 +83,20 @@ class Application extends Container
     }
 
     /**
+     * Detect the application environment.
+     *
+     * @return void
+     */
+    public function detectEnvironment()
+    {
+        try {
+            (new Dotenv($this->basePath))->load();
+        } catch (InvalidArgumentException $e) {
+            //
+        }
+    }
+
+    /**
      * Get the path to the application configuration files.
      *
      * @return string
@@ -104,26 +104,6 @@ class Application extends Container
     public function getConfigPath()
     {
         return $this->basePath.DIRECTORY_SEPARATOR.'config';
-    }
-
-    /**
-     * Get the environment file the application is using.
-     *
-     * @return string
-     */
-    public function getEnvironmentFile()
-    {
-        return $this->environmentFile ?: '.env';
-    }
-
-    /**
-     * Get the path to the environment file directory.
-     *
-     * @return string
-     */
-    public function getEnvironmentPath()
-    {
-        return $this->environmentPath ?: $this->basePath;
     }
 
     /**

@@ -37,7 +37,7 @@ class RegisterComponents
     public function bootstrap(Application $app)
     {
         foreach ($this->components as $component) {
-            $app->make($component)->bootstrap($this);
+            $app->make($component)->bootstrap($app);
         }
     }
 }

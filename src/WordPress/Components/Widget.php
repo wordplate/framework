@@ -11,6 +11,8 @@
 
 namespace WordPlate\WordPress\Components;
 
+use WordPlate\Application;
+
 /**
  * This is the theme component class.
  *
@@ -21,9 +23,9 @@ class Widget extends AbstractComponent
     /**
      * Bootstrap the component.
      *
-     * @return void
+     * @param \WordPlate\Application $app
      */
-    public function bootstrap()
+    public function bootstrap(Application $app)
     {
         $this->filter->add('widget_text', 'shortcode_unautop');
         $this->filter->add('widget_text', 'do_shortcode');

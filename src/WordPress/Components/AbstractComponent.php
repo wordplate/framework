@@ -59,7 +59,9 @@ abstract class AbstractComponent
     /**
      * Bootstrap the component.
      *
-     * @return void
+     * @param \WordPlate\Application $app
+     *
+     * @return void.
      */
-    abstract public function bootstrap();
+    abstract public function bootstrap(Application $app);
 }

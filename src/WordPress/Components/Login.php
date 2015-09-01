@@ -11,6 +11,8 @@
 
 namespace WordPlate\WordPress\Components;
 
+use WordPlate\Application;
+
 /**
  * This is the login component class.
  *
@@ -21,9 +23,9 @@ class Login extends AbstractComponent
     /**
      * Bootstrap the component.
      *
-     * @return void
+     * @param \WordPlate\Application $app
      */
-    public function bootstrap()
+    public function bootstrap(Application $app)
     {
         $this->filter->add('login_errors', [$this, 'loginErrors']);
         $this->filter->add('login_headerurl', [$this, 'loginHeaderUrl']);

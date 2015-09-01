@@ -11,6 +11,8 @@
 
 namespace WordPlate\WordPress\Components;
 
+use WordPlate\Application;
+
 /**
  * This is the dashboard component class.
  *
@@ -21,9 +23,9 @@ class Dashboard extends AbstractComponent
     /**
      * Bootstrap the component.
      *
-     * @return void
+     * @param \WordPlate\Application $app
      */
-    public function bootstrap()
+    public function bootstrap(Application $app)
     {
         $this->action->add('wp_dashboard_setup', [$this, 'setup']);
     }

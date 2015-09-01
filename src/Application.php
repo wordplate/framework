@@ -13,7 +13,7 @@ namespace WordPlate;
 
 use Dotenv\Dotenv;
 use Illuminate\Container\Container;
-use Illuminate\Contracts\Config\Repository;
+use Illuminate\Config\Repository;
 
 /**
  * This is the application class.
@@ -47,9 +47,9 @@ class Application extends Container
      */
     public function __construct($basePath = null)
     {
-        $this->registerBaseBindings();
-
         if ($basePath) {
+            $this->registerBaseBindings();
+
             $this->setBasePath($basePath);
         }
     }

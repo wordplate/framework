@@ -11,6 +11,7 @@
 
 namespace WordPlate\WordPress\Components;
 
+use WordPlate\Application;
 use WordPlate\Exceptions\WordPlateException;
 
 /**
@@ -23,9 +24,9 @@ class Theme extends AbstractComponent
     /**
      * Bootstrap the component.
      *
-     * @return void
+     * @param \WordPlate\Application $app
      */
-    public function bootstrap()
+    public function bootstrap(Application $app)
     {
         $this->enableGzip();
         $this->disallowFileEdit();

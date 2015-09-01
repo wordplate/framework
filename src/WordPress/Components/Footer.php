@@ -11,6 +11,8 @@
 
 namespace WordPlate\WordPress\Components;
 
+use WordPlate\Application;
+
 /**
  * This is the bootstrap component.
  *
@@ -21,9 +23,9 @@ class Footer extends AbstractComponent
     /**
      * Bootstrap the component.
      *
-     * @return void
+     * @param \WordPlate\Application $app
      */
-    public function bootstrap()
+    public function bootstrap(Application $app)
     {
         $this->filter->add('admin_footer_text', [$this, 'adminFooterText']);
     }

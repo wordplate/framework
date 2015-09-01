@@ -11,6 +11,8 @@
 
 namespace WordPlate\WordPress\Components;
 
+use WordPlate\Application;
+
 /**
  * This is the editor component.
  *
@@ -21,9 +23,9 @@ class Editor extends AbstractComponent
     /**
      * Bootstrap the component.
      *
-     * @return void
+     * @param \WordPlate\Application $app
      */
-    public function bootstrap()
+    public function bootstrap(Application $app)
     {
         $this->imageEditOverwrite();
 
@@ -47,7 +49,7 @@ class Editor extends AbstractComponent
 
     /**
      * Remove special characters in file names.
-     * 
+     *
      * @param string $name
      *
      * @return string

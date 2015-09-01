@@ -18,7 +18,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Widget extends AbstractComponent
+final class Widget extends AbstractComponent
 {
     /**
      * Bootstrap the component.

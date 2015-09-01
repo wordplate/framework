@@ -16,7 +16,7 @@ namespace WordPlate\Console\Commands;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class SaltsGenerate extends Command
+final class SaltsGenerate extends Command
 {
     /**
      * The console command name.

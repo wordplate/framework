@@ -19,7 +19,7 @@ use WordPlate\Exceptions\WordPlateException;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Theme extends AbstractComponent
+final class Theme extends AbstractComponent
 {
     /**
      * Bootstrap the component.

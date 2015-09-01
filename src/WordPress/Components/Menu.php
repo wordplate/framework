@@ -18,7 +18,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Menu extends AbstractComponent
+final class Menu extends AbstractComponent
 {
     /**
      * Bootstrap the component.

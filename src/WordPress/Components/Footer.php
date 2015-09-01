@@ -18,7 +18,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Footer extends AbstractComponent
+final class Footer extends AbstractComponent
 {
     /**
      * Bootstrap the component.

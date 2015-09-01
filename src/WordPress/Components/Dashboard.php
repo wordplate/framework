@@ -18,7 +18,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Dashboard extends AbstractComponent
+final class Dashboard extends AbstractComponent
 {
     /**
      * Bootstrap the component.

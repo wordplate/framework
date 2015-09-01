@@ -18,7 +18,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Login extends AbstractComponent
+final class Login extends AbstractComponent
 {
     /**
      * Bootstrap the component.

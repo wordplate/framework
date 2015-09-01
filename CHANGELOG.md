@@ -5,7 +5,9 @@
 - Allow any 4.* WordPress version
 - Code cleanup
 - Dropped default pages support
-- Make jjgrainger/wp-custom-post-type-class optional
+- Made jjgrainger/wp-custom-post-type-class optional
+- Made roots/soil optional
+- Removed the bootstrap directory
 - Update phpdotenv package
 
 ## 2.7.1 (released 2015-08-21)

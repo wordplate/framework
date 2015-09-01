@@ -161,7 +161,7 @@ class SaltsGenerate extends Command
         $salts = [];
 
         foreach ($this->keys as $key) {
-            $salts[$key] = $key.'='.$this->getRandomSalt();
+            $salts[$key] = sprintf('"%s=%s"', $key, $this->getRandomSalt());
         }
 
         return $salts;

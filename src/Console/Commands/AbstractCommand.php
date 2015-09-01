@@ -21,7 +21,7 @@ use WordPlate\Console\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-abstract class AbstractCommand extends SymfonyCommand
+class Command extends SymfonyCommand
 {
     /**
      * The console command name.

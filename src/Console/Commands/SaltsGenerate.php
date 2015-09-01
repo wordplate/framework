@@ -44,7 +44,7 @@ final class SaltsGenerate extends Command
      *
      * @var string
      */
-    protected $baseSalt = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
+    protected $baseSalt = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_[]{}<>~`+=,.;:/?|';
 
     /**
      * Salt keys to generate.

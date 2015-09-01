@@ -19,7 +19,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-final class Mail extends AbstractComponent
+final class Mail extends Component
 {
     /**
      * Bootstrap the component.

@@ -20,7 +20,7 @@ use WordPlate\WordPress\Filter;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-abstract class AbstractComponent
+class Component
 {
     /**
      * WordPress action instance.

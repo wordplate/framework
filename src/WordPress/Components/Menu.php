@@ -18,7 +18,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-final class Menu extends AbstractComponent
+final class Menu extends Component
 {
     /**
      * Bootstrap the component.
@@ -76,7 +76,7 @@ final class Menu extends AbstractComponent
      */
     public function removeHelpPanel()
     {
-        if (!config('menus.tabs.help')) {
+        if (!config('menus.tabs.help', false)) {
             $screen = get_current_screen();
             $screen->remove_help_tabs();
         }
@@ -89,6 +89,6 @@ final class Menu extends AbstractComponent
      */
     public function hideScreenOptionsTab()
     {
-        return config('menus.tabs.screen_options', true);
+        return config('menus.tabs.screen_options', false);
     }
 }

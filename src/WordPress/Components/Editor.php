@@ -18,7 +18,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-final class Editor extends AbstractComponent
+final class Editor extends Component
 {
     /**
      * Bootstrap the component.

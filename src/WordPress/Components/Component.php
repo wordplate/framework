@@ -55,13 +55,4 @@ class Component
         $this->action = new Action();
         $this->filter = new Filter();
     }
-
-    /**
-     * Bootstrap the component.
-     *
-     * @param \WordPlate\Application $app
-     *
-     * @return void.
-     */
-    abstract public function bootstrap(Application $app);
 }

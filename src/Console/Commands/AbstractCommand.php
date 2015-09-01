@@ -17,11 +17,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use WordPlate\Console\Application;
 
 /**
- * This is the command class.
+ * This is the abstract command class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Command extends SymfonyCommand
+abstract class AbstractCommand extends SymfonyCommand
 {
     /**
      * The console command name.

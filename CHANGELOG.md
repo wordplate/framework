@@ -9,6 +9,8 @@
 - Made roots/soil optional
 - Removed the bootstrap directory
 - Update phpdotenv package
+- Remove google analytics out of the box
+- Don't install any plugins by default
 
 ## 2.7.1 (released 2015-08-21)
 

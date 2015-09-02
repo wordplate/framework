@@ -32,7 +32,6 @@ final class Theme extends Component
         $this->disallowFileEdit();
 
         $this->action->add('switch_theme', [$this, 'switchTheme']);
-        $this->action->add('after_setup_theme', [$this, 'html5Support']);
     }
 
     /**
@@ -73,22 +72,5 @@ final class Theme extends Component
         }
 
         delete_option(config('theme.slug').'_activated');
-    }
-
-    /**
-     * Add HTML5 tag support.
-     *
-     * @return void
-     */
-    public function html5Support()
-    {
-        add_theme_support('html5', [
-            'search-form',
-            'comment-form',
-            'comment-list',
-            'gallery',
-            'caption',
-            'widgets',
-        ]);
     }
 }

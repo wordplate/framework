@@ -35,10 +35,41 @@ class Application extends Container
      * @var array
      */
     protected $bootstrappers = [
+        'WordPlate\Bootstrap\DetectEnvironment',
         'WordPlate\Bootstrap\LoadConfiguration',
         'WordPlate\Bootstrap\HandleExceptions',
-        'WordPlate\Bootstrap\RegisterComponents',
     ];
+
+    /**
+     * The WordPress components for the application.
+     *
+     * @var array
+     */
+    protected $components = [
+        'WordPlate\WordPress\Components\Dashboard',
+        'WordPlate\WordPress\Components\Editor',
+        'WordPlate\WordPress\Components\Footer',
+        'WordPlate\WordPress\Components\Login',
+        'WordPlate\WordPress\Components\Mail',
+        'WordPlate\WordPress\Components\Menu',
+        'WordPlate\WordPress\Components\Plugin',
+        'WordPlate\WordPress\Components\Theme',
+        'WordPlate\WordPress\Components\Widget',
+    ];
+
+    /**
+     * The custom environment path defined by the developer.
+     *
+     * @var string
+     */
+    protected $environmentPath;
+
+    /**
+     * The environment file to load during bootstrapping.
+     *
+     * @var string
+     */
+    protected $environmentFile = '.env';
 
     /**
      * Initialize the application.
@@ -47,10 +78,10 @@ class Application extends Container
      */
     public function __construct($basePath = null)
     {
+        $this->setBasePath($basePath);
+
         if ($basePath) {
             $this->registerBaseBindings();
-
-            $this->setBasePath($basePath);
         }
     }
 
@@ -63,6 +94,18 @@ class Application extends Container
     {
         foreach ($this->bootstrappers as $bootstrapper) {
             $this->make($bootstrapper)->bootstrap($this);
+        }
+    }
+
+    /**
+     * Register WordPress components.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        foreach ($this->components as $component) {
+            $this->make($component)->bootstrap($this);
         }
     }
 
@@ -83,20 +126,6 @@ class Application extends Container
     }
 
     /**
-     * Detect the application environment.
-     *
-     * @return void
-     */
-    public function detectEnvironment()
-    {
-        try {
-            (new Dotenv($this->basePath))->load();
-        } catch (InvalidArgumentException $e) {
-            //
-        }
-    }
-
-    /**
      * Get the path to the application configuration files.
      *
      * @return string
@@ -104,6 +133,26 @@ class Application extends Container
     public function getConfigPath()
     {
         return $this->basePath.DIRECTORY_SEPARATOR.'config';
+    }
+
+    /**
+     * Get the environment file the application is using.
+     *
+     * @return string
+     */
+    public function getEnvironmentFile()
+    {
+        return $this->environmentFile ?: '.env';
+    }
+
+    /**
+     * Get the path to the environment file directory.
+     *
+     * @return string
+     */
+    public function getEnvironmentPath()
+    {
+        return $this->environmentPath ?: $this->basePath;
     }
 
     /**

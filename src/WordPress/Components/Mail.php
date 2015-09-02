@@ -12,7 +12,6 @@
 namespace WordPlate\WordPress\Components;
 
 use PHPMailer;
-use WordPlate\Application;
 
 /**
  * This is the mail component.
@@ -24,11 +23,11 @@ final class Mail extends Component
     /**
      * Bootstrap the component.
      *
-     * @param \WordPlate\Application $app
+     * @return void
      */
-    public function bootstrap(Application $app)
+    public function register()
     {
-        $this->action->add('phpmailer_init', [$this, 'register']);
+        $this->action->add('phpmailer_init', [$this, 'mail']);
     }
 
     /**
@@ -38,7 +37,7 @@ final class Mail extends Component
      *
      * @return \PHPMailer
      */
-    public function register(PHPMailer $mail)
+    public function mail(PHPMailer $mail)
     {
         $mail->IsSMTP();
         $mail->SMTPAuth = true;

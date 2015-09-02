@@ -11,8 +11,6 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Application;
-
 /**
  * This is the editor component.
  *
@@ -23,9 +21,9 @@ final class Editor extends Component
     /**
      * Bootstrap the component.
      *
-     * @param \WordPlate\Application $app
+     * @return void
      */
-    public function bootstrap(Application $app)
+    public function register()
     {
         $this->imageEditOverwrite();
 

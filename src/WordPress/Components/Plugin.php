@@ -11,7 +11,6 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Application;
 use WordPlate\Exceptions\WordPlateException;
 
 /**
@@ -24,9 +23,9 @@ final class Plugin extends Component
     /**
      * Bootstrap the component.
      *
-     * @param \WordPlate\Application $app
+     * @return void
      */
-    public function bootstrap(Application $app)
+    public function register()
     {
         $this->action->add('admin_init', [$this, 'activatePlugins']);
     }

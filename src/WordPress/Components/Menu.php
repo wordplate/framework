@@ -11,8 +11,6 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Application;
-
 /**
  * This is the menus component class.
  *
@@ -23,9 +21,9 @@ final class Menu extends Component
     /**
      * Bootstrap the component.
      *
-     * @param \WordPlate\Application $app
+     * @return void
      */
-    public function bootstrap(Application $app)
+    public function register()
     {
         $this->filter->add('screen_options_show_screen', [$this, 'hideScreenOptionsTab']);
 

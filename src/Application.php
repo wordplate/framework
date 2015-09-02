@@ -104,7 +104,7 @@ class Application extends Container
     public function register()
     {
         foreach ($this->components as $component) {
-            $this->make($component)->bootstrap($this);
+            $this->make($component)->register();
         }
     }
 

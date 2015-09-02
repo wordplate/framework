@@ -11,7 +11,6 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Application;
 use WordPlate\WordPress\Action;
 use WordPlate\WordPress\Filter;
 
@@ -30,13 +29,6 @@ class Component
     protected $action;
 
     /**
-     * The WordPlate application.
-     *
-     * @var \WordPlate\Application
-     */
-    private $app;
-
-    /**
      * WordPress filter instance.
      *
      * @var \WordPlate\WordPress\Filter
@@ -46,12 +38,10 @@ class Component
     /**
      * Create a new component instance.
      *
-     * @param \WordPlate\Application $app
+     * @return void
      */
-    public function __construct(Application $app)
+    public function __construct()
     {
-        $this->app = $app;
-
         $this->action = new Action();
         $this->filter = new Filter();
     }

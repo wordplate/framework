@@ -11,9 +11,8 @@
 
 namespace WordPlate;
 
-use Dotenv\Dotenv;
-use Illuminate\Container\Container;
 use Illuminate\Config\Repository;
+use Illuminate\Container\Container;
 
 /**
  * This is the application class.

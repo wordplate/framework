@@ -28,7 +28,7 @@ class Filter
      *
      * @return bool
      */
-    public function add($hook, $callback, $priority = 10, $args = 1)
+    public function add($hook, callable $callback, $priority = 10, $args = 1)
     {
         return add_filter($hook, $callback, $priority, $args);
     }

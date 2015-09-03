@@ -73,7 +73,7 @@ class Application extends Container
     /**
      * Initialize the application.
      *
-     * @param null $basePath
+     * @param string|null $basePath
      */
     public function __construct($basePath = null)
     {

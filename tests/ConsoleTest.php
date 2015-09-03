@@ -11,8 +11,8 @@
 
 namespace WordPlate\Tests;
 
-use WordPlate\Console\Application;
 use Symfony\Component\Console\Application as SymfonyApplication;
+use WordPlate\Console\Application;
 
 /**
  * This is the console test class.

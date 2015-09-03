@@ -11,23 +11,17 @@
 
 namespace WordPlate\Tests;
 
-use PHPUnit_Framework_TestCase;
+use WordPlate\Application;
 
 /**
  * This is the application test class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class ApplicationTest extends PHPUnit_Framework_TestCase
+class ApplicationTest extends AbstractTestCase
 {
-    /**
-     * This is a stupid test, I know! This is just to
-     * bootstrap our tests. More coming in the future.
-     *
-     * @return void
-     */
     public function testApplicationInstance()
     {
-        $this->assertFileExists(__DIR__.'/../src/Application.php');
+        $this->assertInstanceOf(Application::class, $this->app);
     }
 }

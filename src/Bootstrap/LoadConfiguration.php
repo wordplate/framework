@@ -22,7 +22,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class LoadConfiguration
+final class LoadConfiguration
 {
     /**
      * Bootstrap the given application.

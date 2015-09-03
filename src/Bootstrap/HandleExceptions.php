@@ -20,7 +20,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class HandleExceptions
+final class HandleExceptions
 {
     /**
      * Bootstrap the given application.

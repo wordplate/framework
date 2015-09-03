@@ -20,7 +20,7 @@ use WordPlate\Application;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class DetectEnvironment
+final class DetectEnvironment
 {
     /**
      * Bootstrap the given application.

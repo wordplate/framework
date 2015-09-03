@@ -31,7 +31,7 @@ final class Theme extends Component
 
         $this->action->add('switch_theme', [$this, 'switchTheme']);
     }
-    
+
     /**
      * Prevent file edit from WordPress admin dashboard.
      *

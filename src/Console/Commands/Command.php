@@ -106,40 +106,6 @@ class Command extends SymfonyCommand
     }
 
     /**
-     * Call another console command.
-     *
-     * @param string $command
-     * @param array $arguments
-     *
-     * @return int
-     */
-    public function call($command, array $arguments = [])
-    {
-        $instance = $this->getApplication()->find($command);
-
-        $arguments['command'] = $command;
-
-        return $instance->run(new ArrayInput($arguments), $this->output);
-    }
-
-    /**
-     * Call another console command silently.
-     *
-     * @param string $command
-     * @param array $arguments
-     *
-     * @return int
-     */
-    public function callSilent($command, array $arguments = [])
-    {
-        $instance = $this->getApplication()->find($command);
-
-        $arguments['command'] = $command;
-
-        return $instance->run(new ArrayInput($arguments), new NullOutput());
-    }
-
-    /**
      * Write a string as information output.
      *
      * @param string $string

@@ -62,7 +62,7 @@ final class Editor extends Component
      *
      * @param string $content
      *
-     * @return mixed
+     * @return string
      */
     public function contentSavePre($content)
     {
@@ -74,7 +74,7 @@ final class Editor extends Component
      *
      * @param array $init
      *
-     * @return mixed
+     * @return array
      */
     public function tinyMceBeforeInit($init)
     {

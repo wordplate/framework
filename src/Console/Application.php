@@ -33,19 +33,29 @@ class Application extends SymfonyApplication
      *
      * @var string
      */
-    public $basePath;
+    protected $basePath;
 
     /**
      * Create new console application instance.
      *
-     * @param string $basePath
+     * @param string|null $basePath
      */
-    public function __construct($basePath)
+    public function __construct($basePath = null)
     {
         parent::__construct('WordPlate Framework', $this->version);
 
         $this->basePath = $basePath;
 
         $this->add(new SaltsGenerate($this));
+    }
+
+    /**
+     * Get the applications base path.
+     *
+     * @return string
+     */
+    public function getBasePath()
+    {
+        return $this->basePath;
     }
 }

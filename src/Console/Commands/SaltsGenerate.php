@@ -108,7 +108,7 @@ final class SaltsGenerate extends Command
      * @param string $content
      * @param array $salts
      *
-     * @return mixed
+     * @return string
      */
     protected function replace($content, array $salts)
     {
@@ -125,7 +125,7 @@ final class SaltsGenerate extends Command
      * @param string $content
      * @param array $salts
      *
-     * @return mixed
+     * @return string
      */
     protected function append($content, array $salts)
     {
@@ -146,8 +146,7 @@ final class SaltsGenerate extends Command
     protected function createFile()
     {
         if (!copy('.env.example', $this->getFilePath())) {
-            $this->error('Unable to locate .env.example file.');
-            exit;
+            file_put_contents($this->getFilePath(), '');
         }
     }
 
@@ -192,6 +191,6 @@ final class SaltsGenerate extends Command
      */
     protected function getFilePath()
     {
-        return $this->app->basePath.'/'.$this->file;
+        return $this->app->getBasePath().'/'.$this->file;
     }
 }

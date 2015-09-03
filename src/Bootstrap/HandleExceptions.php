@@ -25,11 +25,9 @@ final class HandleExceptions
     /**
      * Bootstrap the given application.
      *
-     * @param \WordPlate\Application $app
-     *
      * @return void
      */
-    public function bootstrap(Application $app)
+    public function bootstrap()
     {
         if (config('theme.debug')) {
             $this->whoops()->register();

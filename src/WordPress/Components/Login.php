@@ -41,7 +41,7 @@ final class Login extends Component
         $path = get_template_directory_uri().config('login.image.path');
         $width = config('login.image.width').'px';
 
-        echo "<style> h1 a { background-image:url($path) !important; background-size: 100% auto !important; width: $width !important; } </style>";
+        echo "<style> h1 a { background-image: url($path) !important; background-size: 100% auto !important; width: $width !important; } </style>";
     }
 
     /**

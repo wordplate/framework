@@ -79,7 +79,7 @@ class Application extends Container
     {
         $this->registerBaseBindings();
 
-        if ($basePath) {
+        if ($basePath !== null) {
             $this->setBasePath($basePath);
         }
     }

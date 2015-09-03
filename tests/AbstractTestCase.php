@@ -28,7 +28,6 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         mkdir(__DIR__.'/config');
-
         file_put_contents(__DIR__.'/.env', 'WP_ENV=local');
         file_put_contents(__DIR__.'/config/theme.php', '<?php return ["debug" => true];');
     }

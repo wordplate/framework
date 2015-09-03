@@ -12,7 +12,6 @@
 namespace WordPlate\Tests;
 
 use PHPUnit_Framework_TestCase;
-use WordPlate\Application;
 
 /**
  * This is the abstract test case class.
@@ -21,18 +20,5 @@ use WordPlate\Application;
  */
 abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
 {
-    /**
-     * The application instance.
-     *
-     * @var \WordPlate\Application
-     */
-    public $app;
-
-    /**
-     * Setup a new application instance.
-     */
-    public function setUp()
-    {
-        $this->app = new Application(realpath(__DIR__));
-    }
+    //
 }

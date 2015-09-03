@@ -77,10 +77,10 @@ class Application extends Container
      */
     public function __construct($basePath = null)
     {
-        $this->setBasePath($basePath);
+        $this->registerBaseBindings();
 
         if ($basePath) {
-            $this->registerBaseBindings();
+            $this->setBasePath($basePath);
         }
     }
 
@@ -151,7 +151,17 @@ class Application extends Container
      */
     public function getEnvironmentPath()
     {
-        return $this->environmentPath ?: $this->basePath;
+        return $this->environmentPath ?: $this->getBasePath();
+    }
+
+    /**
+     * Get the base path for the application.
+     *
+     * @return string
+     */
+    public function getBasePath()
+    {
+        return $this->basePath;
     }
 
     /**

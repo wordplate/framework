@@ -11,6 +11,8 @@
 
 namespace WordPlate\Tests;
 
+use Illuminate\Config\Repository;
+use Illuminate\Container\Container;
 use WordPlate\Application;
 
 /**
@@ -20,8 +22,21 @@ use WordPlate\Application;
  */
 class ApplicationTest extends AbstractTestCase
 {
-    public function testApplicationInstance()
+    public function testGetSet()
     {
-        $this->assertInstanceOf(Application::class, $this->app);
+        $app = new Application();
+
+        $this->assertInstanceOf(Container::class, $app);
+        $this->assertInstanceOf(Repository::class, $app->config);
+    }
+
+    public function testPaths()
+    {
+        $app = new Application(__DIR__);
+
+        $this->assertEquals(__DIR__, $app->getBasePath());
+        $this->assertEquals(__DIR__, $app->getEnvironmentPath());
+        $this->assertEquals(__DIR__.'/config', $app->getConfigPath());
+        $this->assertEquals('.env', $app->getEnvironmentFile());
     }
 }

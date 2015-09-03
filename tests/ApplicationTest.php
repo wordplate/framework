@@ -37,7 +37,7 @@ class ApplicationTest extends AbstractTestCase
         $app = new Application(__DIR__);
         $this->assertEquals(__DIR__, $app->getBasePath());
         $this->assertEquals(__DIR__, $app->getEnvironmentPath());
-        $this->assertEquals(__DIR__ . '/config', $app->getConfigPath());
+        $this->assertEquals(__DIR__.'/config', $app->getConfigPath());
         $this->assertEquals('.env', $app->getEnvironmentFile());
         $app->setBasePath('delorean/marty/mcfly');
         $this->assertEquals('delorean/marty/mcfly', $app->getBasePath());

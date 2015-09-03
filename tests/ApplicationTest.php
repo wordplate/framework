@@ -51,9 +51,12 @@ class ApplicationTest extends AbstractTestCase
 
     public function testConfig()
     {
-        (new Application(__DIR__))->bootstrap();
+        $app = new Application(__DIR__);
+        $app->bootstrap();
         $this->assertEquals(true, config('theme.debug'));
+        $this->assertEquals(true, $app['config']['theme.debug']);
         $this->assertEquals('UTC', date_default_timezone_get());
+        $this->assertNull(config('illbeback'));
     }
 
     public function testBootstrappers()

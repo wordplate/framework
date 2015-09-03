@@ -11,9 +11,7 @@
 
 namespace WordPlate\WordPress\Components;
 
-use InvalidArgumentException;
 use WordPlate\Exceptions\InvalidConfigTypeException;
-use WordPlate\Exceptions\WordPlateException;
 
 /**
  * This is the dashboard component class.

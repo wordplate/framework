@@ -27,24 +27,11 @@ final class Theme extends Component
      */
     public function register()
     {
-        $this->enableGzip();
         $this->disallowFileEdit();
 
         $this->action->add('switch_theme', [$this, 'switchTheme']);
     }
-
-    /**
-     * Enable Gzip if available.
-     *
-     * @return void
-     */
-    public function enableGzip()
-    {
-        if (extension_loaded('zlib') && (ini_get('output_handler') !== 'ob_gzhandler') && config('theme.gzip')) {
-            $this->action->add('wp', create_function('', '@ob_end_clean();@ini_set("zlib.output_compression", 1);'));
-        }
-    }
-
+    
     /**
      * Prevent file edit from WordPress admin dashboard.
      *

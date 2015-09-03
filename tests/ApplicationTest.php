@@ -22,7 +22,7 @@ use WordPlate\Application;
  */
 class ApplicationTest extends AbstractTestCase
 {
-    public function testGetSet()
+    public function testBindings()
     {
         $app = new Application();
 
@@ -38,5 +38,8 @@ class ApplicationTest extends AbstractTestCase
         $this->assertEquals(__DIR__, $app->getEnvironmentPath());
         $this->assertEquals(__DIR__.'/config', $app->getConfigPath());
         $this->assertEquals('.env', $app->getEnvironmentFile());
+
+        $app->setBasePath('delorean/marty/mcfly');
+        $this->assertEquals('delorean/marty/mcfly', $app->getBasePath());
     }
 }

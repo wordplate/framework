@@ -95,6 +95,6 @@ final class Menu extends Component
      */
     public function hideScreenOptionsTab()
     {
-        return config('menus.tabs.screen_options', false);
+        return (bool) config('menus.tabs.screen_options', false);
     }
 }

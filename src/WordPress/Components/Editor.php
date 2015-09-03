@@ -11,7 +11,6 @@
 
 namespace WordPlate\WordPress\Components;
 
-use InvalidArgumentException;
 use WordPlate\Exceptions\InvalidConfigTypeException;
 
 /**

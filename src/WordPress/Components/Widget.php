@@ -11,6 +11,9 @@
 
 namespace WordPlate\WordPress\Components;
 
+use InvalidArgumentException;
+use WordPlate\Exceptions\InvalidConfigTypeException;
+
 /**
  * This is the theme component class.
  *
@@ -34,11 +37,19 @@ final class Widget extends Component
     /**
      * Disable Default Widgets from WordPress admin.
      *
+     * @throws \WordPlate\Exceptions\InvalidConfigTypeException
+     *
      * @return void
      */
     public function disableWidgets()
     {
-        foreach (config('widgets.widgets') as $widget) {
+        $widgets = config('widgets.widgets');
+
+        if (!is_array($widgets)) {
+            throw new InvalidConfigTypeException('widgets.widgets', 'array');
+        }
+
+        foreach ($widgets as $widget) {
             unregister_widget($widget);
         }
     }

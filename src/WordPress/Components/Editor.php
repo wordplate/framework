@@ -11,6 +11,9 @@
 
 namespace WordPlate\WordPress\Components;
 
+use InvalidArgumentException;
+use WordPlate\Exceptions\InvalidConfigTypeException;
+
 /**
  * This is the editor component.
  *
@@ -42,7 +45,7 @@ final class Editor extends Component
      */
     public function jpegQuality()
     {
-        return config('editor.jpeg_quality', 100);
+        return (int) config('editor.jpeg_quality', 100);
     }
 
     /**
@@ -115,11 +118,17 @@ final class Editor extends Component
     /**
      * Remove meta boxes in post edit.
      *
+     * @throws \WordPlate\Exceptions\InvalidConfigTypeException
+     *
      * @return void
      */
     public function removeMetaBoxes()
     {
         $types = config('editor.meta_boxes');
+
+        if (!is_array($types)) {
+            throw new InvalidConfigTypeException('editor.meta_boxes', 'array');
+        }
 
         foreach ($types as $type => $boxes) {
             foreach ($boxes as $box) {

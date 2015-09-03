@@ -11,6 +11,8 @@
 
 namespace WordPlate\WordPress\Components;
 
+use WordPlate\Exceptions\InvalidConfigTypeException;
+
 /**
  * This is the menus component class.
  *
@@ -37,11 +39,17 @@ final class Menu extends Component
      *
      * @param $menu
      *
+     * @throws \WordPlate\Exceptions\InvalidConfigTypeException
+     *
      * @return void
      */
     public function removeMenuBarItems($menu)
     {
         $nodes = config('menus.links');
+
+        if (!is_array($nodes)) {
+            throw new InvalidConfigTypeException('menus.links', 'array');
+        }
 
         foreach ($nodes as $node) {
             $menu->remove_node($node);
@@ -83,7 +91,7 @@ final class Menu extends Component
     /**
      * Remove screen options tab.
      *
-     * @return void
+     * @return bool
      */
     public function hideScreenOptionsTab()
     {

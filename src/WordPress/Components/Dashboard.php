@@ -11,6 +11,10 @@
 
 namespace WordPlate\WordPress\Components;
 
+use InvalidArgumentException;
+use WordPlate\Exceptions\InvalidConfigTypeException;
+use WordPlate\Exceptions\WordPlateException;
+
 /**
  * This is the dashboard component class.
  *
@@ -31,6 +35,8 @@ final class Dashboard extends Component
     /**
      * Remove unwanted dashboard widgets.
      *
+     * @throws \WordPlate\Exceptions\InvalidConfigTypeException
+     *
      * @return void
      */
     public function setup()
@@ -38,6 +44,10 @@ final class Dashboard extends Component
         global $wp_meta_boxes;
 
         $positions = config('dashboard.widgets');
+
+        if (!is_array($positions)) {
+            throw new InvalidConfigTypeException('dashboard.widgets', 'array');
+        }
 
         foreach ($positions as $position => $boxes) {
             foreach ($boxes as $box) {

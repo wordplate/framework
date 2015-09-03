@@ -31,7 +31,7 @@ final class Footer extends Component
     /**
      * Custom footer text.
      *
-     * @return mixed
+     * @return string|null
      */
     public function adminFooterText()
     {

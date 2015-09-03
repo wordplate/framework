@@ -125,7 +125,7 @@ final class SaltsGenerate extends Command
      * @param string $content
      * @param array $salts
      *
-     * @return string
+     * @return string[]
      */
     protected function append($content, array $salts)
     {
@@ -153,7 +153,7 @@ final class SaltsGenerate extends Command
     /**
      * Generate the salt strings.
      *
-     * @return string
+     * @return string[]
      */
     protected function generate()
     {

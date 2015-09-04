@@ -145,7 +145,9 @@ final class SaltsGenerate extends Command
      */
     protected function createFile()
     {
-        if (!copy('.env.example', $this->getFilePath())) {
+        if (file_exists($this->getFilePath())) {
+            copy('.env.example', $this->getFilePath());
+        } else {
             file_put_contents($this->getFilePath(), '');
         }
     }

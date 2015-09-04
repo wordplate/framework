@@ -33,13 +33,6 @@ final class SaltsGenerate extends Command
     protected $description = 'Generate WordPress security salt keys';
 
     /**
-     * Environment file name.
-     *
-     * @var string
-     */
-    protected $file = '.env';
-
-    /**
      * The base salt string.
      *
      * @var string
@@ -145,8 +138,8 @@ final class SaltsGenerate extends Command
      */
     protected function createFile()
     {
-        if (file_exists($this->getFilePath())) {
-            copy('.env.example', $this->getFilePath());
+        if (file_exists($this->getExampleFilePath())) {
+            copy($this->getExampleFilePath(), $this->getFilePath());
         } else {
             file_put_contents($this->getFilePath(), '');
         }
@@ -193,6 +186,16 @@ final class SaltsGenerate extends Command
      */
     protected function getFilePath()
     {
-        return $this->app->getBasePath().'/'.$this->file;
+        return $this->app->getBasePath().'/.env';
+    }
+
+    /**
+     * Get the example environment file path.
+     *
+     * @return string
+     */
+    protected function getExampleFilePath()
+    {
+        return $this->app->getBasePath().'/.env.example';
     }
 }

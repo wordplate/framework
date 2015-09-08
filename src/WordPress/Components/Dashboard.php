@@ -11,7 +11,7 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Exceptions\InvalidConfigTypeException;
+use WordPlate\Exceptions\InvalidConfigurationException;
 
 /**
  * This is the dashboard component class.
@@ -33,7 +33,7 @@ final class Dashboard extends Component
     /**
      * Remove unwanted dashboard widgets.
      *
-     * @throws \WordPlate\Exceptions\InvalidConfigTypeException
+     * @throws \WordPlate\Exceptions\InvalidConfigurationException
      *
      * @return void
      */
@@ -44,7 +44,7 @@ final class Dashboard extends Component
         $positions = config('dashboard.widgets');
 
         if (!is_array($positions)) {
-            throw new InvalidConfigTypeException('dashboard.widgets', 'array');
+            throw new InvalidConfigurationException('dashboard.widgets', 'array');
         }
 
         foreach ($positions as $position => $boxes) {

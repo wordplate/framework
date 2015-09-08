@@ -11,7 +11,7 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Exceptions\InvalidConfigTypeException;
+use WordPlate\Exceptions\InvalidConfigurationException;
 
 /**
  * This is the menus component class.
@@ -39,7 +39,7 @@ final class Menu extends Component
      *
      * @param $menu
      *
-     * @throws \WordPlate\Exceptions\InvalidConfigTypeException
+     * @throws \WordPlate\Exceptions\InvalidConfigurationException
      *
      * @return void
      */
@@ -48,7 +48,7 @@ final class Menu extends Component
         $nodes = config('menus.links');
 
         if (!is_array($nodes)) {
-            throw new InvalidConfigTypeException('menus.links', 'array');
+            throw new InvalidConfigurationException('menus.links', 'array');
         }
 
         foreach ($nodes as $node) {

@@ -14,11 +14,11 @@ namespace WordPlate\Exceptions;
 use InvalidArgumentException;
 
 /**
- * This is the invalid config type exception class.
+ * This is the invalid configuration exception class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class InvalidConfigTypeException extends InvalidArgumentException
+class InvalidConfigurationException extends InvalidArgumentException
 {
     /**
      * Create a new invalid configuration exception instance.

@@ -11,7 +11,7 @@
 
 namespace WordPlate\WordPress\Components;
 
-use WordPlate\Exceptions\InvalidConfigTypeException;
+use WordPlate\Exceptions\InvalidConfigurationException;
 
 /**
  * This is the editor component.
@@ -117,7 +117,7 @@ final class Editor extends Component
     /**
      * Remove meta boxes in post edit.
      *
-     * @throws \WordPlate\Exceptions\InvalidConfigTypeException
+     * @throws \WordPlate\Exceptions\InvalidConfigurationException
      *
      * @return void
      */
@@ -126,7 +126,7 @@ final class Editor extends Component
         $types = config('editor.meta_boxes');
 
         if (!is_array($types)) {
-            throw new InvalidConfigTypeException('editor.meta_boxes', 'array');
+            throw new InvalidConfigurationException('editor.meta_boxes', 'array');
         }
 
         foreach ($types as $type => $boxes) {

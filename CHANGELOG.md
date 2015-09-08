@@ -4,12 +4,12 @@
 
 - Allow any 4.* WordPress version
 - Code cleanup
+- Don't install any plugins by default
 - Dropped default pages support
 - Made jjgrainger/wp-custom-post-type-class optional
 - Made roots/soil optional
-- Update phpdotenv package
 - Remove google analytics out of the box
-- Don't install any plugins by default
+- Update phpdotenv package
 
 ## 2.7.1 (released 2015-08-21)
 

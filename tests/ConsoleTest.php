@@ -30,6 +30,6 @@ class ConsoleTest extends AbstractTestCase
     public function testPaths()
     {
         $app = new Application(__DIR__);
-        $this->assertEquals(__DIR__, $app->getBasePath());
+        $this->assertSame(__DIR__, $app->getBasePath());
     }
 }

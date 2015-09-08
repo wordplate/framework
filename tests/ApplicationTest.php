@@ -35,27 +35,27 @@ class ApplicationTest extends AbstractTestCase
     public function testPaths()
     {
         $app = new Application(__DIR__);
-        $this->assertEquals(__DIR__, $app->getBasePath());
-        $this->assertEquals(__DIR__, $app->getEnvironmentPath());
-        $this->assertEquals(__DIR__.'/config', $app->getConfigPath());
-        $this->assertEquals('.env', $app->getEnvironmentFile());
+        $this->assertSame(__DIR__, $app->getBasePath());
+        $this->assertSame(__DIR__, $app->getEnvironmentPath());
+        $this->assertSame(__DIR__.'/config', $app->getConfigPath());
+        $this->assertSame('.env', $app->getEnvironmentFile());
         $app->setBasePath('delorean/marty/mcfly');
-        $this->assertEquals('delorean/marty/mcfly', $app->getBasePath());
+        $this->assertSame('delorean/marty/mcfly', $app->getBasePath());
     }
 
     public function testEnvironment()
     {
         (new Application(__DIR__))->bootstrap();
-        $this->assertEquals('local', env('WP_ENV'));
+        $this->assertSame('local', env('WP_ENV'));
     }
 
     public function testConfig()
     {
         $app = new Application(__DIR__);
         $app->bootstrap();
-        $this->assertEquals(true, config('theme.debug'));
-        $this->assertEquals(true, $app['config']['theme.debug']);
-        $this->assertEquals('UTC', date_default_timezone_get());
+        $this->assertSame(true, config('theme.debug'));
+        $this->assertSame(true, $app['config']['theme.debug']);
+        $this->assertSame('UTC', date_default_timezone_get());
         $this->assertNull(config('illbeback'));
     }
 

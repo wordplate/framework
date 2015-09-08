@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## 3.0.0 (upcoming)
+## 3.0.0 (released 2015-09-08)
 
-- Allow any 4.* WordPress version
+- Allow any ~4.0 WordPress version
 - Code cleanup
 - Don't install any plugins by default
 - Dropped default pages support

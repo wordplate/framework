@@ -116,40 +116,4 @@ class Command extends SymfonyCommand
     {
         $this->output->writeln("<info>$string</info>");
     }
-
-    /**
-     * Write a string as standard output.
-     *
-     * @param string $string
-     *
-     * @return void
-     */
-    public function line($string)
-    {
-        $this->output->writeln($string);
-    }
-
-    /**
-     * Write a string as question output.
-     *
-     * @param string $string
-     *
-     * @return void
-     */
-    public function question($string)
-    {
-        $this->output->writeln("<question>$string</question>");
-    }
-
-    /**
-     * Write a string as error output.
-     *
-     * @param string $string
-     *
-     * @return void
-     */
-    public function error($string)
-    {
-        $this->output->writeln("<error>$string</error>");
-    }
 }

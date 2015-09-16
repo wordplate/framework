@@ -32,6 +32,8 @@ abstract class AbstractComponentTest extends AbstractTestCase
     {
         $component = new ReflectionClass($this->getComponentClass());
         $this->assertSame(Component::class, $component->getParentClass()->getName());
+        $this->assertTrue($component->hasProperty('action'));
+        $this->assertTrue($component->hasProperty('filter'));
     }
 
     abstract public function getComponentClass();

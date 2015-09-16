@@ -16,7 +16,7 @@ namespace WordPlate\WordPress;
  *
  * @author Fredrik Forsmo <fredrik.forsmo@gmail.com>
  */
-class Filter
+final class Filter
 {
     /**
      * Add WordPress filter.

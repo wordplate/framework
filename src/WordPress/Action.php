@@ -16,7 +16,7 @@ namespace WordPlate\WordPress;
  *
  * @author Fredrik Forsmo <fredrik.forsmo@gmail.com>
  */
-class Action
+final class Action
 {
     /**
      * Add WordPress action.

@@ -13,6 +13,7 @@ namespace WordPlate\Tests\WordPress\Components;
 
 use ReflectionClass;
 use WordPlate\Tests\AbstractTestCase;
+use WordPlate\WordPress\Components\Component;
 
 /**
  * This is the abstract component test class.
@@ -23,8 +24,14 @@ abstract class AbstractComponentTest extends AbstractTestCase
 {
     public function testIsFinal()
     {
-        $command = new ReflectionClass($this->getComponentClass());
-        $this->assertTrue($command->isFinal());
+        $component = new ReflectionClass($this->getComponentClass());
+        $this->assertTrue($component->isFinal());
+    }
+
+    public function testComponent()
+    {
+        $component = new ReflectionClass($this->getComponentClass());
+        $this->assertSame(Component::class, $component->getParentClass()->getName());
     }
 
     abstract public function getComponentClass();

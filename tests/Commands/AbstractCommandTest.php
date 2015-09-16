@@ -39,4 +39,6 @@ abstract class AbstractCommandTest extends AbstractTestCase
         $command = new ReflectionClass($this->getCommandClass());
         $this->assertNotNull($command->hasMethod('handle'));
     }
+
+    abstract public function getCommandClass();
 }

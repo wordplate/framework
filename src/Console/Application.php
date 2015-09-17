@@ -11,7 +11,7 @@
 
 namespace WordPlate\Console;
 
-use Symfony\Component\Console\Application as SymfonyApplication;
+use Symfony\Component\Console\Application as Console;
 use WordPlate\Console\Commands\SaltsGenerate;
 
 /**
@@ -19,7 +19,7 @@ use WordPlate\Console\Commands\SaltsGenerate;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Application extends SymfonyApplication
+class Application extends Console
 {
     /**
      * The latest version.

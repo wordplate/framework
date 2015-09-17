@@ -11,7 +11,7 @@
 
 namespace WordPlate\Tests;
 
-use Symfony\Component\Console\Application as SymfonyApplication;
+use Symfony\Component\Console\Application as Console;
 use WordPlate\Console\Application;
 
 /**
@@ -24,7 +24,7 @@ class ConsoleTest extends AbstractTestCase
     public function testBindings()
     {
         $app = new Application(__DIR__);
-        $this->assertInstanceOf(SymfonyApplication::class, $app);
+        $this->assertInstanceOf(Console::class, $app);
     }
 
     public function testPaths()

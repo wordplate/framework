@@ -54,6 +54,7 @@ class Application extends Container
         'WordPlate\WordPress\Components\Plugin',
         'WordPlate\WordPress\Components\Theme',
         'WordPlate\WordPress\Components\Widget',
+        'WordPlate\WordPress\Components\Options',
     ];
 
     /**

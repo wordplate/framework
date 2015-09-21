@@ -12,9 +12,9 @@
 namespace WordPlate\WordPress\Components;
 
 /**
- * This is the bootstrap component.
+ * This is the option component.
  *
- * @author Vincent Klaiber <hello@vinkla.com>
+ * @author Chris Andersson <chris@puredazzle.se>
  */
 final class Option extends Component
 {

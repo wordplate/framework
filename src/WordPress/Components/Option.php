@@ -16,7 +16,7 @@ namespace WordPlate\WordPress\Components;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-final class Options extends Component
+final class Option extends Component
 {
     /**
      * Bootstrap the component.
@@ -35,9 +35,10 @@ final class Options extends Component
      */
     public function updatePermalink()
     {
-        // Force permalink structure
+        // Force permalink structure.
         if (empty(get_option('permalink_structure'))) {
             global $wp_rewrite;
+
             $wp_rewrite->set_permalink_structure(config('options.permalink'));
         }
     }

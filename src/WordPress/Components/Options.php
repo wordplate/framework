@@ -38,7 +38,7 @@ final class Options extends Component
         // Force permalink structure
         if (empty(get_option('permalink_structure'))) {
             global $wp_rewrite;
-            $wp_rewrite->set_permalink_structure(config('options.permalink'));
+            $wp_rewrite->set_permalink_structure(config('options.permalink', '/%postname%/'));
         }
     }
 }

@@ -51,10 +51,10 @@ class Application extends Container
         'WordPlate\WordPress\Components\Login',
         'WordPlate\WordPress\Components\Mail',
         'WordPlate\WordPress\Components\Menu',
+        'WordPlate\WordPress\Components\Option',
         'WordPlate\WordPress\Components\Plugin',
         'WordPlate\WordPress\Components\Theme',
         'WordPlate\WordPress\Components\Widget',
-        'WordPlate\WordPress\Components\Options',
     ];
 
     /**

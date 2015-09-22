@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.1 (released 2015-09-22)
+
+- Update permalink from config
+
 ## 3.0.0 (released 2015-09-08)
 
 - Allow any ~4.0 WordPress version

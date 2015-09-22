@@ -38,12 +38,7 @@ final class Option extends Component
         // Force permalink structure.
         if (empty(get_option('permalink_structure'))) {
             global $wp_rewrite;
-<<<<<<< HEAD:src/WordPress/Components/Options.php
             $wp_rewrite->set_permalink_structure(config('options.permalink', '/%postname%/'));
-=======
-
-            $wp_rewrite->set_permalink_structure(config('options.permalink'));
->>>>>>> 140ba23bd450f26ac1cfdf4f1a92b3865feb9be1:src/WordPress/Components/Option.php
         }
     }
 }

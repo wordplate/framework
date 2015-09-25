@@ -29,6 +29,7 @@ final class Theme extends Component
     {
         $this->disallowFileEdit();
 
+        $this->action->add('admin_init', [$this, 'setBlogDescription']);
         $this->action->add('switch_theme', [$this, 'switchTheme']);
     }
 
@@ -58,5 +59,15 @@ final class Theme extends Component
         }
 
         delete_option(config('theme.slug').'_activated');
+    }
+
+    /**
+     * Set blog description.
+     *
+     * @return void
+     */
+    public function setBlogDescription()
+    {
+        update_option('blogdescription', config('theme.description'));
     }
 }

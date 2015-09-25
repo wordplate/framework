@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.2 (released 2015-09-25)
+
+- Update description from config
+
 ## 3.0.1 (released 2015-09-22)
 
 - Update permalink from config

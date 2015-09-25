@@ -26,7 +26,7 @@ class Application extends Console
      *
      * @var string
      */
-    protected $version = '3.0.0';
+    protected $version = '3.0.2';
 
     /**
      * The applications base path.

@@ -44,6 +44,9 @@
             "WordPlate\\Tests\\": "tests/"
         }
     },
+    "config": {
+        "preferred-install": "dist"
+    },
     "extra":{
         "branch-alias": {
             "dev-master": "3.1-dev"

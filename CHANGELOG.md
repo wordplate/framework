@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.1.0 (upcoming)
+
+- Update to Laravel 5.2
+- Update to Symfony 3.0
+
 ## 3.0.2 (released 2015-09-25)
 
 - Update description from config

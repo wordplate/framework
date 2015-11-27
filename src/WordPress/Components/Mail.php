@@ -27,7 +27,9 @@ final class Mail extends Component
      */
     public function register()
     {
-        $this->action->add('phpmailer_init', [$this, 'mail']);
+        if (config('mail.host') && config('mail.username') && config('mail.password')) {
+            $this->action->add('phpmailer_init', [$this, 'mail']);
+        }
     }
 
     /**

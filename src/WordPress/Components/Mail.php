@@ -27,9 +27,7 @@ final class Mail extends Component
      */
     public function register()
     {
-        if (config('mail.host') && config('mail.username') && config('mail.password')) {
-            $this->action->add('phpmailer_init', [$this, 'mail']);
-        }
+        $this->action->add('phpmailer_init', [$this, 'mail']);
     }
 
     /**
@@ -41,21 +39,23 @@ final class Mail extends Component
      */
     public function mail(PHPMailer $mail)
     {
-        $mail->IsSMTP();
-        $mail->SMTPAuth = true;
-        $mail->Host = config('mail.host');
-        $mail->Port = config('mail.port');
-        $mail->Username = config('mail.username');
-        $mail->Password = config('mail.password');
+        if (config('mail')) {
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = config('mail.host');
+            $mail->Port = config('mail.port');
+            $mail->Username = config('mail.username');
+            $mail->Password = config('mail.password');
 
-        if (empty($mail->From)) {
-            $mail->From = config('mail.from.address');
+            if (empty($mail->From)) {
+                $mail->From = config('mail.from.address');
+            }
+
+            if (empty($mail->FromName)) {
+                $mail->From = config('mail.from.name');
+            }
+
+            return $mail;
         }
-
-        if (empty($mail->FromName)) {
-            $mail->From = config('mail.from.name');
-        }
-
-        return $mail;
     }
 }

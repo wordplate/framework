@@ -4,6 +4,9 @@
 
 - Update to Laravel 5.2
 - Update to Symfony 3.0
+- Update to Elixir 4.0
+- Add .editorconfig file
+- Fix bug where mail config is empty
 
 ## 3.0.2 (released 2015-09-25)
 

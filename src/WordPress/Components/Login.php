@@ -51,7 +51,7 @@ final class Login extends Component
      */
     public function loginHeaderUrl()
     {
-        return get_site_url();
+        return get_bloginfo('url');
     }
 
     /**

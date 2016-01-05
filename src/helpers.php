@@ -10,7 +10,6 @@
  */
 
 use Illuminate\Container\Container;
-use Illuminate\Support\Debug\Dumper;
 use Illuminate\Support\Str;
 
 if (!function_exists('app')) {
@@ -98,22 +97,5 @@ if (!function_exists('env')) {
         }
 
         return $value;
-    }
-}
-
-if (!function_exists('dd')) {
-    /**
-     * Dump the passed variables and end the script.
-     *
-     * @param  mixed
-     *
-     * @return void
-     */
-    function dd()
-    {
-        array_map(function ($x) {
-            (new Dumper())->dump($x);
-        }, func_get_args());
-        die(1);
     }
 }

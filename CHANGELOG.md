@@ -7,7 +7,6 @@
 - Update to Elixir 4.0
 - Add .editorconfig file
 - Fix bug where mail config is empty
-- Add dd() helper method
 
 ## 3.0.2 (released 2015-09-25)
 

@@ -17,7 +17,7 @@
         "php": ">=5.5.9",
         "ext-mbstring": "*",
         "composer/installers": "^1.0",
-        "filp/whoops": "^1.1",
+        "filp/whoops": "^2.0",
         "illuminate/config": "5.2.*",
         "illuminate/container": "5.2.*",
         "illuminate/support": "5.2.*",

@@ -1,6 +1,12 @@
 # CHANGELOG
 
-## 3.1.0 (released 2015-09-25)
+## 3.1.1 (released 2016-01-20)
+
+- Define WP_ENV constant
+- Remove babel support out of the box
+- Update Laravel Elixir
+
+## 3.1.0 (released 2016-01-22)
 
 - Update to Laravel 5.2
 - Update to Symfony 3.0

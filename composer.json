@@ -2,6 +2,7 @@
     "name": "wordplate/framework",
     "description": "The WordPlate Framework",
     "keywords": ["wordplate", "framework", "wordpress", "boilerplate"],
+    "type": "wordpress-plugin",
     "license": "MIT",
     "authors": [
         {

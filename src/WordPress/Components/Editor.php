@@ -102,17 +102,6 @@ final class Editor extends Component
         return $init;
     }
 
-    /**
-     * Cleanup image edits.
-     *
-     * @return void
-     */
-    public function imageEditOverwrite()
-    {
-        if (!defined('IMAGE_EDIT_OVERWRITE')) {
-            define('IMAGE_EDIT_OVERWRITE', config('theme.image_edit_overwrite', true));
-        }
-    }
 
     /**
      * Remove meta boxes in post edit.

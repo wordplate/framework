@@ -9,57 +9,12 @@
  * file that was distributed with this source code.
  */
 
-use Illuminate\Container\Container;
-use Illuminate\Support\Str;
-
-if (!function_exists('app')) {
-    /**
-     * Get the available container instance.
-     *
-     * @param string $make
-     * @param array $parameters
-     *
-     * @return mixed|\WordPlate\Application
-     */
-    function app($make = null, $parameters = [])
-    {
-        if (is_null($make)) {
-            return Container::getInstance();
-        }
-
-        return Container::getInstance()->make($make, $parameters);
-    }
-}
-
-if (!function_exists('config')) {
-    /**
-     * Get / set the specified configuration value.
-     *
-     * If an array is passed as the key, we will assume you want to set an array of values.
-     *
-     * @param array|string|null $key
-     * @param mixed|null $default
-     *
-     * @return string|null
-     */
-    function config($key = null, $default = null)
-    {
-        if (is_null($key)) {
-            return app('config');
-        }
-
-        if (is_array($key)) {
-            return app('config')->set($key);
-        }
-
-        return app('config')->get($key, $default);
-    }
-}
+use Stringy\Stringy;
+use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 
 if (!function_exists('env')) {
     /**
-     * Gets the value of an environment variable.
-     * Supports boolean, empty and null.
+     * Gets the value of an environment variable. Supports boolean, empty and null.
      *
      * @param string $key
      * @param mixed $default
@@ -70,7 +25,7 @@ if (!function_exists('env')) {
     {
         $value = getenv($key);
 
-        if (!$value) {
+        if ($value === false) {
             return value($default);
         }
 
@@ -92,10 +47,29 @@ if (!function_exists('env')) {
                 return;
         }
 
-        if (Str::startsWith($value, '"') && Str::endsWith($value, '"')) {
+        $value = new Stringy($value);
+
+        if (strlen($value) > 1 && $value->startsWith('"') && $value->endsWith($value, '"')) {
             return substr($value, 1, -1);
         }
 
         return $value;
+    }
+}
+
+if (!function_exists('dd')) {
+    /**
+     * Dump the passed variables and end the script.
+     *
+     * @param mixed
+     *
+     * @return void
+     */
+    function dd()
+    {
+        array_map(function ($x) {
+            (new HtmlDumper())->dump($x);
+        }, func_get_args());
+        die(1);
     }
 }

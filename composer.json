@@ -25,7 +25,6 @@
     },
     "autoload": {
         "files": [
-            "src/wordplate.php",
             "src/helpers.php"
         ]
     },

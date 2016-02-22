@@ -10,8 +10,7 @@
  */
 
 use Stringy\Stringy;
-use Symfony\Component\VarDumper\Cloner\VarCloner;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+use WordPlate\Debug\Dumper;
 
 if (!function_exists('dd')) {
     /**
@@ -24,8 +23,7 @@ if (!function_exists('dd')) {
     function dd()
     {
         array_map(function ($x) {
-            $value = (new VarCloner)->cloneVar($x);
-            (new HtmlDumper())->dump($value);
+            (new Dumper())->dump($x);
         }, func_get_args());
         die(1);
     }

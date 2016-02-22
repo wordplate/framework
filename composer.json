@@ -1,6 +1,6 @@
 {
     "name": "wordplate/framework",
-    "description": "The WordPlate Framework",
+    "description": "The WordPlate framework",
     "keywords": ["wordplate", "framework", "wordpress", "boilerplate"],
     "type": "wordpress-plugin",
     "license": "MIT",
@@ -21,8 +21,8 @@
         "danielstjules/stringy": "^2.2",
         "filp/whoops": "^2.0",
         "johnpbloch/wordpress": "^4.0",
-        "vlucas/phpdotenv": "^2.0",
-        "symfony/var-dumper": "^3.0"
+        "symfony/var-dumper": "^3.0",
+        "vlucas/phpdotenv": "^2.0"
     },
     "autoload": {
         "files": [

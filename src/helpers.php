@@ -12,6 +12,23 @@
 use Stringy\Stringy;
 use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 
+if (!function_exists('dd')) {
+    /**
+     * Dump the passed variables and end the script.
+     *
+     * @param mixed
+     *
+     * @return void
+     */
+    function dd()
+    {
+        array_map(function ($x) {
+            (new HtmlDumper())->dump($x);
+        }, func_get_args());
+        die(1);
+    }
+}
+
 if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable. Supports boolean, empty and null.
@@ -57,19 +74,16 @@ if (!function_exists('env')) {
     }
 }
 
-if (!function_exists('dd')) {
+if (!function_exists('value')) {
     /**
-     * Dump the passed variables and end the script.
+     * Return the default value of the given value.
      *
-     * @param mixed
+     * @param mixed $value
      *
-     * @return void
+     * @return mixed
      */
-    function dd()
+    function value($value)
     {
-        array_map(function ($x) {
-            (new HtmlDumper())->dump($x);
-        }, func_get_args());
-        die(1);
+        return $value instanceof Closure ? $value() : $value;
     }
 }

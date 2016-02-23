@@ -64,9 +64,9 @@ if (!function_exists('env')) {
                 return;
         }
 
-        $value = new Stringy($value);
+        $stringy = new Stringy($value);
 
-        if (strlen($value) > 1 && $value->startsWith('"') && $value->endsWith($value, '"')) {
+        if (strlen($value) > 1 && $stringy->startsWith('"') && $stringy->endsWith($value, '"')) {
             return substr($value, 1, -1);
         }
 

@@ -20,6 +20,17 @@ class HelpersTest extends AbstractTestCase
 {
     public function testEnv()
     {
-        $this->assertSame('local', env('WP_ENV', 'local'));
+        $this->assertSame('testing', env('WP_ENV'));
+        putenv('WP_THEME=marty');
+        $this->assertSame('marty', env('WP_THEME'));
+        $this->assertSame('mcfly', env('WP_DEBUG', 'mcfly'));
+    }
+
+    public function testValue()
+    {
+        $this->assertSame('marty', value('marty'));
+        $this->assertSame('mcfly', value(function () {
+            return 'mcfly';
+        }));
     }
 }

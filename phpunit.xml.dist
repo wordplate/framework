@@ -25,4 +25,7 @@
             <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
+    <php>
+        <env name="WP_ENV" value="testing"/>
+    </php>
 </phpunit>

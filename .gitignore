@@ -1,6 +1,5 @@
 composer.lock
 phpunit.xml
 vendor
-
-/wp-content
-/wordpress
+wordpress
+wp-content

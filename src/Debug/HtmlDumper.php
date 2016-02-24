@@ -11,14 +11,14 @@
 
 namespace WordPlate\Debug;
 
-use Symfony\Component\VarDumper\Dumper\HtmlDumper as Dumper;
+use Symfony\Component\VarDumper\Dumper\HtmlDumper as SymfonyDumper;
 
 /**
  * This is the html dumper class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class HtmlDumper extends Dumper
+class HtmlDumper extends SymfonyDumper
 {
     /**
      * Colour definitions for output.

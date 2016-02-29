@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 4.0.0 (released 2016-02-29)
+
+- Add new test suit
+- Add custom dd(), env() and value() helper methods
+- Update Elixir to latest version
+- Move WordPress logic out of the framework
+- Remove plate CLI helper
+- Remove Laravel components
+- Remove config repository
+
 ## 3.1.1 (released 2016-01-20)
 
 - Define WP_ENV constant

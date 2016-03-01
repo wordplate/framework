@@ -3,6 +3,7 @@
 ## 4.0.1 (released 2016-03-01)
 
 - Update theme paths
+- Update wpackagist url
 - Bugfixes
 
 ## 4.0.0 (released 2016-02-29)

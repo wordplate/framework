@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.0.1 (released 2016-03-01)
+
+- Update theme paths
+- Bugfixes
+
 ## 4.0.0 (released 2016-02-29)
 
 - Add new test suit

@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 4.0.2 (released 2016-03-02)
+
+- Add roots/wp-password-bcrypt package
+- Add version number to theme
+- Hide welcome panel by default
+- Remove author and description meta tags
+
 ## 4.0.1 (released 2016-03-01)
 
 - Update theme paths

@@ -20,6 +20,7 @@
         "danielstjules/stringy": "^2.2",
         "filp/whoops": "^2.0",
         "johnpbloch/wordpress": "^4.0",
+        "roots/wp-password-bcrypt": "^1.0",
         "symfony/var-dumper": "^3.0",
         "vlucas/phpdotenv": "^2.0"
     },

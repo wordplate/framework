@@ -43,6 +43,6 @@ class HelpersTest extends AbstractTestCase
     public function testHideOnScreen()
     {
         $items = acf_hide_on_screen(['great', 'scott']);
-        $this->assertSame(['0' => 'great', '1' => 'scott'], $items);
+        $this->assertSame([0 => 'great', 1 => 'scott'], $items);
     }
 }

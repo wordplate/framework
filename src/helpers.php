@@ -88,6 +88,32 @@ if (!function_exists('value')) {
     }
 }
 
+if (!function_exists('elixir')) {
+    /**
+     * Get the path to a versioned Elixir file.
+     *
+     * @param string $file
+     *
+     * @throws \InvalidArgumentException
+     *
+     * @return string
+     */
+    function elixir($file)
+    {
+        static $manifest = null;
+
+        if (is_null($manifest)) {
+            $manifest = json_decode(file_get_contents(get_template_directory().'/assets/build/rev-manifest.json'), true);
+        }
+
+        if (isset($manifest[$file])) {
+            return get_template_directory_uri().'/assets/build/'.$manifest[$file];
+        }
+
+        throw new InvalidArgumentException("File {$file} not defined in asset manifest.");
+    }
+}
+
 if (!function_exists('acf_location_query')) {
     /**
      * Create an ACF location query array.
@@ -108,7 +134,7 @@ if (!function_exists('acf_hide_on_screen')) {
     /**
      * Create an ACF hide on screen array.
      *
-     * @param array $items
+     * @param string[] $items
      *
      * @return array
      */
@@ -116,8 +142,8 @@ if (!function_exists('acf_hide_on_screen')) {
     {
         $array = [];
 
-        foreach ($items as $index => $item) {
-            $array[$index] = $item;
+        foreach ($items as $i => $item) {
+            $array[$i] = $item;
         }
 
         return $array;

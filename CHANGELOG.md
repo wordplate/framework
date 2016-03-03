@@ -3,6 +3,7 @@
 ## 4.0.3 (upcoming)
 
 - Add ACF helpers methods
+- Add elixir helper method
 
 ## 4.0.2 (released 2016-03-02)
 

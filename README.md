@@ -1,5 +1,4 @@
-WordPlate Framework
-===================
+# WordPlate Framework
 
 [![Build Status](https://img.shields.io/travis/wordplate/framework/master.svg?style=flat)](https://travis-ci.org/wordplate/framework)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/wordplate/framework.svg?style=flat)](https://scrutinizer-ci.com/g/wordplate/framework/code-structure)

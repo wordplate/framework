@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.0.3 (upcoming)
+
+- Add ACF helpers methods
+
 ## 4.0.2 (released 2016-03-02)
 
 - Add roots/wp-password-bcrypt package

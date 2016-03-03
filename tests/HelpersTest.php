@@ -33,4 +33,16 @@ class HelpersTest extends AbstractTestCase
             return 'mcfly';
         }));
     }
+
+    public function testLocationQuery()
+    {
+        $location = acf_location_query('post_type', '==', 'mcfly');
+        $this->assertSame(['param' => 'post_type', 'operator' => '==', 'value' => 'mcfly'], $location);
+    }
+
+    public function testHideOnScreen()
+    {
+        $items = acf_hide_on_screen(['great', 'scott']);
+        $this->assertSame(['0' => 'great', '1' => 'scott'], $items);
+    }
 }

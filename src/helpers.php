@@ -87,3 +87,39 @@ if (!function_exists('value')) {
         return $value instanceof Closure ? $value() : $value;
     }
 }
+
+if (!function_exists('acf_location_query')) {
+    /**
+     * Create an ACF location query array.
+     *
+     * @param string $param
+     * @param string $operator
+     * @param string $value
+     *
+     * @return array
+     */
+    function acf_location_query($param, $operator, $value)
+    {
+        return compact('param', 'operator', 'value');
+    }
+}
+
+if (!function_exists('acf_hide_on_screen')) {
+    /**
+     * Create an ACF hide on screen array.
+     *
+     * @param array $items
+     *
+     * @return array
+     */
+    function acf_hide_on_screen($items)
+    {
+        $array = [];
+
+        foreach ($items as $index => $item) {
+            $array[$index] = $item;
+        }
+
+        return $array;
+    }
+}

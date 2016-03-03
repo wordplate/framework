@@ -1,8 +1,6 @@
 # WordPlate Framework
 
 [![Build Status](https://img.shields.io/travis/wordplate/framework/master.svg?style=flat)](https://travis-ci.org/wordplate/framework)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/wordplate/framework.svg?style=flat)](https://scrutinizer-ci.com/g/wordplate/framework/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/wordplate/framework.svg?style=flat)](https://scrutinizer-ci.com/g/wordplate/framework)
 [![Latest Version](https://img.shields.io/github/release/wordplate/framework.svg?style=flat)](https://github.com/wordplate/framework/releases)
 [![License](https://img.shields.io/packagist/l/wordplate/framework.svg?style=flat)](https://packagist.org/packages/wordplate/framework)
 

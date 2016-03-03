@@ -33,7 +33,7 @@ class HelpersTest extends AbstractTestCase
             return 'mcfly';
         }));
     }
-
+    
     public function testLocationQuery()
     {
         $location = acf_location_query('post_type', '==', 'mcfly');

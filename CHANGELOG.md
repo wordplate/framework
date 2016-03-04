@@ -1,9 +1,11 @@
 # CHANGELOG
 
-## 4.0.3 (upcoming)
+## 4.0.3 (released 2016-03-04)
 
 - Add ACF helpers methods
 - Add elixir helper method
+- Add revisions to style and script assets
+- Update library structure
 
 ## 4.0.2 (released 2016-03-02)
 

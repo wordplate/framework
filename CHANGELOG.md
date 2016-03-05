@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.0.4 (released 2016-03-06)
+
+- Remove unused Whoops dependency
+- Add WordPlate website links
+- Cleanup license headers
+
 ## 4.0.3 (released 2016-03-04)
 
 - Add ACF helpers methods

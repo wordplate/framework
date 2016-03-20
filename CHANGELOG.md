@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.0.5 (released 2016-03-20)
+
+- Move documentation to README
+- Move library to Plate plugin
+- Replace permalink GUIDs with UUIDs
+
 ## 4.0.4 (released 2016-03-06)
 
 - Remove unused Whoops dependency

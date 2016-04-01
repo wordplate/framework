@@ -15,7 +15,6 @@
     ],
     "require": {
         "php": "^5.5.9 || ^7.0",
-        "ext-mbstring": "*",
         "composer/installers": "^1.0",
         "danielstjules/stringy": "^2.2",
         "johnpbloch/wordpress": "^4.0",

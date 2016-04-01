@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.0.6 (upcoming)
+
+- Dropped ext-mbstring requirement
+
 ## 4.0.5 (released 2016-03-20)
 
 - Move documentation to README

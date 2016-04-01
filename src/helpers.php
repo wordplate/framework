@@ -93,21 +93,24 @@ if (!function_exists('elixir')) {
      * Get the path to a versioned Elixir file.
      *
      * @param string $file
+     * @param string $buildDirectory
      *
      * @throws \InvalidArgumentException
      *
      * @return string
      */
-    function elixir($file)
+    function elixir($file, $buildDirectory = 'assets/build')
     {
-        static $manifest = null;
+        static $manifest;
+        static $manifestPath;
 
-        if (is_null($manifest)) {
-            $manifest = json_decode(file_get_contents(get_template_directory().'/assets/build/rev-manifest.json'), true);
+        if (is_null($manifest) || $manifestPath !== $buildDirectory) {
+            $manifest = json_decode(file_get_contents(get_template_directory().'/'.$buildDirectory.'/rev-manifest.json'), true);
+            $manifestPath = $buildDirectory;
         }
 
         if (isset($manifest[$file])) {
-            return get_template_directory_uri().'/assets/build/'.$manifest[$file];
+            return get_template_directory_uri().'/'.$buildDirectory.'/'.$manifest[$file];
         }
 
         throw new InvalidArgumentException("File {$file} not defined in asset manifest.");

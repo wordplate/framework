@@ -1,9 +1,10 @@
 # CHANGELOG
 
-## 4.0.6 (upcoming)
+## 4.0.6 (released 2016-04-03)
 
 - Dropped ext-mbstring requirement
 - Update elixir manifest caching
+- Improved documentation
 
 ## 4.0.5 (released 2016-03-20)
 

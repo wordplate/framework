@@ -26,14 +26,6 @@ class HelpersTest extends AbstractTestCase
         $this->assertSame('mcfly', env('WP_DEBUG', 'mcfly'));
     }
 
-    public function testValue()
-    {
-        $this->assertSame('marty', value('marty'));
-        $this->assertSame('mcfly', value(function () {
-            return 'mcfly';
-        }));
-    }
-
     public function testLocationQuery()
     {
         $location = acf_location_query('post_type', '==', 'mcfly');

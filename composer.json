@@ -15,8 +15,9 @@
     ],
     "require": {
         "php": "^5.5.9 || ^7.0",
+        "ext-mbstring": "*",
         "composer/installers": "^1.0",
-        "danielstjules/stringy": "^2.2",
+        "illuminate/support": "5.2.*",
         "johnpbloch/wordpress": "^4.0",
         "roots/wp-password-bcrypt": "^1.0",
         "symfony/var-dumper": "^3.0",

@@ -33,12 +33,15 @@ if (!function_exists('env')) {
             case 'true':
             case '(true)':
                 return true;
+
             case 'false':
             case '(false)':
                 return false;
+
             case 'empty':
             case '(empty)':
                 return '';
+
             case 'null':
             case '(null)':
                 return;

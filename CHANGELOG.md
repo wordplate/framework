@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.0.7 (released 2016-04-04)
+
+- Add Illuminate support package
+- Add back ext-mbstring requirement
+
 ## 4.0.6 (released 2016-04-03)
 
 - Dropped ext-mbstring requirement

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.0 (upcoming)
+
+- Deprecate ACF helpers
+
 ## 4.0.7 (released 2016-04-04)
 
 - Add Illuminate support package

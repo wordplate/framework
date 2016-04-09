@@ -2,7 +2,8 @@
 
 ## 4.1.0 (upcoming)
 
-- Deprecate ACF helpers
+- Deprecate ACF helpers method
+- Add browser and os helper methods
 
 ## 4.0.7 (released 2016-04-04)
 

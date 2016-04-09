@@ -11,6 +11,9 @@
 
 namespace WordPlate\Tests;
 
+use Sinergi\BrowserDetector\Browser;
+use Sinergi\BrowserDetector\Os;
+
 /**
  * This is the helpers test class.
  *
@@ -18,6 +21,24 @@ namespace WordPlate\Tests;
  */
 class HelpersTest extends AbstractTestCase
 {
+    public function testAcfHideOnScreen()
+    {
+        $items = acf_hide_on_screen(['great', 'scott']);
+        $this->assertSame([0 => 'great', 1 => 'scott'], $items);
+    }
+
+    public function testAcfLocationQuery()
+    {
+        $location = acf_location_query('post_type', '==', 'mcfly');
+        $this->assertSame(['param' => 'post_type', 'operator' => '==', 'value' => 'mcfly'], $location);
+    }
+
+    public function testBrowser()
+    {
+        $this->assertInstanceOf(Browser::class, browser());
+        $this->assertSame(Browser::UNKNOWN, browser()->getName());
+    }
+
     public function testEnv()
     {
         $this->assertSame('testing', env('WP_ENV'));
@@ -26,15 +47,9 @@ class HelpersTest extends AbstractTestCase
         $this->assertSame('mcfly', env('WP_DEBUG', 'mcfly'));
     }
 
-    public function testLocationQuery()
+    public function testOs()
     {
-        $location = acf_location_query('post_type', '==', 'mcfly');
-        $this->assertSame(['param' => 'post_type', 'operator' => '==', 'value' => 'mcfly'], $location);
-    }
-
-    public function testHideOnScreen()
-    {
-        $items = acf_hide_on_screen(['great', 'scott']);
-        $this->assertSame([0 => 'great', 1 => 'scott'], $items);
+        $this->assertInstanceOf(Os::class, os());
+        $this->assertSame(Os::UNKNOWN, os()->getName());
     }
 }

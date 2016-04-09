@@ -10,6 +10,89 @@
  */
 
 use Illuminate\Support\Str;
+use Sinergi\BrowserDetector\Browser;
+use Sinergi\BrowserDetector\Os;
+
+if (!function_exists('acf_hide_on_screen')) {
+    /**
+     * Create an ACF hide on screen array.
+     *
+     * @param string[] $items
+     *
+     * @deprecated since version 4.0
+     *
+     * @return array
+     */
+    function acf_hide_on_screen($items)
+    {
+        $array = [];
+
+        foreach ($items as $i => $item) {
+            $array[$i] = $item;
+        }
+
+        return $array;
+    }
+}
+
+if (!function_exists('acf_location_query')) {
+    /**
+     * Create an ACF location query array.
+     *
+     * @param string $param
+     * @param string $operator
+     * @param string $value
+     *
+     * @deprecated since version 4.0
+     *
+     * @return array
+     */
+    function acf_location_query($param, $operator, $value)
+    {
+        return compact('param', 'operator', 'value');
+    }
+}
+
+if (!function_exists('browser')) {
+    /**
+     * Create a new browser instance.
+     *
+     * @return \Sinergi\BrowserDetector\Browser
+     */
+    function browser()
+    {
+        return new Browser();
+    }
+}
+
+if (!function_exists('elixir')) {
+    /**
+     * Get the path to a versioned Elixir file.
+     *
+     * @param string $file
+     * @param string $buildDirectory
+     *
+     * @throws \InvalidArgumentException
+     *
+     * @return string
+     */
+    function elixir($file, $buildDirectory = 'assets/build')
+    {
+        static $manifest;
+        static $manifestPath;
+
+        if (is_null($manifest) || $manifestPath !== $buildDirectory) {
+            $manifest = json_decode(file_get_contents(get_template_directory().'/'.$buildDirectory.'/rev-manifest.json'), true);
+            $manifestPath = $buildDirectory;
+        }
+
+        if (isset($manifest[$file])) {
+            return get_template_directory_uri().'/'.$buildDirectory.'/'.$manifest[$file];
+        }
+
+        throw new InvalidArgumentException("File {$file} not defined in asset manifest.");
+    }
+}
 
 if (!function_exists('env')) {
     /**
@@ -55,71 +138,14 @@ if (!function_exists('env')) {
     }
 }
 
-if (!function_exists('elixir')) {
+if (!function_exists('os')) {
     /**
-     * Get the path to a versioned Elixir file.
+     * Create a new os instance.
      *
-     * @param string $file
-     * @param string $buildDirectory
-     *
-     * @throws \InvalidArgumentException
-     *
-     * @return string
+     * @return \Sinergi\BrowserDetector\Os
      */
-    function elixir($file, $buildDirectory = 'assets/build')
+    function os()
     {
-        static $manifest;
-        static $manifestPath;
-
-        if (is_null($manifest) || $manifestPath !== $buildDirectory) {
-            $manifest = json_decode(file_get_contents(get_template_directory().'/'.$buildDirectory.'/rev-manifest.json'), true);
-            $manifestPath = $buildDirectory;
-        }
-
-        if (isset($manifest[$file])) {
-            return get_template_directory_uri().'/'.$buildDirectory.'/'.$manifest[$file];
-        }
-
-        throw new InvalidArgumentException("File {$file} not defined in asset manifest.");
-    }
-}
-
-if (!function_exists('acf_location_query')) {
-    /**
-     * Create an ACF location query array.
-     *
-     * @param string $param
-     * @param string $operator
-     * @param string $value
-     *
-     * @deprecated since version 4.0
-     *
-     * @return array
-     */
-    function acf_location_query($param, $operator, $value)
-    {
-        return compact('param', 'operator', 'value');
-    }
-}
-
-if (!function_exists('acf_hide_on_screen')) {
-    /**
-     * Create an ACF hide on screen array.
-     *
-     * @param string[] $items
-     *
-     * @deprecated since version 4.0
-     *
-     * @return array
-     */
-    function acf_hide_on_screen($items)
-    {
-        $array = [];
-
-        foreach ($items as $i => $item) {
-            $array[$i] = $item;
-        }
-
-        return $array;
+        return new Os();
     }
 }

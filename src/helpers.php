@@ -92,6 +92,8 @@ if (!function_exists('acf_location_query')) {
      * @param string $operator
      * @param string $value
      *
+     * @deprecated since version 4.0
+     *
      * @return array
      */
     function acf_location_query($param, $operator, $value)
@@ -105,6 +107,8 @@ if (!function_exists('acf_hide_on_screen')) {
      * Create an ACF hide on screen array.
      *
      * @param string[] $items
+     *
+     * @deprecated since version 4.0
      *
      * @return array
      */

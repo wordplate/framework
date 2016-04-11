@@ -53,18 +53,6 @@ if (!function_exists('acf_location_query')) {
     }
 }
 
-if (!function_exists('browser')) {
-    /**
-     * Create a new browser instance.
-     *
-     * @return \Sinergi\BrowserDetector\Browser
-     */
-    function browser()
-    {
-        return new Browser();
-    }
-}
-
 if (!function_exists('elixir')) {
     /**
      * Get the path to a versioned Elixir file.
@@ -135,17 +123,5 @@ if (!function_exists('env')) {
         }
 
         return $value;
-    }
-}
-
-if (!function_exists('os')) {
-    /**
-     * Create a new os instance.
-     *
-     * @return \Sinergi\BrowserDetector\Os
-     */
-    function os()
-    {
-        return new Os();
     }
 }

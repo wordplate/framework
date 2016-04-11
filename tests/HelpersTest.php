@@ -33,23 +33,11 @@ class HelpersTest extends AbstractTestCase
         $this->assertSame(['param' => 'post_type', 'operator' => '==', 'value' => 'mcfly'], $location);
     }
 
-    public function testBrowser()
-    {
-        $this->assertInstanceOf(Browser::class, browser());
-        $this->assertSame(Browser::UNKNOWN, browser()->getName());
-    }
-
     public function testEnv()
     {
         $this->assertSame('testing', env('WP_ENV'));
         putenv('WP_THEME=marty');
         $this->assertSame('marty', env('WP_THEME'));
         $this->assertSame('mcfly', env('WP_DEBUG', 'mcfly'));
-    }
-
-    public function testOs()
-    {
-        $this->assertInstanceOf(Os::class, os());
-        $this->assertSame(Os::UNKNOWN, os()->getName());
     }
 }

@@ -10,8 +10,6 @@
  */
 
 use Illuminate\Support\Str;
-use Sinergi\BrowserDetector\Browser;
-use Sinergi\BrowserDetector\Os;
 
 if (!function_exists('acf_hide_on_screen')) {
     /**

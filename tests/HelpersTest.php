@@ -11,9 +11,6 @@
 
 namespace WordPlate\Tests;
 
-use Sinergi\BrowserDetector\Browser;
-use Sinergi\BrowserDetector\Os;
-
 /**
  * This is the helpers test class.
  *

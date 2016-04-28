@@ -1,8 +1,13 @@
 # CHANGELOG
 
-## 4.1.0 (upcoming)
+## 4.1.0 (released 2016-04-28)
 
+- Add mail plugin
+- Add multisite plugin
+- Add uuid plugin
 - Deprecate ACF helpers method
+- Update documentation
+- Update plate plugin
 
 ## 4.0.7 (released 2016-04-04)
 

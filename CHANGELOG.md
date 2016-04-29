@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.1 (released 2016-04-29)
+
+- Update multisite support
+
 ## 4.1.0 (released 2016-04-28)
 
 - Add mail plugin

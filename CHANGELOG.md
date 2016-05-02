@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.2 (released 2016-05-02)
+
+- Remove Soil plugin
+
 ## 4.1.1 (released 2016-04-29)
 
 - Update multisite support

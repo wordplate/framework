@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.3 (released 2016-05-05)
+
+- Remove Soil link
+
 ## 4.1.2 (released 2016-05-02)
 
 - Remove Soil plugin

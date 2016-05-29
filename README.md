@@ -1,6 +1,7 @@
 # WordPlate Framework
 
 [![Build Status](https://img.shields.io/travis/wordplate/framework/master.svg?style=flat)](https://travis-ci.org/wordplate/framework)
+[![StyleCI](https://styleci.io/repos/33867650/shield?style=flat)](https://styleci.io/repos/33867650)
 [![Latest Version](https://img.shields.io/github/release/wordplate/framework.svg?style=flat)](https://github.com/wordplate/framework/releases)
 [![License](https://img.shields.io/packagist/l/wordplate/framework.svg?style=flat)](https://packagist.org/packages/wordplate/framework)
 

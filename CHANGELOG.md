@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.2.0 (upcoming)
+
+- Drop php 5.5 support
+
 ## 4.1.3 (released 2016-05-05)
 
 - Remove Soil link

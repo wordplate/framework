@@ -17,10 +17,10 @@
         "php": "^5.6.4 || ^7.0",
         "ext-mbstring": "*",
         "composer/installers": "^1.0",
-        "illuminate/support": "5.2.*",
+        "illuminate/support": "5.3.*",
         "johnpbloch/wordpress": "^4.0",
         "roots/wp-password-bcrypt": "^1.0",
-        "symfony/var-dumper": "^3.0",
+        "symfony/var-dumper": "^3.1",
         "vlucas/phpdotenv": "^2.0"
     },
     "require-dev": {

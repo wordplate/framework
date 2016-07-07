@@ -3,6 +3,8 @@
 ## 4.2.0 (upcoming)
 
 - Drop php 5.5 support
+- Update Laravel to 5.3
+- Update Symfony to 3.1
 
 ## 4.1.3 (released 2016-05-05)
 

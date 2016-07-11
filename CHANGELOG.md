@@ -1,10 +1,11 @@
 # CHANGELOG
 
-## 4.2.0 (upcoming)
+## 4.2.0 (released 2016-07-11)
 
 - Drop php 5.5 support
 - Update Laravel to 5.3
 - Update Symfony to 3.1
+- Remove UUID plugin by default
 
 ## 4.1.3 (released 2016-05-05)
 

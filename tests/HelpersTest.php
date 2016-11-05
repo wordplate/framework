@@ -11,12 +11,14 @@
 
 namespace WordPlate\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * This is the helpers test class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class HelpersTest extends AbstractTestCase
+class HelpersTest extends TestCase
 {
     public function testAcfHideOnScreen()
     {
@@ -28,6 +30,19 @@ class HelpersTest extends AbstractTestCase
     {
         $location = acf_location_query('post_type', '==', 'mcfly');
         $this->assertSame(['param' => 'post_type', 'operator' => '==', 'value' => 'mcfly'], $location);
+    }
+
+    public function testElixir()
+    {
+        $this->assertSame('https://localhost/stubs/1984-740b8162ec.js', elixir('1984.js', 'stubs'));
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testElixirException()
+    {
+        elixir('1955.js', 'stubs');
     }
 
     public function testEnv()

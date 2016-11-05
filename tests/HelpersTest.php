@@ -51,5 +51,13 @@ class HelpersTest extends TestCase
         putenv('WP_THEME=marty');
         $this->assertSame('marty', env('WP_THEME'));
         $this->assertSame('mcfly', env('WP_DEBUG', 'mcfly'));
+        putenv('WP_TEST=(true)');
+        $this->assertTrue(env('WP_TEST'));
+        putenv('WP_TEST=(false)');
+        $this->assertFalse(env('WP_TEST'));
+        putenv('WP_TEST=(empty)');
+        $this->assertEmpty(env('WP_TEST'));
+        putenv('WP_TEST=(null)');
+        $this->assertNull(env('WP_TEST'));
     }
 }

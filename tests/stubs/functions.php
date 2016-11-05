@@ -11,7 +11,7 @@
 
 function get_template_directory()
 {
-    return __DIR__;
+    return __DIR__.'/..';
 }
 
 function get_template_directory_uri()

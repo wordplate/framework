@@ -35,7 +35,7 @@
     },
     "autoload-dev": {
         "files": [
-            "tests/functions.php"
+            "tests/stubs/functions.php"
         ],
         "psr-4": {
             "WordPlate\\Tests\\": "tests/"

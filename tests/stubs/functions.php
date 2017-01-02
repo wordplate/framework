@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 function get_template_directory()
 {
     return __DIR__.'/..';

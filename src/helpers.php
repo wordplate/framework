@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 use Illuminate\Support\Str;
 
 if (!function_exists('acf_hide_on_screen')) {
@@ -21,7 +23,7 @@ if (!function_exists('acf_hide_on_screen')) {
      *
      * @return array
      */
-    function acf_hide_on_screen($items)
+    function acf_hide_on_screen(array $items): array
     {
         $array = [];
 
@@ -45,7 +47,7 @@ if (!function_exists('acf_location_query')) {
      *
      * @return array
      */
-    function acf_location_query($param, $operator, $value)
+    function acf_location_query(string $param, string $operator, string $value): array
     {
         return compact('param', 'operator', 'value');
     }
@@ -62,7 +64,7 @@ if (!function_exists('elixir')) {
      *
      * @return string
      */
-    function elixir($file, $buildDirectory = 'assets/build')
+    function elixir(string $file, string $buildDirectory = 'assets/build'): string
     {
         static $manifest;
         static $manifestPath;
@@ -90,7 +92,7 @@ if (!function_exists('env')) {
      *
      * @return mixed
      */
-    function env($key, $default = null)
+    function env(string $key, $default = null)
     {
         $value = getenv($key);
 

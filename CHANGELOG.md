@@ -5,6 +5,7 @@
 - Update Laravel to 5.4
 - Update Symfony to 3.2
 - Update WordPress to 5.7
+- Remove PHP 5.6 support
 
 ## 4.2.0 (released 2016-07-11)
 

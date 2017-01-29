@@ -36,7 +36,7 @@ class HelpersTest extends TestCase
 
     public function testElixir()
     {
-        $this->assertSame('https://localhost/stubs/1984-740b8162ec.js', elixir('1984.js', 'stubs'));
+        $this->assertSame('https://localhost/../stubs/1984-740b8162ec.js', elixir('1984.js', '../stubs'));
     }
 
     /**
@@ -44,7 +44,7 @@ class HelpersTest extends TestCase
      */
     public function testElixirException()
     {
-        elixir('1955.js', 'stubs');
+        elixir('1955.js', '../stubs');
     }
 
     public function testEnv()
@@ -70,5 +70,10 @@ class HelpersTest extends TestCase
 
         putenv('WP_TEST="einstein"');
         $this->assertSame('einstein', env('WP_TEST'));
+    }
+
+    public function testMix()
+    {
+        $this->assertSame('https://localhost/assets/1955-740b8162ec.js', (string) mix('1955.js'));
     }
 }

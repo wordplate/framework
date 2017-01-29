@@ -11,6 +11,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
 if (!function_exists('acf_hide_on_screen')) {
@@ -123,5 +124,45 @@ if (!function_exists('env')) {
         }
 
         return $value;
+    }
+}
+
+if (!function_exists('mix')) {
+    /**
+     * Get the path to a versioned Mix file.
+     *
+     * @param string $path
+     *
+     * @throws \Exception
+     *
+     * @return \Illuminate\Support\HtmlString
+     */
+    function mix(string $path): HtmlString
+    {
+        static $manifest;
+        static $shouldHotReload;
+
+        if (!$manifest) {
+            if (!file_exists($manifestPath = get_template_directory().'/assets/mix-manifest.json')) {
+                throw new Exception('The Mix manifest does not exist.');
+            }
+
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+        }
+
+        if (!Str::startsWith($path, '/')) {
+            $path = "/{$path}";
+        }
+
+        if (!array_key_exists($path, $manifest)) {
+            throw new Exception(
+                "Unable to locate Mix file: {$path}. Please check your ".
+                'webpack.mix.js output paths and try again.'
+            );
+        }
+
+        return $shouldHotReload = file_exists(get_template_directory().'/assets/hot')
+                    ? new HtmlString("http://localhost:8080{$manifest[$path]}")
+                    : new HtmlString(get_template_directory_uri().'/assets'.$manifest[$path]);
     }
 }

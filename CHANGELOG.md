@@ -2,6 +2,7 @@
 
 ## 4.3.0 (upcoming)
 
+- Added Laravel Mix
 - Update Laravel to 5.4
 - Update Symfony to 3.2
 - Update WordPress to 4.7

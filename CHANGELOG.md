@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 4.3.0 (upcoming)
+## 4.3.0 (released 2017-01-29)
 
 - Added Laravel Mix
 - Update Laravel to 5.4

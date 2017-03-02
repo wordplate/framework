@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
+use WordPlate\Http\Request;
 
 if (!function_exists('acf_hide_on_screen')) {
     /**
@@ -164,5 +165,17 @@ if (!function_exists('mix')) {
         return $shouldHotReload = file_exists(get_template_directory().'/assets/hot')
                     ? new HtmlString("http://localhost:8080{$manifest[$path]}")
                     : new HtmlString(get_template_directory_uri().'/assets'.$manifest[$path]);
+    }
+}
+
+if (!function_exists('request')) {
+    /**
+     * Get the current request instance.
+     *
+     * @return \WordPlate\Http\Request
+     */
+    function request(): Request
+    {
+        return new Request();
     }
 }

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * This is the helpers test class.
@@ -75,5 +76,10 @@ class HelpersTest extends TestCase
     public function testMix()
     {
         $this->assertSame('https://localhost/assets/1955-740b8162ec.js', (string) mix('1955.js'));
+    }
+
+    public function testRequest()
+    {
+        $this->assertInstanceOf(Request::class, request());
     }
 }

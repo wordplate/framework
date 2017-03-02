@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use WordPlate\Http\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 if (!function_exists('acf_hide_on_screen')) {
     /**
@@ -172,10 +172,10 @@ if (!function_exists('request')) {
     /**
      * Get the current request instance.
      *
-     * @return \WordPlate\Http\Request
+     * @return \Symfony\Component\HttpFoundation\Request
      */
     function request(): Request
     {
-        return new Request();
+        return Request::createFromGlobals();
     }
 }

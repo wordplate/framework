@@ -52,9 +52,7 @@
     },
     "suggest": {
         "wordplate/mail": "A mail plugin for WordPlate",
-        "wordplate/multisite": "A multisite plugin for WordPlate",
-        "wordplate/plate": "A framework plugin for WordPlate",
-        "wordplate/uuid": "A UUID plugin for WordPlate"
+        "wordplate/plate": "A framework plugin for WordPlate"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

@@ -27,8 +27,6 @@ class ApplicationTest extends TestCase
     {
         $application = new Application(__DIR__.'/stubs');
 
-        define('ABSPATH', __DIR__.'/stubs/');
-
         $application->run();
 
         $this->assertInstanceOf(Application::class, $application);

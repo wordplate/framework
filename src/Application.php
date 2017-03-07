@@ -77,7 +77,7 @@ class Application
      */
     public function run(): void
     {
-        $this->dotenv->load();
+        $this->environment->load();
 
         // The WordPress environment.
         define('WP_ENV', env('WP_ENV', 'production'));

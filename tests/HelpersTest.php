@@ -23,18 +23,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class HelpersTest extends TestCase
 {
-    public function testAcfHideOnScreen()
-    {
-        $items = acf_hide_on_screen(['great', 'scott']);
-        $this->assertSame([0 => 'great', 1 => 'scott'], $items);
-    }
-
-    public function testAcfLocationQuery()
-    {
-        $location = acf_location_query('post_type', '==', 'mcfly');
-        $this->assertSame(['param' => 'post_type', 'operator' => '==', 'value' => 'mcfly'], $location);
-    }
-
     public function testElixir()
     {
         $this->assertSame('https://localhost/../stubs/1984-740b8162ec.js', elixir('1984.js', '../stubs'));

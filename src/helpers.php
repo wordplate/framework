@@ -15,46 +15,6 @@ use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Request;
 
-if (!function_exists('acf_hide_on_screen')) {
-    /**
-     * Create an ACF hide on screen array.
-     *
-     * @param string[] $items
-     *
-     * @deprecated since version 4.0
-     *
-     * @return array
-     */
-    function acf_hide_on_screen(array $items): array
-    {
-        $array = [];
-
-        foreach ($items as $i => $item) {
-            $array[$i] = $item;
-        }
-
-        return $array;
-    }
-}
-
-if (!function_exists('acf_location_query')) {
-    /**
-     * Create an ACF location query array.
-     *
-     * @param string $param
-     * @param string $operator
-     * @param string $value
-     *
-     * @deprecated since version 4.0
-     *
-     * @return array
-     */
-    function acf_location_query(string $param, string $operator, string $value): array
-    {
-        return compact('param', 'operator', 'value');
-    }
-}
-
 if (!function_exists('elixir')) {
     /**
      * Get the path to a versioned Elixir file.

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use Symfony\Component\HttpFoundation\Request;
 
 if (!function_exists('elixir')) {
     /**
@@ -125,17 +124,5 @@ if (!function_exists('mix')) {
         return $shouldHotReload = file_exists(get_template_directory().'/assets/hot')
                     ? new HtmlString("http://localhost:8080{$manifest[$path]}")
                     : new HtmlString(get_template_directory_uri().'/assets'.$manifest[$path]);
-    }
-}
-
-if (!function_exists('request')) {
-    /**
-     * Get the current request instance.
-     *
-     * @return \Symfony\Component\HttpFoundation\Request
-     */
-    function request(): Request
-    {
-        return Request::createFromGlobals();
     }
 }

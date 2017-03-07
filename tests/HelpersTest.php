@@ -65,9 +65,4 @@ class HelpersTest extends TestCase
     {
         $this->assertSame('https://localhost/assets/1955-740b8162ec.js', (string) mix('1955.js'));
     }
-
-    public function testRequest()
-    {
-        $this->assertInstanceOf(Request::class, request());
-    }
 }

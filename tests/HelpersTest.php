@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace WordPlate\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * This is the helpers test class.

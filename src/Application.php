@@ -65,7 +65,7 @@ class Application
      *
      * @return string
      */
-    protected function getPublicPath()
+    protected function getPublicPath(): string
     {
         return $this->basePath.DIRECTORY_SEPARATOR.'public';
     }
@@ -75,7 +75,7 @@ class Application
      *
      * @return void
      */
-    public function run(): void
+    public function run()
     {
         $this->environment->load();
 

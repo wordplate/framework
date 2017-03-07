@@ -23,9 +23,13 @@ use WordPlate\Application;
  */
 class ApplicationTest extends TestCase
 {
-    public function testStandard()
+    public function testRun()
     {
         $application = new Application(__DIR__.'/stubs');
+
+        define('ABSPATH', __DIR__.'/stubs/');
+
+        $application->run();
 
         $this->assertInstanceOf(Application::class, $application);
     }

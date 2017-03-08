@@ -22,19 +22,6 @@ use PHPUnit\Framework\TestCase;
  */
 class HelpersTest extends TestCase
 {
-    public function testElixir()
-    {
-        $this->assertSame('https://localhost/../stubs/1984-740b8162ec.js', elixir('1984.js', '../stubs'));
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     */
-    public function testElixirException()
-    {
-        elixir('1955.js', '../stubs');
-    }
-
     public function testEnv()
     {
         $this->assertSame('testing', env('WP_ENV'));

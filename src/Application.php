@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate;
 
 use Dotenv\Dotenv;
+use Dotenv\Exception\InvalidPathException;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -77,7 +78,11 @@ class Application
      */
     public function run()
     {
-        $this->environment->load();
+        try {
+            $this->environment->load();
+        } catch (InvalidPathException $e) {
+            //
+        }
 
         // The WordPress environment.
         define('WP_ENV', env('WP_ENV', 'production'));

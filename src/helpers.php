@@ -86,14 +86,11 @@ if (!function_exists('mix')) {
         }
 
         if (!array_key_exists($path, $manifest)) {
-            throw new Exception(
-                "Unable to locate Mix file: {$path}. Please check your ".
-                'webpack.mix.js output paths and try again.'
-            );
+            throw new Exception("Unable to locate Mix file: {$path}. Please check your webpack.mix.js output paths and try again.");
         }
 
         return $shouldHotReload = file_exists(get_template_directory().'/assets/hot')
-                    ? new HtmlString("http://localhost:8080{$manifest[$path]}")
-                    : new HtmlString(get_template_directory_uri().'/assets'.$manifest[$path]);
+            ? new HtmlString("http://localhost:8080{$manifest[$path]}")
+            : new HtmlString(get_template_directory_uri().'/assets'.$manifest[$path]);
     }
 }

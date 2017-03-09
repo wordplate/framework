@@ -32,20 +32,6 @@ class Application
     protected $basePath;
 
     /**
-     * The current request from PHP's super globals.
-     *
-     * @var \Symfony\Component\HttpFoundation\Request
-     */
-    protected $request;
-
-    /**
-     * The environment instance.
-     *
-     * @var \Dotenv\Dotenv
-     */
-    protected $environment;
-
-    /**
      * Create a new application instance.
      *
      * @param string $basePath
@@ -55,10 +41,6 @@ class Application
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
-
-        $this->request = Request::createFromGlobals();
-
-        $this->environment = new Dotenv($this->basePath);
     }
 
     /**
@@ -79,7 +61,7 @@ class Application
     public function run()
     {
         try {
-            $this->environment->load();
+            (new Dotenv($this->basePath))->load();
         } catch (InvalidPathException $e) {
             //
         }
@@ -114,8 +96,10 @@ class Application
         define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
         define('NONCE_SALT', env('NONCE_SALT'));
 
+        $request = Request::createFromGlobals();
+
         // Set the home url to the current domain.
-        define('WP_HOME', env('WP_URL', $this->request->getSchemeAndHttpHost()));
+        define('WP_HOME', env('WP_URL', $request->getSchemeAndHttpHost()));
 
         // Set the WordPress directory path.
         define('WP_SITEURL', env('WP_SITEURL', sprintf('%s/%s', WP_HOME, env('WP_DIR', 'wordpress'))));

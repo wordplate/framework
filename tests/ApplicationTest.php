@@ -23,12 +23,31 @@ use WordPlate\Application;
  */
 class ApplicationTest extends TestCase
 {
-    public function testRun()
+    public function testInvalidPathException()
     {
+        $application = new Application(__DIR__.'/stubs');
+
+        putenv('WP_DIR=wp');
+
+        $application->run();
+
+        $this->assertInstanceOf(Application::class, $application);
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function testStandard()
+    {
+        file_put_contents(__DIR__.'/stubs/.env', 'WP_DIR=wp');
+
         $application = new Application(__DIR__.'/stubs');
 
         $application->run();
 
         $this->assertInstanceOf(Application::class, $application);
+
+        unlink(__DIR__.'/stubs/.env');
     }
 }

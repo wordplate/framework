@@ -88,7 +88,7 @@ if (!function_exists('mix')) {
         static $shouldHotReload;
 
         if (!$manifest) {
-            if (!file_exists($manifestPath = get_template_directory().'/assets/mix-manifest.json')) {
+            if (!file_exists($manifestPath = template_path('assets/mix-manifest.json'))) {
                 throw new Exception('The Mix manifest does not exist.');
             }
 
@@ -103,9 +103,9 @@ if (!function_exists('mix')) {
             throw new Exception("Unable to locate Mix file: {$path}. Please check your webpack.mix.js output paths and try again.");
         }
 
-        return $shouldHotReload = file_exists(get_template_directory().'/assets/hot')
+        return $shouldHotReload = file_exists(template_path('assets/hot'))
             ? new HtmlString("http://localhost:8080{$manifest[$path]}")
-            : new HtmlString(get_template_directory_uri().'/assets'.$manifest[$path]);
+            : new HtmlString(asset('assets'.$manifest[$path]));
     }
 }
 

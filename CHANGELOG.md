@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 5.0.0 (upcoming)
+
+- Added asset() helper
+- Added template_path() helper
+- Added Application class
+- Updated HTTPS support
+- Removed deprecated helpers
+- Removed elixir() helper
+
 ## 4.3.0 (released 2017-01-29)
 
 - Added Laravel Mix

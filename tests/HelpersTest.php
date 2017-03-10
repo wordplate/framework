@@ -22,6 +22,12 @@ use PHPUnit\Framework\TestCase;
  */
 class HelpersTest extends TestCase
 {
+    public function testAsset()
+    {
+        $this->assertSame('https://wordplate.dev/favicon.ico', asset('favicon.ico'));
+        $this->assertSame('https://wordplate.dev/favicon.ico', asset('/favicon.ico'));
+    }
+
     public function testEnv()
     {
         $this->assertSame('testing', env('WP_ENV'));
@@ -49,6 +55,11 @@ class HelpersTest extends TestCase
 
     public function testMix()
     {
-        $this->assertSame('https://localhost/assets/1955-740b8162ec.js', (string) mix('1955.js'));
+        $this->assertSame('https://wordplate.dev/assets/1955-740b8162ec.js', (string) mix('1955.js'));
+    }
+
+    public function testTemplatePath()
+    {
+        $this->assertSame(__DIR__.'/stubs/partials/navigation.php', template_path('partials/navigation.php'));
     }
 }

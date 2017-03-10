@@ -14,6 +14,20 @@ declare(strict_types=1);
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
+if (!function_exists('asset')) {
+    /**
+     * Generate a url for the current theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function asset(string $path = null): string
+    {
+        return sprintf('%s/%s', get_template_directory_uri(), ltrim($path, '/'));
+    }
+}
+
 if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable.
@@ -92,5 +106,21 @@ if (!function_exists('mix')) {
         return $shouldHotReload = file_exists(get_template_directory().'/assets/hot')
             ? new HtmlString("http://localhost:8080{$manifest[$path]}")
             : new HtmlString(get_template_directory_uri().'/assets'.$manifest[$path]);
+    }
+}
+
+if (!function_exists('template_path')) {
+    /**
+     * Generate a path for the current theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function template_path(string $path = ''): string
+    {
+        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
+
+        return sprintf('%s%s', get_template_directory(), $path);
     }
 }

@@ -18,5 +18,5 @@ function get_template_directory()
 
 function get_template_directory_uri()
 {
-    return 'https://localhost';
+    return 'https://wordplate.dev';
 }

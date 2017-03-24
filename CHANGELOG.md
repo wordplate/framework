@@ -6,6 +6,7 @@
 - Added template_path() helper
 - Added Application class
 - Updated HTTPS support
+- Updated logo and website
 - Removed deprecated helpers
 - Removed elixir() helper
 

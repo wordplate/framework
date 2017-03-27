@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 5.0.0 (upcoming)
+## 5.0.0 (released 2017-03-27)
 
 - Added asset() helper
 - Added template_path() helper

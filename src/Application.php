@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Application
+final class Application
 {
     /**
      * The base path for the WordPlate installation.

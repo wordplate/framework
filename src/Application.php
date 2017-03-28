@@ -41,6 +41,22 @@ class Application
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
+
+        $this->loadEnvironment();
+    }
+
+    /**
+     * Load the environment variables.
+     *
+     * @return void
+     */
+    protected function loadEnvironment()
+    {
+        try {
+            (new Dotenv($this->basePath))->load();
+        } catch (InvalidPathException $e) {
+            //
+        }
     }
 
     /**
@@ -60,12 +76,6 @@ class Application
      */
     public function run()
     {
-        try {
-            (new Dotenv($this->basePath))->load();
-        } catch (InvalidPathException $e) {
-            //
-        }
-
         // The WordPress environment.
         define('WP_ENV', env('WP_ENV', 'production'));
 

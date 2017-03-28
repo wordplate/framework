@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.0.1 (released 2017-03-28)
+
+- Added environment variables
+- Updated environment loader
+
 ## 5.0.0 (released 2017-03-27)
 
 - Added asset() helper

@@ -81,7 +81,6 @@ final class Application
 
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);
-
         define('WP_DEBUG', $debug);
         define('WP_DEBUG_DISPLAY', env('WP_DEBUG_DISPLAY', $debug));
         define('SCRIPT_DEBUG', env('SCRIPT_DEBUG', $debug));
@@ -108,9 +107,8 @@ final class Application
         define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
         define('NONCE_SALT', env('NONCE_SALT'));
 
-        $request = Request::createFromGlobals();
-
         // Set the home url to the current domain.
+        $request = Request::createFromGlobals();
         define('WP_HOME', env('WP_URL', $request->getSchemeAndHttpHost()));
 
         // Set the WordPress directory path.

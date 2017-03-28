@@ -70,9 +70,11 @@ class Application
         define('WP_ENV', env('WP_ENV', 'production'));
 
         // For developers: WordPress debugging mode.
-        define('WP_DEBUG', env('WP_DEBUG', false));
-        define('WP_DEBUG_DISPLAY', env('WP_DEBUG', false));
-        define('SCRIPT_DEBUG', env('WP_DEBUG', false));
+        $debug = env('WP_DEBUG', false);
+
+        define('WP_DEBUG', $debug);
+        define('WP_DEBUG_DISPLAY', env('WP_DEBUG_DISPLAY', $debug));
+        define('SCRIPT_DEBUG', env('SCRIPT_DEBUG', $debug));
 
         // The MySQL database configuration with database name, username,
         // password, hostname charset and database collae type.

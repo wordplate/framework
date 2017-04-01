@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.0.2 (released 2017-04-01)
+
+- Added new theme assets
+
 ## 5.0.1 (released 2017-03-28)
 
 - Added environment variables

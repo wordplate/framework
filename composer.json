@@ -55,7 +55,7 @@
     },
     "suggest": {
         "wordplate/mail": "A mail plugin for WordPlate",
-        "wordplate/plate": "A framework plugin for WordPlate"
+        "wordplate/plate": "A theme support plugin for WordPlate"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

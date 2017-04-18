@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.0.3 (upcoming)
+
+- Update default database charset
+
 ## 5.0.2 (released 2017-04-01)
 
 - Added new theme assets

@@ -32,13 +32,6 @@ final class Application
     protected $basePath;
 
     /**
-     * WordPress database table prefix.
-     *
-     * @var string
-     */
-    public $tablePrefix;
-
-    /**
      * The WordPress database table prefix.
      *
      * @param string $basePath
@@ -104,7 +97,6 @@ final class Application
 
         // Set the WordPress database table prefix.
         extract(['table_prefix' => env('WP_PREFIX', 'wp_')]);
-        $this->tablePrefix = $table_prefix;
 
         // Set the unique authentication keys and salts.
         define('AUTH_KEY', env('AUTH_KEY'));
@@ -147,9 +139,9 @@ final class Application
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
         }
 
-        // WP-CLI require 'wp-settings.php' to be included in 'wp-config.php'.
+        // WP-CLI require 'wp-settings.php' to be required in 'wp-config.php'.
         if (!class_exists('WP_CLI')) {
-            // Sets up WordPress vars and included files.
+            // Set WordPress variables and included files.
             require sprintf('%swp-settings.php', ABSPATH);
         }
     }

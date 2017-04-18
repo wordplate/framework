@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 5.0.3 (upcoming)
+## 5.0.3 (released 2017-04-18)
 
 - Fix wp-cli support
 - Update default database charset

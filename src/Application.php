@@ -91,8 +91,8 @@ final class Application
         define('DB_USER', env('DB_USER'));
         define('DB_PASSWORD', env('DB_PASSWORD'));
         define('DB_HOST', env('DB_HOST'));
-        define('DB_CHARSET', env('DB_CHARSET', 'utf8'));
-        define('DB_COLLATE', env('DB_COLLATE', ''));
+        define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
+        define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
 
         // Set the WordPress database table prefix.
         extract(['table_prefix' => env('WP_PREFIX', 'wp_')]);

@@ -4,7 +4,7 @@
 
 - Fix wp-cli support
 - Update default database charset
-- Remove table prefix variable
+- Update table prefix variable
 
 ## 5.0.2 (released 2017-04-01)
 

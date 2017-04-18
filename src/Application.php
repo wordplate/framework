@@ -95,6 +95,9 @@ final class Application
         define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
         define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
 
+        // Set the WordPress database table prefix.
+        $table_prefix = env('WP_PREFIX', 'wp_');
+
         // Set the unique authentication keys and salts.
         define('AUTH_KEY', env('AUTH_KEY'));
         define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));

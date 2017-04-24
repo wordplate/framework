@@ -41,7 +41,6 @@ final class Application
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
-        $this->tablePrefix = null;
 
         $this->loadEnvironment();
     }

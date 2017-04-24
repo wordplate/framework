@@ -32,6 +32,13 @@ final class Application
     protected $basePath;
 
     /**
+     * The public web directory path.
+     *
+     * @var string
+     */
+    protected $publicPath;
+
+    /**
      * The WordPress database table prefix.
      *
      * @param string $basePath
@@ -57,16 +64,6 @@ final class Application
         } catch (InvalidPathException $e) {
             //
         }
-    }
-
-    /**
-     * Get the path to the public / web directory.
-     *
-     * @return string
-     */
-    protected function getPublicPath(): string
-    {
-        return $this->basePath.DIRECTORY_SEPARATOR.'public';
     }
 
     /**
@@ -143,5 +140,31 @@ final class Application
             // Set WordPress variables and included files.
             require sprintf('%swp-settings.php', ABSPATH);
         }
+    }
+
+    /**
+     * Get the public web directory path.
+     *
+     * @return string
+     */
+    public function getPublicPath(): string
+    {
+        if (is_null($this->publicPath)) {
+            return $this->basePath.DIRECTORY_SEPARATOR.'public';
+        }
+
+        return $this->publicPath;
+    }
+
+    /**
+     * Set the public web directory path.
+     *
+     * @param string $publicPath
+     *
+     * @return void
+     */
+    public function setPublicPath(string $publicPath)
+    {
+        $this->publicPath = $publicPath;
     }
 }

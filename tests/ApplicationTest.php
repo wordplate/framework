@@ -43,10 +43,12 @@ class ApplicationTest extends TestCase
         file_put_contents(__DIR__.'/stubs/.env', 'WP_DIR=wp');
 
         $application = new Application(__DIR__.'/stubs');
-
         $application->run();
 
         $this->assertInstanceOf(Application::class, $application);
+
+        $application->setPublicPath(__DIR__);
+        $this->assertSame(__DIR__, $application->getPublicPath());
 
         unlink(__DIR__.'/stubs/.env');
     }

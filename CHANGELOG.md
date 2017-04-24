@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.0.4 (released 2017-04-24)
+
+- Add public path property
+
 ## 5.0.3 (released 2017-04-18)
 
 - Fix wp-cli support

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests;
 
+use Exception;
 use Illuminate\Support\HtmlString;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Application;
@@ -57,32 +58,41 @@ class HelpersTest extends TestCase
 
     public function testMix()
     {
-        if (!file_exists(__DIR__.'/stubs/assets')) {
-            mkdir(__DIR__.'/stubs/assets');
-        }
-
+        mkdir(__DIR__.'/stubs/assets');
         file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{"/1955.js": "/1955-740b8162ec.js"}');
 
         $this->assertSame('https://wordplate.dev/assets/1955-740b8162ec.js', (string) mix('1955.js'));
         $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
 
         unlink(__DIR__.'/stubs/assets/mix-manifest.json');
+        rmdir(__DIR__.'/stubs/assets');
     }
 
     /**
-     * @expectedException \Exception
+     * @runInSeparateProcess
      */
     public function testMixMissingManifest()
     {
-        mix('1985.js');
+        try {
+            mix('1985.js');
+        } catch (Exception $e) {
+            $this->assertSame('The Mix manifest does not exist.', $e->getMessage());
+        }
     }
 
-    /**
-     * @expectedException \Exception
-     */
     public function testMixMissingFile()
     {
-        mix('2015.js');
+        mkdir(__DIR__.'/stubs/assets');
+        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{}');
+
+        try {
+            mix('2015.js');
+        } catch (Exception $e) {
+            $this->assertSame('Unable to locate Mix file: /2015.js. Please check your webpack.mix.js output paths and try again.', $e->getMessage());
+        }
+
+        unlink(__DIR__.'/stubs/assets/mix-manifest.json');
+        rmdir(__DIR__.'/stubs/assets');
     }
 
     public function testTemplatePath()

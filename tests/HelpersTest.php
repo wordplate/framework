@@ -61,10 +61,14 @@ class HelpersTest extends TestCase
         mkdir(__DIR__.'/stubs/assets');
         file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{"/1955.js": "/1955-740b8162ec.js"}');
 
-        $this->assertSame('https://wordplate.dev/assets/1955-740b8162ec.js', (string) mix('1955.js'));
         $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
+        $this->assertSame('https://wordplate.dev/assets/1955-740b8162ec.js', (string) mix('1955.js'));
+
+        mkdir(__DIR__.'/stubs/assets/hot');
+        $this->assertSame('http://localhost:8080/1955-740b8162ec.js', (string) mix('1955.js'));
 
         unlink(__DIR__.'/stubs/assets/mix-manifest.json');
+        rmdir(__DIR__.'/stubs/assets/hot');
         rmdir(__DIR__.'/stubs/assets');
     }
 

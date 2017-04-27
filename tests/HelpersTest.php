@@ -57,8 +57,32 @@ class HelpersTest extends TestCase
 
     public function testMix()
     {
-        $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
+        if (!file_exists(__DIR__.'/stubs/assets')) {
+            mkdir(__DIR__.'/stubs/assets');
+        }
+
+        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{"/1955.js": "/1955-740b8162ec.js"}');
+
         $this->assertSame('https://wordplate.dev/assets/1955-740b8162ec.js', (string) mix('1955.js'));
+        $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
+
+        unlink(__DIR__.'/stubs/assets/mix-manifest.json');
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testMixMissingManifest()
+    {
+        mix('1985.js');
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testMixMissingFile()
+    {
+        mix('2015.js');
     }
 
     public function testTemplatePath()

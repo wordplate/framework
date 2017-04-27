@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests;
 
+use Illuminate\Support\HtmlString;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Application;
 
@@ -56,6 +57,7 @@ class HelpersTest extends TestCase
 
     public function testMix()
     {
+        $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
         $this->assertSame('https://wordplate.dev/assets/1955-740b8162ec.js', (string) mix('1955.js'));
     }
 

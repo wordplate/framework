@@ -24,6 +24,9 @@ use WordPlate\Container;
  */
 class ContainerTest extends TestCase
 {
+    /**
+     * @runInSeparateProcess
+     */
     public function testGetInstance()
     {
         $this->assertInstanceOf(Container::class, Container::getInstance());

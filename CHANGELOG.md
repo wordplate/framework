@@ -4,6 +4,7 @@
 
 - Add container class
 - Add base_path helper function
+- Add mu-plugins to gitignore
 
 ## 5.0.4 (released 2017-04-24)
 

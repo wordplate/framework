@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
+use WordPlate\Container;
 
 if (!function_exists('asset')) {
     /**
@@ -25,6 +26,24 @@ if (!function_exists('asset')) {
     function asset(string $path = null): string
     {
         return sprintf('%s/%s', get_template_directory_uri(), ltrim($path, '/'));
+    }
+}
+
+if (!function_exists('template_path')) {
+    /**
+     * Get the path to the base of the install.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function base_path(string $path = ''): string
+    {
+        $container = Container::getInstance();
+
+        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
+
+        return sprintf('%s%s', $container->getBasePath(), $path);
     }
 }
 

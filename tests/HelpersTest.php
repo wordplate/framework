@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Tests;
 
 use PHPUnit\Framework\TestCase;
+use WordPlate\Application;
 
 /**
  * This is the helpers test class.
@@ -61,5 +62,13 @@ class HelpersTest extends TestCase
     public function testTemplatePath()
     {
         $this->assertSame(__DIR__.'/stubs/partials/navigation.php', template_path('partials/navigation.php'));
+    }
+
+    public function testBasePath()
+    {
+        new Application(__DIR__);
+
+        $this->assertSame(__DIR__, base_path());
+        $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
     }
 }

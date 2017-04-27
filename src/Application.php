@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-final class Application
+final class Application extends Container
 {
     /**
      * The base path for the WordPlate installation.
@@ -48,6 +48,8 @@ final class Application
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
+
+        static::setInstance($this);
 
         $this->loadEnvironment();
     }
@@ -140,6 +142,16 @@ final class Application
             // Set WordPress variables and included files.
             require sprintf('%swp-settings.php', ABSPATH);
         }
+    }
+
+    /**
+     * Get the path to the base of the install.
+     *
+     * @return string
+     */
+    public function getBasePath(): string
+    {
+        return $this->basePath;
     }
 
     /**

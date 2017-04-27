@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.1.0 (released 2017-04-27)
+
+- Add container class
+- Add base_path helper function
+
 ## 5.0.4 (released 2017-04-24)
 
 - Add public path property

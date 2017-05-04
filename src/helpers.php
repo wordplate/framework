@@ -29,7 +29,7 @@ if (!function_exists('asset')) {
     }
 }
 
-if (!function_exists('template_path')) {
+if (!function_exists('base_path')) {
     /**
      * Get the path to the base of the install.
      *

@@ -81,7 +81,7 @@ final class Application extends Container
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);
         define('WP_DEBUG', $debug);
-        define('WP_DEBUG_LOG', env('WP_DEBUG_LOG', $debug));
+        define('WP_DEBUG_LOG', env('WP_DEBUG_LOG', false));
         define('WP_DEBUG_DISPLAY', env('WP_DEBUG_DISPLAY', $debug));
         define('SCRIPT_DEBUG', env('SCRIPT_DEBUG', $debug));
 

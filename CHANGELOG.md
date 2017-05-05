@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 5.2.0 (upcoming)
+
+- Add debug log constant
+- Update installation documentation
+- Update plate plugin
+- Fix bugs and typos
+
 ## 5.1.0 (released 2017-04-27)
 
 - Add container class

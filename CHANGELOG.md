@@ -3,9 +3,10 @@
 ## 5.2.0 (upcoming)
 
 - Add debug log constant
+- Fix bugs and typos
+- Remove deprecated wp_title filter
 - Update installation documentation
 - Update plate plugin
-- Fix bugs and typos
 
 ## 5.1.0 (released 2017-04-27)
 

@@ -139,6 +139,7 @@ final class Application extends Container
         }
 
         // WP-CLI require 'wp-settings.php' to be required in 'wp-config.php'.
+        // TODO: Remove this in the next major version (6.0).
         if (!class_exists('WP_CLI')) {
             // Set WordPress variables and included files.
             require sprintf('%swp-settings.php', ABSPATH);

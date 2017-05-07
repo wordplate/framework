@@ -5,7 +5,8 @@
 - Add debug log constant
 - Fix bugs and typos
 - Remove deprecated wp_title filter
-- Update installation documentation
+- Update documentation
+- Update mail plugin
 - Update plate plugin
 
 ## 5.1.0 (released 2017-04-27)

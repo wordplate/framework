@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 5.2.0 (upcoming)
+## 5.2.0 (released 2017-05-09)
 
 - Add debug log constant
 - Fix bugs and typos

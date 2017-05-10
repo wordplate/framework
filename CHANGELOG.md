@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.2.1 (released 2017-05-10)
+
+- Update laravel mix config
+- Fix target blank issue
+
 ## 5.2.0 (released 2017-05-09)
 
 - Add debug log constant

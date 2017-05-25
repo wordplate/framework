@@ -124,6 +124,9 @@ final class Application extends Container
         // Set the default WordPress theme.
         define('WP_DEFAULT_THEME', env('WP_THEME', 'wordplate'));
 
+        // Constant to configure core updates.
+        define('WP_AUTO_UPDATE_CORE', env('WP_AUTO_UPDATE_CORE', 'minor'));
+
         // Specify the number of post revisions.
         define('WP_POST_REVISIONS', env('WP_POST_REVISIONS', 2));
 

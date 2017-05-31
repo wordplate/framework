@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.2.2 (released 2017-05-31)
+
+- Add core update constant
+
 ## 5.2.1 (released 2017-05-10)
 
 - Update laravel mix config

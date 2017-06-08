@@ -31,31 +31,6 @@ class HelpersTest extends TestCase
         $this->assertSame('https://wordplate.dev/favicon.ico', asset('/favicon.ico'));
     }
 
-    public function testEnv()
-    {
-        $this->assertSame('testing', env('WP_ENV'));
-
-        putenv('WP_THEME=marty');
-        $this->assertSame('marty', env('WP_THEME'));
-
-        $this->assertSame('mcfly', env('WP_DEBUG', 'mcfly'));
-
-        putenv('WP_TEST=(true)');
-        $this->assertTrue(env('WP_TEST'));
-
-        putenv('WP_TEST=(false)');
-        $this->assertFalse(env('WP_TEST'));
-
-        putenv('WP_TEST=(empty)');
-        $this->assertEmpty(env('WP_TEST'));
-
-        putenv('WP_TEST=(null)');
-        $this->assertNull(env('WP_TEST'));
-
-        putenv('WP_TEST="einstein"');
-        $this->assertSame('einstein', env('WP_TEST'));
-    }
-
     public function testMix()
     {
         mkdir(__DIR__.'/stubs/assets');

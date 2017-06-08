@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 5.3.0 (upcoming)
+
+- Update illuminate support
+- Update laravel mix
+- Update wordpress
+
 ## 5.2.2 (released 2017-05-31)
 
 - Add core update constant

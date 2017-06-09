@@ -5,6 +5,7 @@
 - Update illuminate support
 - Update laravel mix
 - Update wordpress
+- Update symfony packages
 
 ## 5.2.2 (released 2017-05-31)
 

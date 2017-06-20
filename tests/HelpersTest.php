@@ -34,13 +34,13 @@ class HelpersTest extends TestCase
     public function testMix()
     {
         mkdir(__DIR__.'/stubs/assets');
-        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{"/1955.js": "/1955-740b8162ec.js"}');
+        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{"/1955.js": "/1955.js?id=740b8162ec"}');
 
         $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
-        $this->assertSame('https://wordplate.dev/assets/1955-740b8162ec.js', (string) mix('1955.js'));
+        $this->assertSame('https://wordplate.dev/assets/1955.js?id=740b8162ec', (string) mix('1955.js'));
 
         mkdir(__DIR__.'/stubs/assets/hot');
-        $this->assertSame('http://localhost:8080/1955-740b8162ec.js', (string) mix('1955.js'));
+        $this->assertSame('//localhost:8080/1955.js', (string) mix('1955.js'));
 
         unlink(__DIR__.'/stubs/assets/mix-manifest.json');
         rmdir(__DIR__.'/stubs/assets/hot');
@@ -49,14 +49,12 @@ class HelpersTest extends TestCase
 
     /**
      * @runInSeparateProcess
+     * @expectedException \Exception
+     * @expectedExceptionMessage The Mix manifest does not exist.
      */
     public function testMixMissingManifest()
     {
-        try {
-            mix('1985.js');
-        } catch (Exception $e) {
-            $this->assertSame('The Mix manifest does not exist.', $e->getMessage());
-        }
+        mix('1985.js');
     }
 
     public function testMixMissingFile()

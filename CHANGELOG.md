@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 5.3.0 (upcoming)
+## 5.3.0 (released 2017-06-20)
 
 - Update illuminate support
 - Update laravel mix

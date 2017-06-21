@@ -1,8 +1,10 @@
 # CHANGELOG
 
-## 5.3.1 (upcoming)
+## 5.3.1 (released 2017-06-21)
 
-- Update laravel mix helper
+- Update laravel mix
+- Update mix helper function
+- Fixed assets directory bug
 
 ## 5.3.0 (released 2017-06-20)
 

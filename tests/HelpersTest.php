@@ -72,6 +72,11 @@ class HelpersTest extends TestCase
         rmdir(__DIR__.'/stubs/assets');
     }
 
+    public function testStylesheetPath()
+    {
+        $this->assertSame(__DIR__.DIRECTORY_SEPARATOR.'stubs'.DIRECTORY_SEPARATOR.'partials'.DIRECTORY_SEPARATOR.'navigation.php', stylesheet_path('partials'.DIRECTORY_SEPARATOR.'navigation.php'));
+    }
+
     public function testTemplatePath()
     {
         $this->assertSame(__DIR__.DIRECTORY_SEPARATOR.'stubs'.DIRECTORY_SEPARATOR.'partials'.DIRECTORY_SEPARATOR.'navigation.php', template_path('partials'.DIRECTORY_SEPARATOR.'navigation.php'));

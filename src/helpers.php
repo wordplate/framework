@@ -90,9 +90,25 @@ if (!function_exists('mix')) {
     }
 }
 
+if (!function_exists('stylesheet_path')) {
+    /**
+     * Generate a path for the current/child theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function stylesheet_path(string $path = ''): string
+    {
+        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
+
+        return sprintf('%s%s', get_stylesheet_directory(), $path);
+    }
+}
+
 if (!function_exists('template_path')) {
     /**
-     * Generate a path for the current theme directory.
+     * Generate a path for the current theme directory (or to the parent theme if a child theme is being used).
      *
      * @param string $path
      *

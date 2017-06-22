@@ -108,7 +108,8 @@ if (!function_exists('stylesheet_path')) {
 
 if (!function_exists('template_path')) {
     /**
-     * Generate a path for the current theme directory (or to the parent theme if a child theme is being used).
+     * Generate a path for the current theme directory or to the parent theme
+     * if a child theme is being used.
      *
      * @param string $path
      *

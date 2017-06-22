@@ -72,9 +72,14 @@ class HelpersTest extends TestCase
         rmdir(__DIR__.'/stubs/assets');
     }
 
+    public function testStylesheetPath()
+    {
+        $this->assertSame(__DIR__.DIRECTORY_SEPARATOR.'stubs'.DIRECTORY_SEPARATOR.'partials'.DIRECTORY_SEPARATOR.'navigation.php', stylesheet_path('partials'.DIRECTORY_SEPARATOR.'navigation.php'));
+    }
+
     public function testTemplatePath()
     {
-        $this->assertSame(__DIR__.'/stubs/partials/navigation.php', template_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.DIRECTORY_SEPARATOR.'stubs'.DIRECTORY_SEPARATOR.'partials'.DIRECTORY_SEPARATOR.'navigation.php', template_path('partials'.DIRECTORY_SEPARATOR.'navigation.php'));
     }
 
     public function testBasePath()
@@ -82,6 +87,6 @@ class HelpersTest extends TestCase
         new Application(__DIR__);
 
         $this->assertSame(__DIR__, base_path());
-        $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
+        $this->assertSame(__DIR__.DIRECTORY_SEPARATOR.'88mph.php', base_path('88mph.php'));
     }
 }

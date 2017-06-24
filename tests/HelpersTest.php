@@ -72,6 +72,13 @@ class HelpersTest extends TestCase
         rmdir(__DIR__.'/stubs/assets');
     }
 
+    public function testInfo()
+    {
+        $url = get_bloginfo('url');
+
+        $this->assertSame('https://martymcf.ly', $url);
+    }
+
     public function testStylesheetPath()
     {
         $this->assertSame(__DIR__.'/stubs/partials/navigation.php', stylesheet_path('partials/navigation.php'));

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 5.4.0 (upcoming)
+
+- Add stylesheet path helper
+- Add shorthand bloginfo helper
+
 ## 5.3.1 (released 2017-06-21)
 
 - Update laravel mix

@@ -11,6 +11,11 @@
 
 declare(strict_types=1);
 
+function get_bloginfo()
+{
+    return 'https://martymcf.ly';
+}
+
 function get_stylesheet_directory()
 {
     return __DIR__;

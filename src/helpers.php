@@ -47,6 +47,23 @@ if (!function_exists('base_path')) {
     }
 }
 
+if (!function_exists('info')) {
+    /**
+     * Retrieves information about the current site.
+     *
+     * @param string $show
+     * @param string $filter
+     *
+     * @see https://developer.wordpress.org/reference/functions/get_bloginfo
+     *
+     * @return string
+     */
+    function info(string $show = '', string $filter = 'raw'): string
+    {
+        return get_bloginfo($show, $filter);
+    }
+}
+
 if (!function_exists('mix')) {
     /**
      * Get the path to a versioned Mix file.

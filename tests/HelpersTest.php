@@ -74,7 +74,7 @@ class HelpersTest extends TestCase
 
     public function testInfo()
     {
-        $url = get_bloginfo('url');
+        $url = info('url');
 
         $this->assertSame('https://martymcf.ly', $url);
     }

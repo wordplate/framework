@@ -62,7 +62,7 @@ final class Application extends Container
     protected function loadEnvironment()
     {
         try {
-            (new Dotenv($this->basePath))->load();
+            (new Dotenv($this->getBasePath()))->load();
         } catch (InvalidPathException $e) {
             //
         }

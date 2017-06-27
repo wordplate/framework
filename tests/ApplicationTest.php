@@ -47,7 +47,8 @@ class ApplicationTest extends TestCase
 
         $this->assertInstanceOf(Application::class, $application);
 
-        $this->assertSame(__DIR__.'/stubs', $application->getBasePath());
+        $application->setBasePath(__DIR__);
+        $this->assertSame(__DIR__, $application->getBasePath());
 
         $application->setPublicPath(__DIR__);
         $this->assertSame(__DIR__, $application->getPublicPath());

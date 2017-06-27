@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 5.4.0 (upcoming)
+## 6.0.0 (upcoming)
 
 - Add stylesheet path helper
 - Add shorthand bloginfo helper

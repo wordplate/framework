@@ -4,6 +4,7 @@
 
 - Add stylesheet path helper
 - Add shorthand bloginfo helper
+- Remove deprecated code
 
 ## 5.3.1 (released 2017-06-21)
 

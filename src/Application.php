@@ -39,7 +39,7 @@ final class Application extends Container
     protected $publicPath;
 
     /**
-     * The WordPress database table prefix.
+     * Create a new application instance.
      *
      * @param string $basePath
      *

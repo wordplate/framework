@@ -41,17 +41,17 @@ final class Application extends Container
     /**
      * Create a new application instance.
      *
-     * @param string $basePath
+     * @param string $publicPath
      *
      * @return void
      */
-    public function __construct(string $basePath)
+    public function __construct(string $publicPath)
     {
-        $this->basePath = $basePath;
-
-        static::setInstance($this);
+        $this->publicPath = $publicPath;
 
         $this->loadEnvironment();
+
+        static::setInstance($this);
     }
 
     /**
@@ -137,26 +137,33 @@ final class Application extends Container
         define('DISALLOW_FILE_EDIT', env('DISALLOW_FILE_EDIT', true));
 
         // Set the absolute path to the WordPress directory.
-        if (!defined('ABSPATH')) {
-            define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
-        }
-
-        // WP-CLI require 'wp-settings.php' to be required in 'wp-config.php'.
-        // TODO: Remove this in the next major version (6.0).
-        if (!class_exists('WP_CLI')) {
-            // Set WordPress variables and included files.
-            require sprintf('%swp-settings.php', ABSPATH);
-        }
+        define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
     }
 
     /**
-     * Get the path to the base of the install.
+     * Get the base path for the application.
      *
      * @return string
      */
     public function getBasePath(): string
     {
+        if (is_null($this->basePath)) {
+            return realpath($this->publicPath.'/../');
+        }
+
         return $this->basePath;
+    }
+
+    /**
+     * Get the base path for the application.
+     *
+     * @param string $basePath
+     *
+     * @return void
+     */
+    public function setBasePath(string $basePath)
+    {
+        $this->basePath = $basePath;
     }
 
     /**
@@ -166,10 +173,6 @@ final class Application extends Container
      */
     public function getPublicPath(): string
     {
-        if (is_null($this->publicPath)) {
-            return $this->basePath.DIRECTORY_SEPARATOR.'public';
-        }
-
         return $this->publicPath;
     }
 

@@ -31,6 +31,14 @@ class HelpersTest extends TestCase
         $this->assertSame('https://wordplate.dev/favicon.ico', asset('/favicon.ico'));
     }
 
+    public function testBasePath()
+    {
+        new Application(__DIR__.'/stubs');
+
+        $this->assertSame(__DIR__, base_path());
+        $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
+    }
+
     public function testMix()
     {
         mkdir(__DIR__.'/stubs/assets');
@@ -87,13 +95,5 @@ class HelpersTest extends TestCase
     public function testTemplatePath()
     {
         $this->assertSame(__DIR__.'/stubs/partials/navigation.php', template_path('partials/navigation.php'));
-    }
-
-    public function testBasePath()
-    {
-        new Application(__DIR__);
-
-        $this->assertSame(__DIR__, base_path());
-        $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
     }
 }

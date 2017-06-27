@@ -4,6 +4,8 @@
 
 - Add stylesheet path helper
 - Add shorthand bloginfo helper
+- Update illuminate support
+- Update laravel mix
 - Remove deprecated code
 
 ## 5.3.1 (released 2017-06-21)

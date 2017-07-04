@@ -134,7 +134,9 @@ final class Application extends Container
         define('DISALLOW_FILE_EDIT', env('DISALLOW_FILE_EDIT', true));
 
         // Set the absolute path to the WordPress directory.
-        define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
+        if (!defined('ABSPATH')) {
+            define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
+        }
     }
 
     /**

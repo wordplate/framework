@@ -172,6 +172,10 @@ final class Application extends Container
      */
     public function getPublicPath(): string
     {
+        if (is_null($this->publicPath)) {
+            return $this->basePath.DIRECTORY_SEPARATOR.env('WP_PUBLIC_PATH', 'public');
+        }
+
         return $this->publicPath;
     }
 

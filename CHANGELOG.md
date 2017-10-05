@@ -1,9 +1,10 @@
 # CHANGELOG
 
-## 6.0.0 (upcoming)
+## 6.0.0 (released 2017-10-05)
 
 - Add stylesheet path helper
 - Add shorthand bloginfo helper
+- Update documentation
 - Update illuminate support
 - Update laravel mix
 - Remove deprecated code

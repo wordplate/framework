@@ -44,7 +44,7 @@ class Container
     /**
      * Set the shared instance of the container.
      *
-     * @param \WordPlate\Container|null $container
+     * @param null|\WordPlate\Container $container
      *
      * @return static
      */

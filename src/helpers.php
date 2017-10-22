@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
+use Jenssegers\Blade\Blade;
 use WordPlate\Container;
 
 if (!function_exists('asset')) {
@@ -137,5 +138,29 @@ if (!function_exists('template_path')) {
         $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
 
         return sprintf('%s%s', get_template_directory(), $path);
+    }
+}
+
+if (!function_exists('view')) {
+    /**
+     * Return a view with data.
+     *
+     * @param string $name
+     * @param array $data
+     *
+     * @return string
+     */
+    function view(string $name, array $data = []): string
+    {
+        static $blade;
+
+        if (!$blade) {
+            $blade = new Blade(
+                base_path('resources/views'),
+                base_path('storage/views')
+            );
+        }
+
+        return (string) $blade->make($name, $data);
     }
 }

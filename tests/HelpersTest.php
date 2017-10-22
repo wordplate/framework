@@ -57,11 +57,12 @@ class HelpersTest extends TestCase
 
     /**
      * @runInSeparateProcess
-     * @expectedException \Exception
-     * @expectedExceptionMessage The Mix manifest does not exist.
      */
     public function testMixMissingManifest()
     {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('The Mix manifest does not exist.');
+
         mix('1985.js');
     }
 

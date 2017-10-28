@@ -140,27 +140,3 @@ if (!function_exists('template_path')) {
         return sprintf('%s%s', get_template_directory(), $path);
     }
 }
-
-if (!function_exists('view')) {
-    /**
-     * Return a view with data.
-     *
-     * @param string $name
-     * @param array $data
-     *
-     * @return string
-     */
-    function view(string $name, array $data = []): string
-    {
-        static $blade;
-
-        if (!$blade) {
-            $blade = new Blade(
-                base_path('resources/views'),
-                base_path('storage/views')
-            );
-        }
-
-        return (string) $blade->make($name, $data);
-    }
-}

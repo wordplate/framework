@@ -1,9 +1,5 @@
 # CHANGELOG
 
-## 6.1.0 (upcoming)
-
-- Add blade templating support
-
 ## 6.0.0 (released 2017-10-05)
 
 - Add stylesheet path helper

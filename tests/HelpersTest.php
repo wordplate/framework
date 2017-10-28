@@ -97,16 +97,4 @@ class HelpersTest extends TestCase
     {
         $this->assertSame(__DIR__.'/stubs/partials/navigation.php', template_path('partials/navigation.php'));
     }
-
-    /**
-     * @runInSeparateProcess
-     */
-    public function testView()
-    {
-        new Application(__DIR__.'/stubs/public');
-
-        $this->assertSame('Back to the Future', trim(view('delorean', [
-            'title' => 'Back to the Future',
-        ])));
-    }
 }

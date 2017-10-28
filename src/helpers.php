@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use Jenssegers\Blade\Blade;
 use WordPlate\Container;
 
 if (!function_exists('asset')) {

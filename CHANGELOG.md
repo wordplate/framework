@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 6.1.0 (released 2017-11-16)
+
+- Add dotenv to laravel mix
+- Fix javascript paths for windows
+- Update composer installers
+- Update laravel mix
+- Update wordpress core
+
 ## 6.0.0 (released 2017-10-05)
 
 - Add stylesheet path helper

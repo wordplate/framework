@@ -92,7 +92,7 @@ if (!function_exists('mix')) {
         }
 
         if (!$manifest) {
-            if (!file_exists($manifestPath = template_path($manifestDirectory.'/mix-manifest.json'))) {
+            if (!file_exists($manifestPath = stylesheet_path($manifestDirectory.'/mix-manifest.json'))) {
                 throw new Exception('The Mix manifest does not exist.');
             }
 

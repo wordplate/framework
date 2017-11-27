@@ -25,7 +25,7 @@ if (!function_exists('asset')) {
      */
     function asset(string $path = null): string
     {
-        return sprintf('%s/%s', get_template_directory_uri(), ltrim($path, '/'));
+        return sprintf('%s/%s', get_stylesheet_directory_uri(), ltrim($path, '/'));
     }
 }
 
@@ -87,7 +87,7 @@ if (!function_exists('mix')) {
             $manifestDirectory = "/{$manifestDirectory}";
         }
 
-        if (file_exists(template_path($manifestDirectory.'/hot'))) {
+        if (file_exists(stylesheet_path($manifestDirectory.'/hot'))) {
             return new HtmlString("//localhost:8080{$path}");
         }
 

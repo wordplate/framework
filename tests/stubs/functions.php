@@ -26,7 +26,7 @@ function get_template_directory()
     return __DIR__;
 }
 
-function get_template_directory_uri()
+function get_stylesheet_directory_uri()
 {
     return 'https://wordplate.dev';
 }

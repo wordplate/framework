@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 6.1.1 (upcoming)
+
+- Update laravel mix child theme support
+
 ## 6.1.0 (released 2017-11-16)
 
 - Add dotenv to laravel mix

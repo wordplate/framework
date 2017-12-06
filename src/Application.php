@@ -141,7 +141,7 @@ final class Application extends Container
         // Add filter for default mail from address, if defined
         if (env('WP_MAIL_FROM')) {
             define('WP_MAIL_FROM', env('WP_MAIL_FROM'));
-            add_filter('wp_mail_from', function($email) {
+            add_filter('wp_mail_from', function ($email) {
                 return WP_MAIL_FROM;
             });
         }
@@ -149,7 +149,7 @@ final class Application extends Container
         // Add filter for default mail from name, if defined
         if (env('WP_MAIL_FROM_NAME')) {
             define('WP_MAIL_FROM_NAME', env('WP_MAIL_FROM_NAME'));
-            add_filter('wp_mail_from_name', function($email) {
+            add_filter('wp_mail_from_name', function ($email) {
                 return WP_MAIL_FROM_NAME;
             });
         }

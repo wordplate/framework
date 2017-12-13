@@ -1,5 +1,4 @@
 composer.lock
 phpunit.xml
+/wordpress
 vendor
-wordpress
-wp-content

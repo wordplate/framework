@@ -48,24 +48,15 @@ final class Application extends Container
     public function __construct(string $publicPath)
     {
         $this->publicPath = $publicPath;
+        $this->pluginLoader = new PluginLoader();
 
-        $this->loadEnvironment();
-
-        static::setInstance($this);
-    }
-
-    /**
-     * Load the environment variables.
-     *
-     * @return void
-     */
-    protected function loadEnvironment()
-    {
         try {
             (new Dotenv($this->getBasePath()))->load();
         } catch (InvalidPathException $e) {
             //
         }
+
+        static::setInstance($this);
     }
 
     /**
@@ -85,8 +76,8 @@ final class Application extends Container
         define('WP_DEBUG_DISPLAY', env('WP_DEBUG_DISPLAY', $debug));
         define('SCRIPT_DEBUG', env('SCRIPT_DEBUG', $debug));
 
-        // The MySQL database configuration with database name, username,
-        // password, hostname charset and database collae type.
+        // The database configuration with database name, username, password,
+        // hostname charset and database collae type.
         define('DB_NAME', env('DB_NAME'));
         define('DB_USER', env('DB_USER'));
         define('DB_PASSWORD', env('DB_PASSWORD'));
@@ -137,6 +128,9 @@ final class Application extends Container
         if (!defined('ABSPATH')) {
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
         }
+
+        // Load the must-use plugins.
+        $this->pluginLoader->load();
     }
 
     /**

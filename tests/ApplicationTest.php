@@ -27,7 +27,7 @@ class ApplicationTest extends TestCase
     {
         $application = new Application(__DIR__.'/stubs/public');
 
-        putenv('WP_DIR=wp');
+        putenv('WP_DIR=wordpress');
 
         $application->run();
 
@@ -40,7 +40,7 @@ class ApplicationTest extends TestCase
      */
     public function testStandard()
     {
-        file_put_contents(__DIR__.'/stubs/.env', 'WP_DIR=wp');
+        file_put_contents(__DIR__.'/stubs/.env', 'WP_DIR=wordpress');
 
         $application = new Application(__DIR__.'/stubs/public');
         $application->run();

@@ -11,22 +11,14 @@
 
 declare(strict_types=1);
 
-function get_bloginfo()
+function get_plugins()
 {
-    return 'https://martymcf.ly';
+    return [
+        'marty/mcfly.php' => [],
+    ];
 }
 
-function get_stylesheet_directory()
+function get_mu_plugins()
 {
-    return __DIR__;
-}
-
-function get_template_directory()
-{
-    return __DIR__;
-}
-
-function get_stylesheet_directory_uri()
-{
-    return 'https://wordplate.dev';
+    return [];
 }

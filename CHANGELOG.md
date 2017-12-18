@@ -1,8 +1,11 @@
 # CHANGELOG
 
-## 6.1.1 (upcoming)
+## 6.2.0 (upcoming)
 
-- Update laravel mix child theme support
+- Added must-use plugin loader
+- Added symfony 4.0 support
+- Updated child theme support
+- Updated wordpress core
 
 ## 6.1.0 (released 2017-11-16)
 

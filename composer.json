@@ -23,11 +23,12 @@
         "johnpbloch/wordpress": "^4.9.1",
         "roots/wp-password-bcrypt": "^1.0",
         "symfony/http-foundation": "^3.4 || ^4.0",
+        "symfony/routing": "^3.4 || ^4.0",
         "symfony/var-dumper": "^3.4 || ^4.0",
         "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.4"
+        "phpunit/phpunit": "^6.5"
     },
     "autoload": {
         "psr-4": {
@@ -39,7 +40,7 @@
     },
     "autoload-dev": {
         "files": [
-            "tests/stubs/functions.php"
+            "tests/helpers.php"
         ],
         "psr-4": {
             "WordPlate\\Tests\\": "tests/"

@@ -74,6 +74,14 @@ final class PluginLoader
     {
         remove_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
 
+        if (
+            !defined('WP_PLUGIN_DIR') ||
+            !defined('WPMU_PLUGIN_DIR') ||
+            !is_blog_installed()
+        ) {
+            return false;
+        }
+
         foreach (array_keys($this->getPlugins()) as $plugin) {
             if (!is_plugin_active($plugin)) {
                 require_once WPMU_PLUGIN_DIR.'/'.$plugin;

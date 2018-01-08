@@ -41,6 +41,11 @@ function current_user_can()
     return true;
 }
 
+function is_blog_installed()
+{
+    return true;
+}
+
 function is_plugin_active()
 {
     return false;

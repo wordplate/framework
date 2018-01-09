@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  *
  * @see https://codex.wordpress.org/Must_Use_Plugins
  *
- * @author Daniel Gerdgren <tditlu@users.noreply.github.com>
+ * @author Daniel Gerdgren <daniel@gerdgren.se>
  * @author Oskar Joelson <oskar@joelson.org>
  * @author Vincent Klaiber <hello@vinkla.com>
  */
@@ -31,14 +31,14 @@ final class PluginLoader
      *
      * @var array
      */
-    public $plugins;
+    protected $plugins;
 
     /**
      * The active must-use plugins.
      *
      * @var array
      */
-    public $activePlugins;
+    protected $activePlugins;
 
     /**
      * Run the plugin loader.
@@ -62,7 +62,7 @@ final class PluginLoader
      *
      * @return void
      */
-    public function showAdvancedPlugins(bool $show, string $type)
+    protected function showAdvancedPlugins(bool $show, string $type)
     {
         if (!$this->isPluginsScreen() || $type !== 'mustuse' || !current_user_can('activate_plugins')) {
             return $show;
@@ -78,7 +78,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    public function activatePlugins($plugins): bool
+    protected function activatePlugins($plugins): bool
     {
         remove_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
 
@@ -93,16 +93,19 @@ final class PluginLoader
         $this->validateActivePlugins();
 
         foreach (array_keys($this->getPlugins()) as $plugin) {
-            require_once WPMU_PLUGIN_DIR.'/'.$plugin;
+            if ($this->isPluginActive($plugin)) {
+                require_once WPMU_PLUGIN_DIR.'/'.$plugin;
+            }
         }
 
-        add_action('after_setup_theme', function () {
+        add_action('init', function () {
             foreach (array_keys($this->getPlugins()) as $plugin) {
                 if (!$this->isPluginActive($plugin)) {
+                    require_once WPMU_PLUGIN_DIR.'/'.$plugin;
                     $this->activatePlugin($plugin);
                 }
             }
-        });
+        }, PHP_INT_MIN);
 
         return $plugins;
     }
@@ -172,9 +175,7 @@ final class PluginLoader
 
         $activePlugins = (array) get_option('active_mu_plugins', []);
         $activePlugins[] = $plugin;
-
         sort($activePlugins);
-
         update_option('active_mu_plugins', $activePlugins);
 
         $this->activePlugins = $activePlugins;
@@ -185,17 +186,15 @@ final class PluginLoader
      *
      * @return void
      */
-    protected function validateActivePlugins():void
+    protected function validateActivePlugins(): void
     {
         $activePlugins = $this->getActivePlugins();
-
         $validatedPlugins = array_filter($activePlugins, function ($plugin) {
             return file_exists(WPMU_PLUGIN_DIR.'/'.$plugin);
         });
 
         if (array_diff($activePlugins, $validatedPlugins)) {
             update_option('active_mu_plugins', $validatedPlugins);
-
             $this->activePlugins = $validatedPlugins;
         }
     }

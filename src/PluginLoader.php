@@ -22,6 +22,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  *
  * @author Daniel Gerdgren <tditlu@users.noreply.github.com>
  * @author Vincent Klaiber <hello@vinkla.com>
+ * @author Oskar Joelson <oskar@joelson.org>
  */
 final class PluginLoader
 {
@@ -83,14 +84,21 @@ final class PluginLoader
         }
 
         foreach (array_keys($this->getPlugins()) as $plugin) {
-            if (!is_plugin_active($plugin)) {
-                require_once WPMU_PLUGIN_DIR.'/'.$plugin;
-
-                add_action('wp_loaded', function () use ($plugin) {
-                    do_action('activate_'.$plugin);
-                });
-            }
+            // include all plugins, whether they are activated or not
+            // TODO check which plugins are activated and only include them (to possible save run time)
+            require_once WPMU_PLUGIN_DIR.'/'.$plugin;
         }
+
+        // 'after_setup_theme' is the last hook called by wp-settings.php before 'init'.
+        // This is an attempt to run plugin activation somewhere after 'plugins_loaded' (which makes the disable-embeds plugin try to access $wp_rewrite before it's initialized)
+        // and before 'init' (since the polylang plugin needs to have it's activation being run after the 'init' hook (where it sets up it's default options)).
+        add_action('after_setup_theme', function () use ($plugin) {
+            foreach (array_keys($this->getPlugins()) as $plugin) {
+                // activate all plugins whether they've already been activated before
+                // TODO check which plugins aren't already activated first (to possible save run time)
+                do_action('activate_'.$plugin);
+            }
+        });
 
         return $plugins;
     }

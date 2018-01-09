@@ -105,7 +105,7 @@ final class PluginLoader
                     $this->activatePlugin($plugin);
                 }
             }
-        });
+        }, PHP_INT_MIN);
 
         return $plugins;
     }

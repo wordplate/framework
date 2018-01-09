@@ -21,8 +21,8 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  * @see https://codex.wordpress.org/Must_Use_Plugins
  *
  * @author Daniel Gerdgren <daniel@gerdgren.se>
- * @author Vincent Klaiber <hello@vinkla.com>
  * @author Oskar Joelson <oskar@joelson.org>
+ * @author Vincent Klaiber <hello@vinkla.com>
  */
 final class PluginLoader
 {
@@ -31,14 +31,14 @@ final class PluginLoader
      *
      * @var array
      */
-    protected $plugins;
+    public $plugins;
 
     /**
      * The active must-use plugins.
      *
      * @var array
      */
-    protected $activePlugins;
+    public $activePlugins;
 
     /**
      * Run the plugin loader.
@@ -62,7 +62,7 @@ final class PluginLoader
      *
      * @return void
      */
-    protected function showAdvancedPlugins(bool $show, string $type)
+    public function showAdvancedPlugins(bool $show, string $type)
     {
         if (!$this->isPluginsScreen() || $type !== 'mustuse' || !current_user_can('activate_plugins')) {
             return $show;
@@ -78,7 +78,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    protected function activatePlugins($plugins): bool
+    public function activatePlugins($plugins): bool
     {
         remove_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
 
@@ -115,7 +115,7 @@ final class PluginLoader
      *
      * @return array
      */
-    protected function getPlugins(): array
+    public function getPlugins(): array
     {
         if ($this->plugins) {
             return $this->plugins;
@@ -139,7 +139,7 @@ final class PluginLoader
      *
      * @return array
      */
-    protected function getActivePlugins(): array
+    public function getActivePlugins(): array
     {
         if ($this->activePlugins) {
             return $this->activePlugins;
@@ -169,7 +169,7 @@ final class PluginLoader
      *
      * @return void
      */
-    protected function activatePlugin(string $plugin): void
+    public function activatePlugin(string $plugin): void
     {
         do_action('activate_'.$plugin);
 
@@ -186,7 +186,7 @@ final class PluginLoader
      *
      * @return void
      */
-    protected function validateActivePlugins(): void
+    public function validateActivePlugins(): void
     {
         $activePlugins = $this->getActivePlugins();
         $validatedPlugins = array_filter($activePlugins, function ($plugin) {
@@ -204,7 +204,7 @@ final class PluginLoader
      *
      * @return string
      */
-    protected function getRelativePath(): string
+    public function getRelativePath(): string
     {
         $relativePath = UrlGenerator::getRelativePath(
             WP_PLUGIN_DIR.'/',
@@ -219,7 +219,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    protected function isPluginsScreen(): bool
+    public function isPluginsScreen(): bool
     {
         $screen = get_current_screen();
 

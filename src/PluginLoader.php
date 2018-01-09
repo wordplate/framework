@@ -62,7 +62,7 @@ final class PluginLoader
      *
      * @return void
      */
-    protected function showAdvancedPlugins(bool $show, string $type)
+    public function showAdvancedPlugins(bool $show, string $type)
     {
         if (!$this->isPluginsScreen() || $type !== 'mustuse' || !current_user_can('activate_plugins')) {
             return $show;
@@ -78,7 +78,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    protected function activatePlugins($plugins): bool
+    public function activatePlugins($plugins): bool
     {
         remove_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
 

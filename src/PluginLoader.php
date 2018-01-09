@@ -84,16 +84,11 @@ final class PluginLoader
         }
 
         foreach (array_keys($this->getPlugins()) as $plugin) {
-            // include all plugins, whether they are activated or not
             require_once WPMU_PLUGIN_DIR.'/'.$plugin;
         }
 
-        // 'after_setup_theme' is the last hook called by wp-settings.php before 'init'.
-        // This is an attempt to run plugin activation somewhere after 'plugins_loaded' (which makes the disable-embeds plugin try to access $wp_rewrite before it's initialized)
-        // and before 'init' (since the polylang plugin needs to have it's activation being run after the 'init' hook (where it sets up it's default options)).
         add_action('after_setup_theme', function () use ($plugin) {
             foreach (array_keys($this->getPlugins()) as $plugin) {
-                // activate all plugins whether they've already been activated before
                 do_action('activate_'.$plugin);
             }
         });

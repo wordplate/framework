@@ -7,6 +7,7 @@
 - Added mail encryption variable
 - Updated child theme support
 - Updated wordpress core
+- Removed php 7.0 support
 
 ## 6.1.0 (released 2017-11-16)
 

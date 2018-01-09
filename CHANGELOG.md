@@ -4,6 +4,7 @@
 
 - Added must-use plugin loader
 - Added symfony 4.0 support
+- Added mail encryption variable
 - Updated child theme support
 - Updated wordpress core
 

@@ -186,6 +186,22 @@ final class PluginLoader
     }
 
     /**
+     * Set the active must-use plugins.
+     *
+     * @param array $plugins
+     *
+     * @return void
+     */
+    protected function setActivePlugins(array $plugins): void
+    {
+        sort($plugins);
+
+        update_option('active_mu_plugins', $plugins);
+
+        $this->activePlugins = $plugins;
+    }
+
+    /**
      * Check whether a plugin is active.
      *
      * @param string $plugin
@@ -213,11 +229,7 @@ final class PluginLoader
         $plugins = (array) get_option('active_mu_plugins', []);
         $plugins[] = $plugin;
 
-        sort($plugins);
-
-        update_option('active_mu_plugins', $plugins);
-
-        $this->activePlugins = $plugins;
+        $this->setActivePlugins($plugins);
     }
 
     /**
@@ -232,9 +244,7 @@ final class PluginLoader
         });
 
         if (array_diff($plugins, $this->getActivePlugins())) {
-            update_option('active_mu_plugins', $plugins);
-
-            $this->activePlugins = $plugins;
+            $this->setActivePlugins($plugins);
         }
     }
 

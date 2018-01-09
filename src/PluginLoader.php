@@ -21,8 +21,8 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  * @see https://codex.wordpress.org/Must_Use_Plugins
  *
  * @author Daniel Gerdgren <tditlu@users.noreply.github.com>
- * @author Vincent Klaiber <hello@vinkla.com>
  * @author Oskar Joelson <oskar@joelson.org>
+ * @author Vincent Klaiber <hello@vinkla.com>
  */
 final class PluginLoader
 {
@@ -154,25 +154,27 @@ final class PluginLoader
      *
      * @return bool
      */
-    protected function isPluginActive($plugin): bool
+    protected function isPluginActive(string $plugin): bool
     {
         return in_array($plugin, $this->getActivePlugins());
     }
 
     /**
-     * Activate plugin.
+     * Activate a given plugin.
      *
      * @param string $plugin
      *
      * @return void
      */
-    protected function activatePlugin($plugin)
+    protected function activatePlugin(string $plugin): void
     {
         do_action('activate_'.$plugin);
 
         $activePlugins = (array) get_option('active_mu_plugins', []);
         $activePlugins[] = $plugin;
+
         sort($activePlugins);
+
         update_option('active_mu_plugins', $activePlugins);
 
         $this->activePlugins = $activePlugins;
@@ -185,15 +187,17 @@ final class PluginLoader
      *
      * @return void
      */
-    protected function validateActivePlugins()
+    protected function validateActivePlugins():void
     {
         $activePlugins = $this->getActivePlugins();
+
         $validatedPlugins = array_filter($activePlugins, function ($plugin) {
             return file_exists(WPMU_PLUGIN_DIR.'/'.$plugin);
         });
 
         if (array_diff($activePlugins, $validatedPlugins)) {
             update_option('active_mu_plugins', $validatedPlugins);
+
             $this->activePlugins = $validatedPlugins;
         }
     }

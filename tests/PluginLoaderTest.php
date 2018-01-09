@@ -38,11 +38,11 @@ class PluginLoaderTest extends TestCase
         $this->assertNull($loader->showAdvancedPlugins(false, 'mustuse'));
     }
 
-    public function testActivatePlugins()
+    public function testPreOptionActivePlugins()
     {
         $loader = $this->getLoader();
 
-        $this->assertFalse($loader->activatePlugins(false));
+        $this->assertFalse($loader->preOptionActivePlugins(false));
     }
 
     protected function getLoader()

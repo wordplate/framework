@@ -34,6 +34,13 @@ final class PluginLoader
     public $plugins;
 
     /**
+     * The active must-use plugins.
+     *
+     * @var array
+     */
+    public $activePlugins;
+
+    /**
      * Run the plugin loader.
      *
      * @return void
@@ -83,13 +90,17 @@ final class PluginLoader
             return false;
         }
 
+        $this->validateActivePlugins();
+
         foreach (array_keys($this->getPlugins()) as $plugin) {
             require_once WPMU_PLUGIN_DIR.'/'.$plugin;
         }
 
         add_action('after_setup_theme', function () {
             foreach (array_keys($this->getPlugins()) as $plugin) {
-                do_action('activate_'.$plugin);
+                if (!$this->isPluginActive($plugin)) {
+                    $this->activatePlugin($plugin);
+                }
             }
         });
 
@@ -101,7 +112,7 @@ final class PluginLoader
      *
      * @return array
      */
-    public function getPlugins(): array
+    protected function getPlugins(): array
     {
         if ($this->plugins) {
             return $this->plugins;
@@ -121,11 +132,78 @@ final class PluginLoader
     }
 
     /**
+     * Get the active must-use plugins.
+     *
+     * @return array
+     */
+    protected function getActivePlugins(): array
+    {
+        if ($this->activePlugins) {
+            return $this->activePlugins;
+        }
+
+        $this->activePlugins = (array) get_option('active_mu_plugins', []);
+
+        return $this->activePlugins;
+    }
+
+    /**
+     * Check whether a plugin is active.
+     *
+     * @param string $plugin
+     *
+     * @return bool
+     */
+    protected function isPluginActive($plugin): bool
+    {
+        return in_array($plugin, $this->getActivePlugins());
+    }
+
+    /**
+     * Activate plugin.
+     *
+     * @param string $plugin
+     *
+     * @return void
+     */
+    protected function activatePlugin($plugin)
+    {
+        do_action('activate_'.$plugin);
+
+        $activePlugins = (array) get_option('active_mu_plugins', []);
+        $activePlugins[] = $plugin;
+        sort($activePlugins);
+        update_option('active_mu_plugins', $activePlugins);
+
+        $this->activePlugins = $activePlugins;
+    }
+
+    /**
+     * Validate active plugins.
+     *
+     * Validate all active plugins, deactivates invalid.
+     *
+     * @return void
+     */
+    protected function validateActivePlugins()
+    {
+        $activePlugins = $this->getActivePlugins();
+        $validatedPlugins = array_filter($activePlugins, function ($plugin) {
+            return file_exists(WPMU_PLUGIN_DIR.'/'.$plugin);
+        });
+
+        if (array_diff($activePlugins, $validatedPlugins)) {
+            update_option('active_mu_plugins', $validatedPlugins);
+            $this->activePlugins = $validatedPlugins;
+        }
+    }
+
+    /**
      * Get the relative must-use plugins path.
      *
      * @return string
      */
-    public function getRelativePath(): string
+    protected function getRelativePath(): string
     {
         $relativePath = UrlGenerator::getRelativePath(
             WP_PLUGIN_DIR.'/',
@@ -140,7 +218,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    public function isPluginsScreen(): bool
+    protected function isPluginsScreen(): bool
     {
         $screen = get_current_screen();
 

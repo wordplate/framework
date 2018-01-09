@@ -45,29 +45,6 @@ class PluginLoaderTest extends TestCase
         $this->assertFalse($loader->activatePlugins(false));
     }
 
-    public function testGetRelativePath()
-    {
-        $loader = $this->getLoader();
-
-        $this->assertSame('/../mu-plugins/', $loader->getRelativePath());
-    }
-
-    public function testGetPlugins()
-    {
-        $loader = $this->getLoader();
-
-        $plugins = $loader->getPlugins();
-
-        $this->assertSame(['marty/mcfly.php' => []], $loader->getPlugins());
-    }
-
-    public function testIsPluginsScreen()
-    {
-        $loader = $this->getLoader();
-
-        $this->assertTrue($loader->isPluginsScreen());
-    }
-
     protected function getLoader()
     {
         if (!defined('WP_PLUGIN_DIR')) {

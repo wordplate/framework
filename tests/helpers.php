@@ -55,3 +55,13 @@ function do_action()
 {
     //
 }
+
+function get_option()
+{
+    return [];
+}
+
+function update_option()
+{
+    return [];
+}

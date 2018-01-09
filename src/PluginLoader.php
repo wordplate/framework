@@ -82,7 +82,7 @@ final class PluginLoader
      */
     public function preOptionActivePlugins($plugins): bool
     {
-        remove_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
+        remove_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
 
         if (
             !defined('WP_PLUGIN_DIR') ||
@@ -92,7 +92,7 @@ final class PluginLoader
             return false;
         }
 
-        $this->validateActivePlugins();
+        $this->validatePlugins();
 
         foreach (array_keys($this->getPlugins()) as $plugin) {
             if ($this->isPluginActive($plugin)) {
@@ -140,16 +140,9 @@ final class PluginLoader
      */
     public function preUpdateOptionActivePlugins($plugins): array
     {
-        $activeMustUsePlugins = $this->getActivePlugins();
-        $activePlugins = [];
-
-        foreach ($plugins as $plugin) {
-            if (!in_array($plugin, $activeMustUsePlugins)) {
-                $activePlugin[] = $plugin;
-            }
-        }
-
-        return $activePlugins;
+        return array_filter($plugins, function($plugin) {
+            return !in_array($plugin, $this->getActivePlugins());
+        });
     }
 
     /**
@@ -217,14 +210,14 @@ final class PluginLoader
 
         do_action('activate_'.$plugin);
 
-        $activePlugins = (array) get_option('active_mu_plugins', []);
-        $activePlugins[] = $plugin;
+        $plugins = (array) get_option('active_mu_plugins', []);
+        $plugins[] = $plugin;
 
-        sort($activePlugins);
+        sort($plugins);
 
-        update_option('active_mu_plugins', $activePlugins);
+        update_option('active_mu_plugins', $plugins);
 
-        $this->activePlugins = $activePlugins;
+        $this->activePlugins = $plugins;
     }
 
     /**
@@ -232,18 +225,16 @@ final class PluginLoader
      *
      * @return void
      */
-    protected function validateActivePlugins(): void
+    protected function validatePlugins(): void
     {
-        $activePlugins = $this->getActivePlugins();
-
-        $validatedPlugins = array_filter($activePlugins, function ($plugin) {
+        $plugins = array_filter($this->getActivePlugins(), function ($plugin) {
             return file_exists(WPMU_PLUGIN_DIR.'/'.$plugin);
         });
 
-        if (array_diff($activePlugins, $validatedPlugins)) {
-            update_option('active_mu_plugins', $validatedPlugins);
+        if (array_diff($plugins, $this->getActivePlugins())) {
+            update_option('active_mu_plugins', $plugins);
 
-            $this->activePlugins = $validatedPlugins;
+            $this->activePlugins = $plugins;
         }
     }
 

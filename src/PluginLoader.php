@@ -226,7 +226,7 @@ final class PluginLoader
 
         do_action('activate_'.$plugin);
 
-        $plugins = (array) get_option('active_mu_plugins', []);
+        $plugins = $this->getActivePlugins();
         $plugins[] = $plugin;
 
         $this->setActivePlugins($plugins);

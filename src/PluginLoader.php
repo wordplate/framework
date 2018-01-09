@@ -50,8 +50,10 @@ final class PluginLoader
         // Load WordPress's action and filter helper functions.
         require_once ABSPATH.'wp-includes/plugin.php';
 
-        add_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
+        add_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
         add_filter('show_advanced_plugins', [$this, 'showAdvancedPlugins'], 0, 2);
+        add_filter('option_active_plugins', [$this, 'optionActivePlugins'], PHP_INT_MAX);
+        add_filter('pre_update_option_active_plugins', [$this, 'preUpdateOptionActivePlugins']);
     }
 
     /**
@@ -78,7 +80,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    public function activatePlugins($plugins): bool
+    public function preOptionActivePlugins($plugins): bool
     {
         remove_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
 
@@ -107,6 +109,47 @@ final class PluginLoader
         }, PHP_INT_MIN);
 
         return $plugins;
+    }
+
+    /**
+     * Add plugins to active plugins, this makes is_plugin_active work.
+     *
+     * @param array $plugins
+     *
+     * @return array
+     */
+    public function optionActivePlugins($plugins): array
+    {
+        if ($this->isPluginsScreen()) {
+            return $plugins;
+        }
+
+        if (empty($plugins)) {
+            return array_keys($this->getPlugins());
+        }
+
+        return array_unique(array_merge($plugins, array_keys($this->getPlugins())));
+    }
+
+    /**
+     * Prevent active plugins to contain mu-plugins.
+     *
+     * @param array $plugins
+     *
+     * @return array
+     */
+    public function preUpdateOptionActivePlugins($plugins): array
+    {
+        $activeMustUsePlugins = $this->getActivePlugins();
+        $activePlugins = [];
+
+        foreach ($plugins as $plugin) {
+            if (!in_array($plugin, $activeMustUsePlugins)) {
+                $activePlugin[] = $plugin;
+            }
+        }
+
+        return $activePlugins;
     }
 
     /**
@@ -226,6 +269,10 @@ final class PluginLoader
      */
     protected function isPluginsScreen(): bool
     {
+        if (!function_exists('get_current_screen')) {
+            return false;
+        }
+
         $screen = get_current_screen();
 
         return in_array($screen->base, ['plugins', 'plugins-network']);

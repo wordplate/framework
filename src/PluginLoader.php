@@ -160,7 +160,7 @@ final class PluginLoader
     }
 
     /**
-     * Activate a given plugin.
+     * Activate plugin by their name.
      *
      * @param string $plugin
      *
@@ -181,9 +181,7 @@ final class PluginLoader
     }
 
     /**
-     * Validate active plugins.
-     *
-     * Validate all active plugins, deactivates invalid.
+     * Validate active plugins and deactivate invalid plugins.
      *
      * @return void
      */

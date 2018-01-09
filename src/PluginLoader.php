@@ -87,7 +87,7 @@ final class PluginLoader
             require_once WPMU_PLUGIN_DIR.'/'.$plugin;
         }
 
-        add_action('after_setup_theme', function () use ($plugin) {
+        add_action('after_setup_theme', function () {
             foreach (array_keys($this->getPlugins()) as $plugin) {
                 do_action('activate_'.$plugin);
             }

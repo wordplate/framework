@@ -140,7 +140,7 @@ final class PluginLoader
      */
     public function preUpdateOptionActivePlugins($plugins): array
     {
-        return array_filter($plugins, function($plugin) {
+        return array_filter($plugins, function ($plugin) {
             return !in_array($plugin, $this->getActivePlugins());
         });
     }

@@ -53,6 +53,7 @@ final class PluginLoader
         add_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
         add_filter('show_advanced_plugins', [$this, 'showAdvancedPlugins'], 0, 2);
         add_filter('option_active_plugins', [$this, 'optionActivePlugins'], PHP_INT_MAX);
+        add_filter('pre_update_option_active_plugins', [$this, 'preUpdateOptionActivePlugins']);
     }
 
     /**
@@ -128,6 +129,27 @@ final class PluginLoader
         }
 
         return array_unique(array_merge($plugins, array_keys($this->getPlugins())));
+    }
+
+    /**
+     * Prevent active plugins to contain mu-plugins.
+     *
+     * @param array $plugins
+     *
+     * @return array
+     */
+    public function preUpdateOptionActivePlugins($plugins): array
+    {
+        $activeMustUsePlugins = $this->getActivePlugins();
+        $activePlugins = [];
+
+        foreach ($plugins as $plugin) {
+            if (!in_array($plugin, $activeMustUsePlugins)) {
+                $activePlugin[] = $plugin;
+            }
+        }
+
+        return $activePlugins;
     }
 
     /**

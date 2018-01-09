@@ -85,7 +85,6 @@ final class PluginLoader
 
         foreach (array_keys($this->getPlugins()) as $plugin) {
             // include all plugins, whether they are activated or not
-            // TODO check which plugins are activated and only include them (to possible save run time)
             require_once WPMU_PLUGIN_DIR.'/'.$plugin;
         }
 
@@ -95,7 +94,6 @@ final class PluginLoader
         add_action('after_setup_theme', function () use ($plugin) {
             foreach (array_keys($this->getPlugins()) as $plugin) {
                 // activate all plugins whether they've already been activated before
-                // TODO check which plugins aren't already activated first (to possible save run time)
                 do_action('activate_'.$plugin);
             }
         });

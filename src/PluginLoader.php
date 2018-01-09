@@ -22,6 +22,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  *
  * @author Daniel Gerdgren <tditlu@users.noreply.github.com>
  * @author Vincent Klaiber <hello@vinkla.com>
+ * @author Oskar Joelson <oskar@joelson.org>
  */
 final class PluginLoader
 {
@@ -83,14 +84,14 @@ final class PluginLoader
         }
 
         foreach (array_keys($this->getPlugins()) as $plugin) {
-            if (!is_plugin_active($plugin)) {
-                require_once WPMU_PLUGIN_DIR.'/'.$plugin;
-
-                add_action('wp_loaded', function () use ($plugin) {
-                    do_action('activate_'.$plugin);
-                });
-            }
+            require_once WPMU_PLUGIN_DIR.'/'.$plugin;
         }
+
+        add_action('after_setup_theme', function () {
+            foreach (array_keys($this->getPlugins()) as $plugin) {
+                do_action('activate_'.$plugin);
+            }
+        });
 
         return $plugins;
     }

@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  *
  * @see https://codex.wordpress.org/Must_Use_Plugins
  *
- * @author Daniel Gerdgren <tditlu@users.noreply.github.com>
+ * @author Daniel Gerdgren <daniel@gerdgren.se>
  * @author Vincent Klaiber <hello@vinkla.com>
  * @author Oskar Joelson <oskar@joelson.org>
  */
@@ -157,7 +157,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    public function isPluginActive($plugin): bool
+    public function isPluginActive(string $plugin): bool
     {
         return in_array($plugin, $this->getActivePlugins());
     }
@@ -169,7 +169,7 @@ final class PluginLoader
      *
      * @return void
      */
-    public function activatePlugin($plugin)
+    public function activatePlugin(string $plugin): void
     {
         do_action('activate_'.$plugin);
 
@@ -188,7 +188,7 @@ final class PluginLoader
      *
      * @return void
      */
-    public function validateActivePlugins()
+    public function validateActivePlugins(): void
     {
         $activePlugins = $this->getActivePlugins();
         $validatedPlugins = array_filter($activePlugins, function ($plugin) {

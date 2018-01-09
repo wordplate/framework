@@ -31,14 +31,14 @@ final class PluginLoader
      *
      * @var array
      */
-    public $plugins;
+    protected $plugins;
 
     /**
      * The active must-use plugins.
      *
      * @var array
      */
-    public $activePlugins;
+    protected $activePlugins;
 
     /**
      * Run the plugin loader.
@@ -62,7 +62,7 @@ final class PluginLoader
      *
      * @return void
      */
-    public function showAdvancedPlugins(bool $show, string $type)
+    protected function showAdvancedPlugins(bool $show, string $type)
     {
         if (!$this->isPluginsScreen() || $type !== 'mustuse' || !current_user_can('activate_plugins')) {
             return $show;
@@ -78,7 +78,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    public function activatePlugins($plugins): bool
+    protected function activatePlugins($plugins): bool
     {
         remove_filter('pre_option_active_plugins', [$this, 'activatePlugins']);
 
@@ -115,7 +115,7 @@ final class PluginLoader
      *
      * @return array
      */
-    public function getPlugins(): array
+    protected function getPlugins(): array
     {
         if ($this->plugins) {
             return $this->plugins;
@@ -139,7 +139,7 @@ final class PluginLoader
      *
      * @return array
      */
-    public function getActivePlugins(): array
+    protected function getActivePlugins(): array
     {
         if ($this->activePlugins) {
             return $this->activePlugins;
@@ -169,7 +169,7 @@ final class PluginLoader
      *
      * @return void
      */
-    public function activatePlugin(string $plugin): void
+    protected function activatePlugin(string $plugin): void
     {
         do_action('activate_'.$plugin);
 
@@ -186,7 +186,7 @@ final class PluginLoader
      *
      * @return void
      */
-    public function validateActivePlugins(): void
+    protected function validateActivePlugins(): void
     {
         $activePlugins = $this->getActivePlugins();
         $validatedPlugins = array_filter($activePlugins, function ($plugin) {
@@ -204,7 +204,7 @@ final class PluginLoader
      *
      * @return string
      */
-    public function getRelativePath(): string
+    protected function getRelativePath(): string
     {
         $relativePath = UrlGenerator::getRelativePath(
             WP_PLUGIN_DIR.'/',
@@ -219,7 +219,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    public function isPluginsScreen(): bool
+    protected function isPluginsScreen(): bool
     {
         $screen = get_current_screen();
 

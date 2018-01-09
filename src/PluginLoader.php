@@ -101,7 +101,6 @@ final class PluginLoader
         add_action('init', function () {
             foreach (array_keys($this->getPlugins()) as $plugin) {
                 if (!$this->isPluginActive($plugin)) {
-                    require_once WPMU_PLUGIN_DIR.'/'.$plugin;
                     $this->activatePlugin($plugin);
                 }
             }
@@ -171,11 +170,15 @@ final class PluginLoader
      */
     protected function activatePlugin(string $plugin): void
     {
+        require_once WPMU_PLUGIN_DIR.'/'.$plugin;
+
         do_action('activate_'.$plugin);
 
         $activePlugins = (array) get_option('active_mu_plugins', []);
         $activePlugins[] = $plugin;
+
         sort($activePlugins);
+
         update_option('active_mu_plugins', $activePlugins);
 
         $this->activePlugins = $activePlugins;
@@ -189,12 +192,14 @@ final class PluginLoader
     protected function validateActivePlugins(): void
     {
         $activePlugins = $this->getActivePlugins();
+
         $validatedPlugins = array_filter($activePlugins, function ($plugin) {
             return file_exists(WPMU_PLUGIN_DIR.'/'.$plugin);
         });
 
         if (array_diff($activePlugins, $validatedPlugins)) {
             update_option('active_mu_plugins', $validatedPlugins);
+
             $this->activePlugins = $validatedPlugins;
         }
     }

@@ -142,7 +142,7 @@ final class PluginLoader
             return $this->activePlugins;
         }
 
-        $this->activePlugins = (array)get_option('active_mu_plugins', []);
+        $this->activePlugins = (array) get_option('active_mu_plugins', []);
 
         return $this->activePlugins;
     }
@@ -170,7 +170,7 @@ final class PluginLoader
     {
         do_action('activate_'.$plugin);
 
-        $activePlugins = (array)get_option('active_mu_plugins',[]);
+        $activePlugins = (array) get_option('active_mu_plugins',[]);
         $activePlugins[] = $plugin;
         sort($activePlugins);
         update_option('active_mu_plugins', $activePlugins);

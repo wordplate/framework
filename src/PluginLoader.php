@@ -288,7 +288,7 @@ final class PluginLoader
         }
 
         if ($screen = get_current_screen()) {
-          return in_array($screen->base, ['plugins', 'plugins-network']);
+            return in_array($screen->base, ['plugins', 'plugins-network']);
         }
 
         return false;

@@ -94,19 +94,18 @@ final class PluginLoader
 
         $this->validatePlugins();
 
+        $haveUnactivatedPlugins = false;
         foreach (array_keys($this->getPlugins()) as $plugin) {
             if ($this->isPluginActive($plugin)) {
                 require_once WPMU_PLUGIN_DIR.'/'.$plugin;
+            } else {
+                $haveUnactivatedPlugins = true;
             }
         }
 
-        add_action('init', function () {
-            foreach (array_keys($this->getPlugins()) as $plugin) {
-                if (!$this->isPluginActive($plugin)) {
-                    $this->activatePlugin($plugin);
-                }
-            }
-        }, PHP_INT_MIN);
+        if ($haveUnactivatedPlugins) {
+            add_action('init', [$this, 'activatePlugins'], PHP_INT_MIN);
+        }
 
         return $plugins;
     }
@@ -143,6 +142,20 @@ final class PluginLoader
         return array_filter($plugins, function ($plugin) {
             return !in_array($plugin, $this->getActivePlugins());
         });
+    }
+
+    /**
+     * Active plugins not activated.
+     *
+     * @return void
+     */
+    public function activatePlugins(): void
+    {
+        foreach (array_keys($this->getPlugins()) as $plugin) {
+            if (!$this->isPluginActive($plugin)) {
+                $this->activatePlugin($plugin);
+            }
+        }
     }
 
     /**

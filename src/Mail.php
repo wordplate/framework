@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace WordPlate;
 
 use PHPMailer;
+use WordPlate\Support\Action;
+use WordPlate\Support\Filter;
 
 /**
  * This is the mail class.
@@ -29,11 +31,8 @@ final class Mail
      */
     public function load(): void
     {
-        // Load WordPress's action and filter helper functions.
-        require_once ABSPATH.'wp-includes/plugin.php';
-
         // Add custom SMTP credentials.
-        add_action('phpmailer_init', function (PHPMailer $mail) {
+        Action::add('phpmailer_init', function (PHPMailer $mail) {
             $mail->IsSMTP();
             $mail->SMTPAuth = env('MAIL_USERNAME') && env('MAIL_PASSWORD');
 
@@ -52,7 +51,7 @@ final class Mail
         if (env('MAIL_FROM_ADDRESS')) {
             define('MAIL_FROM_ADDRESS', env('MAIL_FROM_ADDRESS'));
 
-            add_filter('wp_mail_from', function () {
+            Filter::add('wp_mail_from', function () {
                 return MAIL_FROM_ADDRESS;
             });
         }
@@ -61,7 +60,7 @@ final class Mail
         if (env('MAIL_FROM_NAME')) {
             define('MAIL_FROM_NAME', env('MAIL_FROM_NAME'));
 
-            add_filter('wp_mail_from_name', function () {
+            Filter::add('wp_mail_from_name', function () {
                 return MAIL_FROM_NAME;
             });
         }

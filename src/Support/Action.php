@@ -18,7 +18,7 @@ namespace WordPlate\Support;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Action
+final class Action
 {
     /**
      * Hooks a function on to a specific action.

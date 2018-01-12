@@ -18,7 +18,7 @@ namespace WordPlate\Support;
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class Filter
+final class Filter
 {
     /**
      * Hook a function or method to a specific filter action.

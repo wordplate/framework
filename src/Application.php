@@ -49,6 +49,7 @@ final class Application extends Container
     {
         $this->publicPath = $publicPath;
         $this->pluginLoader = new PluginLoader();
+        $this->mail = new Mail();
 
         try {
             (new Dotenv($this->getBasePath()))->load();
@@ -129,8 +130,9 @@ final class Application extends Container
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
         }
 
-        // Load the must-use plugins.
+        // Load the must-use plugins and mail helper.
         $this->pluginLoader->load();
+        $this->mail->load();
     }
 
     /**

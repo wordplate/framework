@@ -5,6 +5,7 @@
 - Added must-use plugin loader
 - Added symfony 4.0 support
 - Added mail encryption variable
+- Added laravel mix 2.0 support
 - Updated child theme support
 - Updated wordpress core
 - Removed php 7.0 support

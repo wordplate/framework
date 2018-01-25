@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 6.2.0 (upcoming)
+## 6.2.0 (released 2018-01-25)
 
 - Added must-use plugin loader
 - Added symfony 4.0 support

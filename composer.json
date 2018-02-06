@@ -20,7 +20,7 @@
         "ext-mbstring": "*",
         "composer/installers": "^1.5",
         "illuminate/support": "^5.5",
-        "johnpbloch/wordpress": "^4.9.3",
+        "johnpbloch/wordpress": "^4.9.4",
         "roots/wp-password-bcrypt": "^1.0",
         "symfony/http-foundation": "^4.0",
         "symfony/routing": "^4.0",

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 6.2.1 (released 2018-03-05)
+
+- Added plate 4.0 support
+- Updated illuminate support to 5.6
+- Updated wordpress core to 4.9.4
+
 ## 6.2.0 (released 2018-01-25)
 
 - Added must-use plugin loader

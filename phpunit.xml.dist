@@ -3,7 +3,7 @@
          backupStaticAttributes="false"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutOutputDuringTests="true"
-         bootstrap="vendor/autoload.php"
+         bootstrap="tests/vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -17,15 +17,19 @@
 >
     <testsuites>
         <testsuite name="WordPlate Test Suite">
-            <directory suffix="Test.php">./tests</directory>
+            <directory suffix="Test.php">.</directory>
+            <exclude>tests/vendor</exclude>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">tests/vendor/wordplate/framework/src</directory>
         </whitelist>
     </filter>
     <php>
         <env name="WP_ENV" value="testing"/>
     </php>
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
 </phpunit>

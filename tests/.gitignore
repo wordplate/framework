@@ -1,0 +1,15 @@
+clover.xml
+
+/vendor
+
+# This is a workaround due to inability to set up a repository of type "path"
+# targeting ../ directory in order to conduct integration tests with the package
+# in its current state (before pushing to external repository).
+# See https://github.com/composer/composer/issues/6085
+/package
+
+# These paths are specified in composer.json and used by composer/installers.
+/public/wordpress
+/public/mu-plugins
+/public/plugins
+/public/themes

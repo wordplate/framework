@@ -7,10 +7,11 @@ php:
 sudo: false
 
 install:
-  - travis_retry composer install --no-interaction
+  # Install test WordPress instance dependencies
+  - travis_retry composer install --working-dir=tests --no-interaction
 
 script:
-  - vendor/bin/phpunit --coverage-clover clover.xml
+  - tests/vendor/bin/phpunit
 
 after_script:
   - bash <(curl -s https://codecov.io/bash)

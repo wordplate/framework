@@ -16,6 +16,8 @@ namespace WordPlate\Tests;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Application;
 
+require_once __DIR__.'/stubs.php';
+
 /**
  * This is the application test class.
  *

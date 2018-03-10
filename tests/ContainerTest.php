@@ -17,6 +17,8 @@ use PHPUnit\Framework\TestCase;
 use WordPlate\Application;
 use WordPlate\Container;
 
+require_once __DIR__.'/stubs.php';
+
 /**
  * This is the container test class.
  *

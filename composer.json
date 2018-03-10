@@ -27,9 +27,6 @@
         "symfony/var-dumper": "^4.0",
         "vlucas/phpdotenv": "^2.4"
     },
-    "require-dev": {
-        "phpunit/phpunit": "^7.0"
-    },
     "autoload": {
         "psr-4": {
             "WordPlate\\": "src/"
@@ -38,14 +35,6 @@
             "src/helpers.php"
         ]
     },
-    "autoload-dev": {
-        "files": [
-            "tests/helpers.php"
-        ],
-        "psr-4": {
-            "WordPlate\\Tests\\": "tests/"
-        }
-    },
     "config": {
         "preferred-install": "dist"
     },
@@ -53,6 +42,9 @@
         "branch-alias": {
             "dev-master": "6.2-dev"
         }
+    },
+    "scripts": {
+        "test": "@composer --working-dir=tests test"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

@@ -18,12 +18,14 @@ use Illuminate\Support\HtmlString;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Application;
 
+require_once __DIR__.'/stubs.php';
+
 /**
  * This is the helpers test class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class HelpersTest extends TestCase
+class StubsTest extends TestCase
 {
     public function testAsset()
     {

@@ -1,0 +1,43 @@
+{
+    "description": "A WordPress site to test WordPlate with",
+    "type": "project",
+    "repositories": [
+        {
+            "type": "artifact",
+            "url": "package"
+        }
+    ],
+    "require": {
+        "wordplate/framework": "@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0",
+        "symfony/process": "^4.0",
+        "psy/psysh": "^0.8",
+        "lib-curl": "*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WordPlate\\Tests\\": "."
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "archive-package": "@composer archive --working-dir=../ --ignore-filters --dir=tests/package --file=wordplate-framework",
+        "test": "vendor/bin/phpunit",
+        "pre-install-cmd": "@archive-package",
+        "pre-update-cmd": "@archive-package"
+    },
+    "extra": {
+        "wordpress-install-dir": "public/wordpress",
+        "installer-paths": {
+            "public/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+            "public/plugins/{$name}": ["type:wordpress-plugin"],
+            "public/themes/{$name}": ["type:wordpress-theme"]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

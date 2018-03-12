@@ -30,9 +30,9 @@ final class Action
      * @param int $priority
      * @param int $accepted
      *
-     * @return bool
+     * @return bool|null
      */
-    public static function add(string $tag, callable $callback, int $priority = 10, int $accepted = 1): bool
+    public static function add(string $tag, callable $callback, int $priority = 10, int $accepted = 1): ?bool
     {
         // Load WordPress's action helper functions.
         require_once ABSPATH.'wp-includes/plugin.php';
@@ -49,9 +49,9 @@ final class Action
      * @param callable $callback
      * @param int $priority
      *
-     * @return bool
+     * @return bool|null
      */
-    public static function remove(string $tag, callable $callback, int $priority = 10): bool
+    public static function remove(string $tag, callable $callback, int $priority = 10): ?bool
     {
         // Load WordPress's action helper functions.
         require_once ABSPATH.'wp-includes/plugin.php';

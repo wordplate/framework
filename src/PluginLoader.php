@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace WordPlate;
 
 use Symfony\Component\Routing\Generator\UrlGenerator;
+use WordPlate\Support\Action;
+use WordPlate\Support\Filter;
 
 /**
  * This is the must use plugin loader class.
@@ -47,13 +49,10 @@ final class PluginLoader
      */
     public function load(): void
     {
-        // Load WordPress's action and filter helper functions.
-        require_once ABSPATH.'wp-includes/plugin.php';
-
-        add_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
-        add_filter('show_advanced_plugins', [$this, 'showAdvancedPlugins'], 0, 2);
-        add_filter('option_active_plugins', [$this, 'optionActivePlugins'], PHP_INT_MAX);
-        add_filter('pre_update_option_active_plugins', [$this, 'preUpdateOptionActivePlugins']);
+        Filter::add('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
+        Filter::add('show_advanced_plugins', [$this, 'showAdvancedPlugins'], 0, 2);
+        Filter::add('option_active_plugins', [$this, 'optionActivePlugins'], PHP_INT_MAX);
+        Filter::add('pre_update_option_active_plugins', [$this, 'preUpdateOptionActivePlugins']);
     }
 
     /**
@@ -82,7 +81,7 @@ final class PluginLoader
      */
     public function preOptionActivePlugins($plugins): bool
     {
-        remove_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
+        Filter::remove('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
 
         if (
             !defined('WP_PLUGIN_DIR') ||
@@ -104,7 +103,7 @@ final class PluginLoader
         }
 
         if ($haveUnactivatedPlugins) {
-            add_action('init', [$this, 'activatePlugins'], PHP_INT_MIN);
+            Action::add('init', [$this, 'activatePlugins'], PHP_INT_MIN);
         }
 
         return $plugins;

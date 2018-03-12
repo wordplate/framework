@@ -37,7 +37,7 @@ final class Filter
         // Load WordPress's action and filter helper functions.
         require_once ABSPATH.'wp-includes/plugin.php';
 
-        return add_filter($tag, $callback, $priority, $args);
+        return add_filter($tag, $callback, $priority, $accepted);
     }
 
     /**

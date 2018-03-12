@@ -37,7 +37,7 @@ final class Action
         // Load WordPress's action helper functions.
         require_once ABSPATH.'wp-includes/plugin.php';
 
-        return add_action($tag, $callback, $priority, $args);
+        return add_action($tag, $callback, $priority, $accepted);
     }
 
     /**

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 6.2.2 (released 2018-04-04)
+
+- Updated default favicon
+- Updated laravel-mix to 2.1.11
+- Updated cross-env to 5.1.4
+- Updated menu registration
+- Updated wordpress core to 4.9.5
+- Removed stylesheet loading from theme
+- Removed unused filters
+
 ## 6.2.1 (released 2018-03-05)
 
 - Added plate 4.0 support

@@ -21,28 +21,28 @@ namespace WordPlate;
 class Container
 {
     /**
-     * The current globally available container (if any).
+     * The current globally available containers (if any).
      *
      * @var static
      */
-    protected static $instance;
+    protected static $instances = [];
 
     /**
-     * Set the globally available instance of the container.
+     * Set the globally available instance of the containers.
      *
      * @return static
      */
     public static function getInstance()
     {
-        if (is_null(static::$instance)) {
-            static::$instance = new static();
+        if (!isset(self::$instances[static::class])) {
+            self::$instances[static::class] = new static();
         }
 
-        return static::$instance;
+        return self::$instances[static::class];
     }
 
     /**
-     * Set the shared instance of the container.
+     * Set the shared instance of the containers.
      *
      * @param \WordPlate\Container|null $container
      *
@@ -50,6 +50,6 @@ class Container
      */
     public static function setInstance(self $container = null)
     {
-        return static::$instance = $container;
+        self::$instances[static::class] = $container;
     }
 }

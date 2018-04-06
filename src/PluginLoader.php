@@ -24,7 +24,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  * @author Oskar Joelson <oskar@joelson.org>
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-final class PluginLoader
+final class PluginLoader extends Container
 {
     /**
      * The loaded must-use plugins.
@@ -39,6 +39,16 @@ final class PluginLoader
      * @var array
      */
     protected $activePlugins;
+
+    /**
+     * Create a new plugin loader instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        static::setInstance($this);
+    }
 
     /**
      * Run the plugin loader.

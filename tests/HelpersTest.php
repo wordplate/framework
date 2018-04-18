@@ -48,6 +48,7 @@ class HelpersTest extends TestCase
 
     public function testMix()
     {
+        mkdir(__DIR__.'/stubs/child-theme');
         mkdir(__DIR__.'/stubs/child-theme/assets');
         file_put_contents(__DIR__.'/stubs/child-theme/assets/mix-manifest.json', '{"/1955.js": "/1955.js?id=740b8162ec"}');
 
@@ -60,10 +61,12 @@ class HelpersTest extends TestCase
         unlink(__DIR__.'/stubs/child-theme/assets/mix-manifest.json');
         rmdir(__DIR__.'/stubs/child-theme/assets/hot');
         rmdir(__DIR__.'/stubs/child-theme/assets');
+        rmdir(__DIR__.'/stubs/child-theme');
     }
 
     public function testMixMissingFile()
     {
+        mkdir(__DIR__.'/stubs/child-theme');
         mkdir(__DIR__.'/stubs/child-theme/assets');
         file_put_contents(__DIR__.'/stubs/child-theme/assets/mix-manifest.json', '{}');
 
@@ -75,6 +78,7 @@ class HelpersTest extends TestCase
 
         unlink(__DIR__.'/stubs/child-theme/assets/mix-manifest.json');
         rmdir(__DIR__.'/stubs/child-theme/assets');
+        rmdir(__DIR__.'/stubs/child-theme');
     }
 
     /**

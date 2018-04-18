@@ -109,5 +109,4 @@ class HelpersTest extends TestCase
         $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', stylesheet_uri('style.css'));
         $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', stylesheet_uri('/style.css'));
     }
-
 }

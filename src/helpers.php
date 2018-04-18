@@ -15,6 +15,20 @@ use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use WordPlate\Container;
 
+if (!function_exists('asset')) {
+    /**
+     * Generate a url for the current theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function asset(string $path = ''): string
+    {
+        return stylesheet_uri($path);
+    }
+}
+
 if (!function_exists('base_path')) {
     /**
      * Get the path to the base of the install.
@@ -119,9 +133,7 @@ if (!function_exists('stylesheet_uri')) {
      */
     function stylesheet_uri(string $path = ''): string
     {
-        $path = $path ? '/'.$path : $path;
-
-        return sprintf('%s%s', get_stylesheet_directory_uri(), $path);
+        return sprintf('%s/%s', get_stylesheet_directory_uri(), ltrim($path, '/'));
     }
 }
 
@@ -153,22 +165,6 @@ if (!function_exists('template_uri')) {
      */
     function template_uri(string $path = ''): string
     {
-        $path = $path ? '/'.$path : $path;
-
-        return sprintf('%s%s', get_template_directory_uri(), $path);
-    }
-}
-
-if (!function_exists('asset')) {
-    /**
-     * Generate a url for the current theme directory.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function asset(string $path = null): string
-    {
-        return stylesheet_uri($path);
+        return sprintf('%s/%s', get_template_directory_uri(), ltrim($path, '/'));
     }
 }

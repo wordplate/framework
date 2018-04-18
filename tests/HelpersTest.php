@@ -27,8 +27,8 @@ class HelpersTest extends TestCase
 {
     public function testAsset()
     {
-        $this->assertSame('https://wordplate.dev/favicon.ico', asset('favicon.ico'));
-        $this->assertSame('https://wordplate.dev/favicon.ico', asset('/favicon.ico'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('/style.css'));
     }
 
     public function testBasePath()
@@ -37,6 +37,13 @@ class HelpersTest extends TestCase
 
         $this->assertSame(__DIR__, base_path());
         $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
+    }
+
+    public function testInfo()
+    {
+        $url = info('url');
+
+        $this->assertSame('https://martymcf.ly', $url);
     }
 
     public function testMix()
@@ -55,17 +62,6 @@ class HelpersTest extends TestCase
         rmdir(__DIR__.'/stubs/assets');
     }
 
-    /**
-     * @runInSeparateProcess
-     */
-    public function testMixMissingManifest()
-    {
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('The Mix manifest does not exist.');
-
-        mix('1985.js');
-    }
-
     public function testMixMissingFile()
     {
         mkdir(__DIR__.'/stubs/assets');
@@ -81,20 +77,37 @@ class HelpersTest extends TestCase
         rmdir(__DIR__.'/stubs/assets');
     }
 
-    public function testInfo()
+    /**
+     * @runInSeparateProcess
+     */
+    public function testMixMissingManifest()
     {
-        $url = info('url');
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('The Mix manifest does not exist.');
 
-        $this->assertSame('https://martymcf.ly', $url);
+        mix('1985.js');
     }
 
     public function testStylesheetPath()
     {
-        $this->assertSame(__DIR__.'/stubs/partials/navigation.php', stylesheet_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('partials/navigation.php'));
+    }
+
+    public function testStylesheetUri()
+    {
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('/style.css'));
     }
 
     public function testTemplatePath()
     {
-        $this->assertSame(__DIR__.'/stubs/partials/navigation.php', template_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('partials/navigation.php'));
     }
+
+    public function testTemplateUri()
+    {
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', stylesheet_uri('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', stylesheet_uri('/style.css'));
+    }
+
 }

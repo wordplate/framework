@@ -106,7 +106,7 @@ class HelpersTest extends TestCase
 
     public function testTemplateUri()
     {
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', stylesheet_uri('style.css'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', stylesheet_uri('/style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('/style.css'));
     }
 }

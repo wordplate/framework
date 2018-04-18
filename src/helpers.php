@@ -15,20 +15,6 @@ use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use WordPlate\Container;
 
-if (!function_exists('asset')) {
-    /**
-     * Generate a url for the current theme directory.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function asset(string $path = null): string
-    {
-        return sprintf('%s/%s', get_stylesheet_directory_uri(), ltrim($path, '/'));
-    }
-}
-
 if (!function_exists('base_path')) {
     /**
      * Get the path to the base of the install.
@@ -123,6 +109,22 @@ if (!function_exists('stylesheet_path')) {
     }
 }
 
+if (!function_exists('stylesheet_uri')) {
+    /**
+     * Generate a uri for the current/child theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function stylesheet_uri(string $path = ''): string
+    {
+        $path = $path ? '/'.$path : $path;
+
+        return sprintf('%s%s', get_stylesheet_directory_uri(), $path);
+    }
+}
+
 if (!function_exists('template_path')) {
     /**
      * Generate a path for the current theme directory or to the parent theme
@@ -137,5 +139,36 @@ if (!function_exists('template_path')) {
         $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
 
         return sprintf('%s%s', get_template_directory(), $path);
+    }
+}
+
+if (!function_exists('template_uri')) {
+    /**
+     * Generate a uri for the current theme directory or to the parent theme
+     * if a child theme is being used.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function template_uri(string $path = ''): string
+    {
+        $path = $path ? '/'.$path : $path;
+
+        return sprintf('%s%s', get_template_directory_uri(), $path);
+    }
+}
+
+if (!function_exists('asset')) {
+    /**
+     * Generate a url for the current theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function asset(string $path = null): string
+    {
+        return stylesheet_uri($path);
     }
 }

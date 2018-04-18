@@ -46,6 +46,9 @@ class HelpersTest extends TestCase
         $this->assertSame('https://martymcf.ly', $url);
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testMix()
     {
         mkdir(__DIR__.'/stubs/child-theme');
@@ -53,7 +56,7 @@ class HelpersTest extends TestCase
         file_put_contents(__DIR__.'/stubs/child-theme/assets/mix-manifest.json', '{"/1955.js": "/1955.js?id=740b8162ec"}');
 
         $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
-        $this->assertSame('https://wordplate.dev/assets/1955.js?id=740b8162ec', (string) mix('1955.js'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets/1955.js?id=740b8162ec', (string) mix('1955.js'));
 
         mkdir(__DIR__.'/stubs/child-theme/assets/hot');
         $this->assertSame('//localhost:8080/1955.js', (string) mix('1955.js'));
@@ -64,6 +67,9 @@ class HelpersTest extends TestCase
         rmdir(__DIR__.'/stubs/child-theme');
     }
 
+    /**
+     * @runInSeparateProcess
+     */
     public function testMixMissingFile()
     {
         mkdir(__DIR__.'/stubs/child-theme');

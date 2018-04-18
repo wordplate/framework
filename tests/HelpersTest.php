@@ -48,24 +48,24 @@ class HelpersTest extends TestCase
 
     public function testMix()
     {
-        mkdir(__DIR__.'/stubs/assets');
-        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{"/1955.js": "/1955.js?id=740b8162ec"}');
+        mkdir(__DIR__.'/stubs/child-theme/assets');
+        file_put_contents(__DIR__.'/stubs/child-theme/assets/mix-manifest.json', '{"/1955.js": "/1955.js?id=740b8162ec"}');
 
         $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
         $this->assertSame('https://wordplate.dev/assets/1955.js?id=740b8162ec', (string) mix('1955.js'));
 
-        mkdir(__DIR__.'/stubs/assets/hot');
+        mkdir(__DIR__.'/stubs/child-theme/assets/hot');
         $this->assertSame('//localhost:8080/1955.js', (string) mix('1955.js'));
 
-        unlink(__DIR__.'/stubs/assets/mix-manifest.json');
-        rmdir(__DIR__.'/stubs/assets/hot');
-        rmdir(__DIR__.'/stubs/assets');
+        unlink(__DIR__.'/stubs/child-theme/assets/mix-manifest.json');
+        rmdir(__DIR__.'/stubs/child-theme/assets/hot');
+        rmdir(__DIR__.'/stubs/child-theme/assets');
     }
 
     public function testMixMissingFile()
     {
-        mkdir(__DIR__.'/stubs/assets');
-        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{}');
+        mkdir(__DIR__.'/stubs/child-theme/assets');
+        file_put_contents(__DIR__.'/stubs/child-theme/assets/mix-manifest.json', '{}');
 
         try {
             mix('2015.js');
@@ -73,8 +73,8 @@ class HelpersTest extends TestCase
             $this->assertSame('Unable to locate Mix file: /2015.js. Please check your webpack.mix.js output paths and try again.', $e->getMessage());
         }
 
-        unlink(__DIR__.'/stubs/assets/mix-manifest.json');
-        rmdir(__DIR__.'/stubs/assets');
+        unlink(__DIR__.'/stubs/child-theme/assets/mix-manifest.json');
+        rmdir(__DIR__.'/stubs/child-theme/assets');
     }
 
     /**

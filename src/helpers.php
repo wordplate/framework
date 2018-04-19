@@ -25,7 +25,7 @@ if (!function_exists('asset')) {
      */
     function asset(string $path = ''): string
     {
-        return stylesheet_uri($path);
+        return stylesheet_url($path);
     }
 }
 

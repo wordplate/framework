@@ -124,7 +124,7 @@ if (!function_exists('stylesheet_path')) {
     }
 }
 
-if (!function_exists('stylesheet_uri')) {
+if (!function_exists('stylesheet_url')) {
     /**
      * Generate a uri for the current/child theme directory.
      *
@@ -132,7 +132,7 @@ if (!function_exists('stylesheet_uri')) {
      *
      * @return string
      */
-    function stylesheet_uri(string $path = ''): string
+    function stylesheet_url(string $path = ''): string
     {
         $path = $path !== '/' ? ltrim($path, '/') : $path;
         $path = $path && $path !== '/' ? '/'.$path : $path;
@@ -159,7 +159,7 @@ if (!function_exists('template_path')) {
     }
 }
 
-if (!function_exists('template_uri')) {
+if (!function_exists('template_url')) {
     /**
      * Generate a uri for the current theme directory or to the parent theme
      * if a child theme is being used.
@@ -168,7 +168,7 @@ if (!function_exists('template_uri')) {
      *
      * @return string
      */
-    function template_uri(string $path = ''): string
+    function template_url(string $path = ''): string
     {
         $path = $path !== '/' ? ltrim($path, '/') : $path;
         $path = $path && $path !== '/' ? '/'.$path : $path;

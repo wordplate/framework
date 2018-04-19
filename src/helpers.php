@@ -23,9 +23,9 @@ if (!function_exists('asset')) {
      *
      * @return string
      */
-    function asset(string $path = null): string
+    function asset(string $path = ''): string
     {
-        return sprintf('%s/%s', get_stylesheet_directory_uri(), ltrim($path, '/'));
+        return stylesheet_uri($path);
     }
 }
 
@@ -123,6 +123,20 @@ if (!function_exists('stylesheet_path')) {
     }
 }
 
+if (!function_exists('stylesheet_uri')) {
+    /**
+     * Generate a uri for the current/child theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function stylesheet_uri(string $path = ''): string
+    {
+        return sprintf('%s/%s', get_stylesheet_directory_uri(), ltrim($path, '/'));
+    }
+}
+
 if (!function_exists('template_path')) {
     /**
      * Generate a path for the current theme directory or to the parent theme
@@ -137,5 +151,20 @@ if (!function_exists('template_path')) {
         $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
 
         return sprintf('%s%s', get_template_directory(), $path);
+    }
+}
+
+if (!function_exists('template_uri')) {
+    /**
+     * Generate a uri for the current theme directory or to the parent theme
+     * if a child theme is being used.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function template_uri(string $path = ''): string
+    {
+        return sprintf('%s/%s', get_template_directory_uri(), ltrim($path, '/'));
     }
 }

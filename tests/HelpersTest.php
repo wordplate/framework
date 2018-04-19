@@ -27,8 +27,8 @@ class HelpersTest extends TestCase
 {
     public function testAsset()
     {
-        $this->assertSame('https://wordplate.dev/favicon.ico', asset('favicon.ico'));
-        $this->assertSame('https://wordplate.dev/favicon.ico', asset('/favicon.ico'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('/style.css'));
     }
 
     public function testBasePath()
@@ -39,20 +39,52 @@ class HelpersTest extends TestCase
         $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
     }
 
+    public function testInfo()
+    {
+        $url = info('url');
+
+        $this->assertSame('https://martymcf.ly', $url);
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
     public function testMix()
     {
-        mkdir(__DIR__.'/stubs/assets');
-        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{"/1955.js": "/1955.js?id=740b8162ec"}');
+        mkdir(__DIR__.'/stubs/child-theme');
+        mkdir(__DIR__.'/stubs/child-theme/assets');
+        file_put_contents(__DIR__.'/stubs/child-theme/assets/mix-manifest.json', '{"/1955.js": "/1955.js?id=740b8162ec"}');
 
         $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
-        $this->assertSame('https://wordplate.dev/assets/1955.js?id=740b8162ec', (string) mix('1955.js'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets/1955.js?id=740b8162ec', (string) mix('1955.js'));
 
-        mkdir(__DIR__.'/stubs/assets/hot');
+        mkdir(__DIR__.'/stubs/child-theme/assets/hot');
         $this->assertSame('//localhost:8080/1955.js', (string) mix('1955.js'));
 
-        unlink(__DIR__.'/stubs/assets/mix-manifest.json');
-        rmdir(__DIR__.'/stubs/assets/hot');
-        rmdir(__DIR__.'/stubs/assets');
+        unlink(__DIR__.'/stubs/child-theme/assets/mix-manifest.json');
+        rmdir(__DIR__.'/stubs/child-theme/assets/hot');
+        rmdir(__DIR__.'/stubs/child-theme/assets');
+        rmdir(__DIR__.'/stubs/child-theme');
+    }
+
+    /**
+     * @runInSeparateProcess
+     */
+    public function testMixMissingFile()
+    {
+        mkdir(__DIR__.'/stubs/child-theme');
+        mkdir(__DIR__.'/stubs/child-theme/assets');
+        file_put_contents(__DIR__.'/stubs/child-theme/assets/mix-manifest.json', '{}');
+
+        try {
+            mix('2015.js');
+        } catch (Exception $e) {
+            $this->assertSame('Unable to locate Mix file: /2015.js. Please check your webpack.mix.js output paths and try again.', $e->getMessage());
+        }
+
+        unlink(__DIR__.'/stubs/child-theme/assets/mix-manifest.json');
+        rmdir(__DIR__.'/stubs/child-theme/assets');
+        rmdir(__DIR__.'/stubs/child-theme');
     }
 
     /**
@@ -66,35 +98,25 @@ class HelpersTest extends TestCase
         mix('1985.js');
     }
 
-    public function testMixMissingFile()
-    {
-        mkdir(__DIR__.'/stubs/assets');
-        file_put_contents(__DIR__.'/stubs/assets/mix-manifest.json', '{}');
-
-        try {
-            mix('2015.js');
-        } catch (Exception $e) {
-            $this->assertSame('Unable to locate Mix file: /2015.js. Please check your webpack.mix.js output paths and try again.', $e->getMessage());
-        }
-
-        unlink(__DIR__.'/stubs/assets/mix-manifest.json');
-        rmdir(__DIR__.'/stubs/assets');
-    }
-
-    public function testInfo()
-    {
-        $url = info('url');
-
-        $this->assertSame('https://martymcf.ly', $url);
-    }
-
     public function testStylesheetPath()
     {
-        $this->assertSame(__DIR__.'/stubs/partials/navigation.php', stylesheet_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('partials/navigation.php'));
+    }
+
+    public function testStylesheetUri()
+    {
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('/style.css'));
     }
 
     public function testTemplatePath()
     {
-        $this->assertSame(__DIR__.'/stubs/partials/navigation.php', template_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('partials/navigation.php'));
+    }
+
+    public function testTemplateUri()
+    {
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('/style.css'));
     }
 }

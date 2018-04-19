@@ -100,22 +100,52 @@ class HelpersTest extends TestCase
 
     public function testStylesheetPath()
     {
+        $this->assertSame(__DIR__.'/stubs/child-theme', stylesheet_path());
+        $this->assertSame(__DIR__.'/stubs/child-theme/', stylesheet_path('/'));
+
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials', stylesheet_path('partials'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials', stylesheet_path('/partials'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials/', stylesheet_path('/partials/'));
+
         $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('/partials/navigation.php'));
     }
 
     public function testStylesheetUri()
     {
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme', stylesheet_uri());
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/', stylesheet_uri('/'));
+
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets', stylesheet_uri('assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets', stylesheet_uri('/assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets/', stylesheet_uri('/assets/'));
+
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('style.css'));
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('/style.css'));
     }
 
     public function testTemplatePath()
     {
+        $this->assertSame(__DIR__.'/stubs/parent-theme', template_path());
+        $this->assertSame(__DIR__.'/stubs/parent-theme/', template_path('/'));
+
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials', template_path('partials'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials', template_path('/partials'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/', template_path('/partials/'));
+
         $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('/partials/navigation.php'));
     }
 
     public function testTemplateUri()
     {
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme', template_uri());
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/', template_uri('/'));
+
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets', template_uri('assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets', template_uri('/assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets/', template_uri('/assets/'));
+
         $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('style.css'));
         $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('/style.css'));
     }

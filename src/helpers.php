@@ -117,7 +117,8 @@ if (!function_exists('stylesheet_path')) {
      */
     function stylesheet_path(string $path = ''): string
     {
-        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
+        $path = $path !== DIRECTORY_SEPARATOR ? ltrim($path, DIRECTORY_SEPARATOR) : $path;
+        $path = $path && $path !== DIRECTORY_SEPARATOR ? '/'.$path : $path;
 
         return sprintf('%s%s', get_stylesheet_directory(), $path);
     }
@@ -133,7 +134,10 @@ if (!function_exists('stylesheet_uri')) {
      */
     function stylesheet_uri(string $path = ''): string
     {
-        return sprintf('%s/%s', get_stylesheet_directory_uri(), ltrim($path, '/'));
+        $path = $path !== '/' ? ltrim($path, '/') : $path;
+        $path = $path && $path !== '/' ? '/'.$path : $path;
+
+        return sprintf('%s%s', get_stylesheet_directory_uri(), $path);
     }
 }
 
@@ -148,7 +152,8 @@ if (!function_exists('template_path')) {
      */
     function template_path(string $path = ''): string
     {
-        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
+        $path = $path !== DIRECTORY_SEPARATOR ? ltrim($path, DIRECTORY_SEPARATOR) : $path;
+        $path = $path && $path !== DIRECTORY_SEPARATOR ? '/'.$path : $path;
 
         return sprintf('%s%s', get_template_directory(), $path);
     }
@@ -165,6 +170,9 @@ if (!function_exists('template_uri')) {
      */
     function template_uri(string $path = ''): string
     {
-        return sprintf('%s/%s', get_template_directory_uri(), ltrim($path, '/'));
+        $path = $path !== '/' ? ltrim($path, '/') : $path;
+        $path = $path && $path !== '/' ? '/'.$path : $path;
+
+        return sprintf('%s%s', get_template_directory_uri(), $path);
     }
 }

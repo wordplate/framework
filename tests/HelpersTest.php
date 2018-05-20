@@ -27,8 +27,8 @@ class HelpersTest extends TestCase
 {
     public function testAsset()
     {
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('style.css'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('/style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('/style.css'));
     }
 
     public function testBasePath()
@@ -100,23 +100,53 @@ class HelpersTest extends TestCase
 
     public function testStylesheetPath()
     {
+        $this->assertSame(__DIR__.'/stubs/child-theme', stylesheet_path());
+        $this->assertSame(__DIR__.'/stubs/child-theme/', stylesheet_path('/'));
+
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials', stylesheet_path('partials'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials', stylesheet_path('/partials'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials/', stylesheet_path('/partials/'));
+
         $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('/partials/navigation.php'));
     }
 
-    public function testStylesheetUri()
+    public function testStylesheetUrl()
     {
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('style.css'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_uri('/style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme', stylesheet_url());
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/', stylesheet_url('/'));
+
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets', stylesheet_url('assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets', stylesheet_url('/assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets/', stylesheet_url('/assets/'));
+
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('/style.css'));
     }
 
     public function testTemplatePath()
     {
+        $this->assertSame(__DIR__.'/stubs/parent-theme', template_path());
+        $this->assertSame(__DIR__.'/stubs/parent-theme/', template_path('/'));
+
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials', template_path('partials'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials', template_path('/partials'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/', template_path('/partials/'));
+
         $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('partials/navigation.php'));
+        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('/partials/navigation.php'));
     }
 
-    public function testTemplateUri()
+    public function testTemplateUrl()
     {
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('style.css'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_uri('/style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme', template_url());
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/', template_url('/'));
+
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets', template_url('assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets', template_url('/assets'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets/', template_url('/assets/'));
+
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_url('style.css'));
+        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_url('/style.css'));
     }
 }

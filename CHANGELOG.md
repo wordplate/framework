@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 6.3.0 (upcoming)
+
+- Added stylesheet url helper function
+- Added template url helper function
+- Updated johnpbloch/wordpress to 4.9.6
+
 ## 6.2.2 (released 2018-04-04)
 
 - Updated default favicon

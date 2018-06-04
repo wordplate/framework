@@ -5,6 +5,9 @@
 - Added stylesheet url helper function
 - Added template url helper function
 - Updated johnpbloch/wordpress to 4.9.6
+- Updated symfony/http-foundation to 4.1.0
+- Updated symfony/routing to 4.1.0
+- Updated symfony/var-dumper to 4.1.0
 
 ## 6.2.2 (released 2018-04-04)
 

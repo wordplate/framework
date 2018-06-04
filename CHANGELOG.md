@@ -1,9 +1,12 @@
 # CHANGELOG
 
-## 6.3.0 (upcoming)
+## 6.3.0 (released 2018-06-04)
 
 - Added stylesheet url helper function
 - Added template url helper function
+- Add browserslist to package.json
+- Updated cross-env to 5.1.6
+- Updated dotenv to 6.0.0
 - Updated johnpbloch/wordpress to 4.9.6
 - Updated symfony/http-foundation to 4.1.0
 - Updated symfony/routing to 4.1.0

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 6.4.0 (upcoming)
+
+- Updated cross-env to 5.2.0
+- Updated resources directory structure
+
 ## 6.3.0 (released 2018-06-04)
 
 - Added stylesheet url helper function

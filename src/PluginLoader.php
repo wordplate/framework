@@ -123,11 +123,18 @@ final class PluginLoader
             return $plugins;
         }
 
-        if (empty($plugins)) {
-            return array_keys($this->getPlugins());
+        foreach (array_keys($this->getPlugins()) as $plugin) {
+            $plugins = array_diff($plugins, [$plugin]);
+            if ($this->isPluginActive($plugin)) {
+                // Remove plugin from array, if exists
+                $plugins = array_diff($plugins, [$plugin]);
+
+                // Add plugin with relative url to WPMU_PLUGIN_DIR
+                $plugins[] = $this->getRelativePath().$plugin;
+            }
         }
 
-        return array_unique(array_merge($plugins, array_keys($this->getPlugins())));
+        return array_unique($plugins);
     }
 
     /**
@@ -173,7 +180,7 @@ final class PluginLoader
         require_once ABSPATH.'wp-admin/includes/plugin.php';
 
         $plugins = array_diff_key(
-            get_plugins($this->getRelativePath()),
+            get_plugins('/'.$this->getRelativePath()),
             get_mu_plugins()
         );
 
@@ -273,7 +280,7 @@ final class PluginLoader
             WPMU_PLUGIN_DIR.'/'
         );
 
-        return '/'.$relativePath;
+        return $relativePath;
     }
 
     /**

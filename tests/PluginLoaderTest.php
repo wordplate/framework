@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate\Tests;
 
-use ReflectionMethod;
 use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 use WordPlate\PluginLoader;
 
 /**

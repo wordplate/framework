@@ -55,7 +55,7 @@ class PluginLoaderTest extends TestCase
         $pluginLoader = new PluginLoader();
 
         $activePlugins = $pluginLoader->optionActivePlugins(['mcfly/marty.php']);
-        $this->assertEquals(1, count($activePlugins));
+        $this->assertCount(1, $activePlugins);
         $this->assertEquals('mcfly/marty.php', $activePlugins[0]);
     }
 

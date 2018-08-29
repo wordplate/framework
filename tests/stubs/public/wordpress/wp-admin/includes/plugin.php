@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-function get_plugins($plugin_folder = '')
+function get_plugins($directory = '')
 {
-    // Simulate mu-plugin call to get_plugins
-    if (!empty($plugin_folder) && strpos($plugin_folder, '/mu-plugins/') !== false) {
+    // Simulate mu-plugin call to get_plugins.
+    if (!empty($directory) && strpos($directory, '/mu-plugins/') !== false) {
         return [
-            '.'.$plugin_folder.'emmett/brown.php' => [],
+            '.'.$directory.'emmett/brown.php' => [],
         ];
     }
 

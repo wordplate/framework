@@ -2,6 +2,7 @@
 
 ## 6.4.0 (upcoming)
 
+- Added relative path support for mu-plugins
 - Updated cross-env to 5.2.0
 - Updated resources directory structure
 
@@ -9,7 +10,7 @@
 
 - Added stylesheet url helper function
 - Added template url helper function
-- Add browserslist to package.json
+- Added browserslist to package.json
 - Updated cross-env to 5.1.6
 - Updated dotenv to 6.0.0
 - Updated johnpbloch/wordpress to 4.9.6

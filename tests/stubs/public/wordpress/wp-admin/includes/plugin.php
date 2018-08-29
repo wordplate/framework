@@ -11,8 +11,15 @@
 
 declare(strict_types=1);
 
-function get_plugins()
+function get_plugins($plugin_folder = '')
 {
+    // Simulate mu-plugin call to get_plugins
+    if (!empty($plugin_folder) && strpos($plugin_folder, '/mu-plugins/') !== false) {
+        return [
+            '.'.$plugin_folder.'emmett/brown.php' => [],
+        ];
+    }
+
     return [
         'marty/mcfly.php' => [],
     ];
@@ -20,5 +27,7 @@ function get_plugins()
 
 function get_mu_plugins()
 {
-    return [];
+    return [
+        'emmett/brown.php' => [],
+    ];
 }

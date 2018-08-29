@@ -21,7 +21,7 @@ function get_plugins($plugin_folder = '')
     }
 
     return [
-        $plugin_root.'marty/mcfly.php' => [],
+        'marty/mcfly.php' => [],
     ];
 }
 

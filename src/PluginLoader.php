@@ -275,12 +275,10 @@ final class PluginLoader
      */
     protected function getRelativePath(): string
     {
-        $relativePath = UrlGenerator::getRelativePath(
+        return UrlGenerator::getRelativePath(
             WP_PLUGIN_DIR.'/',
             WPMU_PLUGIN_DIR.'/'
         );
-
-        return $relativePath;
     }
 
     /**

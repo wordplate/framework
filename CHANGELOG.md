@@ -1,10 +1,13 @@
 # CHANGELOG
 
-## 6.4.0 (upcoming)
+## 6.3.1 (released 2018-09-14)
 
 - Added relative path support for mu-plugins
-- Updated cross-env to 5.2.0
 - Updated resources directory structure
+- Updated composer/installers to 1.7.0
+- Updated cross-env to 5.2.0
+- Updated illuminate/support to 5.7.0
+- Updated vlucas/phpdotenv to 2.5.0
 
 ## 6.3.0 (released 2018-06-04)
 

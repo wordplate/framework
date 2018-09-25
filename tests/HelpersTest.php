@@ -33,7 +33,7 @@ class HelpersTest extends TestCase
 
     public function testBasePath()
     {
-        new Application(__DIR__.'/stubs');
+        new Application(__DIR__);
 
         $this->assertSame(__DIR__, base_path());
         $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));

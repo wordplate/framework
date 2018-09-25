@@ -25,7 +25,7 @@ class ApplicationTest extends TestCase
 {
     public function testInvalidPathException()
     {
-        $application = new Application(__DIR__.'/stubs/public');
+        $application = new Application(__DIR__.'/stubs');
 
         putenv('WP_DIR=wordpress');
 
@@ -42,13 +42,10 @@ class ApplicationTest extends TestCase
     {
         file_put_contents(__DIR__.'/stubs/.env', 'WP_DIR=wordpress');
 
-        $application = new Application(__DIR__.'/stubs/public');
+        $application = new Application(__DIR__.'/stubs');
         $application->run();
 
         $this->assertInstanceOf(Application::class, $application);
-
-        $application->setBasePath(__DIR__);
-        $this->assertSame(__DIR__, $application->getBasePath());
 
         $application->setPublicPath(__DIR__);
         $this->assertSame(__DIR__, $application->getPublicPath());

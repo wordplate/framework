@@ -47,6 +47,10 @@ final class PluginLoader
      */
     public function load(): void
     {
+        if (defined('DISABLE_PLUGIN_LOADER') && DISABLE_PLUGIN_LOADER) {
+            return;
+        }
+
         // Load WordPress's action and filter helper functions.
         require_once ABSPATH.'wp-includes/plugin.php';
 

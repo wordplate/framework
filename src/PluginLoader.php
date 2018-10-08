@@ -76,11 +76,11 @@ final class PluginLoader
     /**
      * Active plugins including must-use plugins.
      *
-     * @param array $plugins
+     * @param mixed $plugins
      *
-     * @return bool
+     * @return mixed
      */
-    public function preOptionActivePlugins($plugins): array
+    public function preOptionActivePlugins($plugins)
     {
         remove_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
 
@@ -107,7 +107,7 @@ final class PluginLoader
             add_action('wp_loaded', [$this, 'activatePlugins']);
         }
 
-        return $plugins ?: [];
+        return $plugins;
     }
 
     /**
@@ -119,9 +119,8 @@ final class PluginLoader
      */
     public function optionActivePlugins($plugins): array
     {
-
         if ($this->isPluginsScreen()) {
-            return $plugins ?: [];
+            return $plugins;
         }
 
         foreach (array_keys($this->getPlugins()) as $plugin) {

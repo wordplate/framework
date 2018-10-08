@@ -48,7 +48,6 @@ final class Application extends Container
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
-        $this->pluginLoader = new PluginLoader();
 
         try {
             (new Dotenv($this->basePath))->load();
@@ -130,7 +129,8 @@ final class Application extends Container
         }
 
         // Load the must-use plugins.
-        $this->pluginLoader->load();
+        $pluginLoader = new PluginLoader();
+        $pluginLoader->load();
     }
 
     /**

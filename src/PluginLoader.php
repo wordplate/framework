@@ -80,7 +80,7 @@ final class PluginLoader
      *
      * @return bool
      */
-    public function preOptionActivePlugins($plugins): bool
+    public function preOptionActivePlugins($plugins): array
     {
         remove_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
 
@@ -104,10 +104,10 @@ final class PluginLoader
         }
 
         if ($haveUnactivatedPlugins) {
-            add_action('init', [$this, 'activatePlugins'], PHP_INT_MIN);
+            add_action('wp_loaded', [$this, 'activatePlugins']);
         }
 
-        return $plugins;
+        return $plugins ?: [];
     }
 
     /**
@@ -119,8 +119,9 @@ final class PluginLoader
      */
     public function optionActivePlugins($plugins): array
     {
+
         if ($this->isPluginsScreen()) {
-            return $plugins;
+            return $plugins ?: [];
         }
 
         foreach (array_keys($this->getPlugins()) as $plugin) {
@@ -214,7 +215,7 @@ final class PluginLoader
      */
     protected function setActivePlugins(array $plugins): void
     {
-        sort($plugins);
+        $plugins = array_unique($plugins, SORT_REGULAR);
 
         update_option('active_mu_plugins', $plugins);
 

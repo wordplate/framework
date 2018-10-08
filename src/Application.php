@@ -41,16 +41,16 @@ final class Application extends Container
     /**
      * Create a new application instance.
      *
-     * @param string $publicPath
+     * @param string $basePath
      *
      * @return void
      */
-    public function __construct(string $publicPath)
+    public function __construct(string $basePath)
     {
-        $this->publicPath = $publicPath;
+        $this->basePath = $basePath;
 
         try {
-            (new Dotenv($this->getBasePath()))->load();
+            (new Dotenv($this->basePath))->load();
         } catch (InvalidPathException $e) {
             //
         }
@@ -140,23 +140,7 @@ final class Application extends Container
      */
     public function getBasePath(): string
     {
-        if (is_null($this->basePath)) {
-            return realpath($this->publicPath.'/../');
-        }
-
         return $this->basePath;
-    }
-
-    /**
-     * Get the base path for the application.
-     *
-     * @param string $basePath
-     *
-     * @return void
-     */
-    public function setBasePath(string $basePath)
-    {
-        $this->basePath = $basePath;
     }
 
     /**
@@ -166,6 +150,10 @@ final class Application extends Container
      */
     public function getPublicPath(): string
     {
+        if (is_null($this->publicPath)) {
+            return $this->basePath.DIRECTORY_SEPARATOR.'public';
+        }
+
         return $this->publicPath;
     }
 

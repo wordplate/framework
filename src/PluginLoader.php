@@ -76,11 +76,11 @@ final class PluginLoader
     /**
      * Active plugins including must-use plugins.
      *
-     * @param array $plugins
+     * @param mixed $plugins
      *
-     * @return bool
+     * @return mixed
      */
-    public function preOptionActivePlugins($plugins): bool
+    public function preOptionActivePlugins($plugins)
     {
         remove_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
 
@@ -104,7 +104,7 @@ final class PluginLoader
         }
 
         if ($haveUnactivatedPlugins) {
-            add_action('init', [$this, 'activatePlugins'], PHP_INT_MIN);
+            add_action('wp_loaded', [$this, 'activatePlugins']);
         }
 
         return $plugins;
@@ -214,7 +214,7 @@ final class PluginLoader
      */
     protected function setActivePlugins(array $plugins): void
     {
-        sort($plugins);
+        $plugins = array_unique($plugins, SORT_REGULAR);
 
         update_option('active_mu_plugins', $plugins);
 

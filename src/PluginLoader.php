@@ -184,7 +184,7 @@ final class PluginLoader
             get_mu_plugins()
         );
 
-        $this->plugins = array_unique($plugins);
+        $this->plugins = array_unique($plugins, SORT_REGULAR);
 
         return $this->plugins;
     }

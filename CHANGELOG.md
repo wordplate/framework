@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 7.0.0 (upcoming)
+
+- Added template_slug helper function
+- Updated default path to base path
+- Updated plugin loader registration
+- Removed WP_ENV environment variable
+
 ## 6.3.1 (released 2018-09-14)
 
 - Added relative path support for mu-plugins

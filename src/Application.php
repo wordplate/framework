@@ -65,9 +65,6 @@ final class Application extends Container
      */
     public function run()
     {
-        // The WordPress environment.
-        define('WP_ENV', env('WP_ENV', 'production'));
-
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);
         define('WP_DEBUG', $debug);

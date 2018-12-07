@@ -28,8 +28,8 @@
         "johnpbloch/wordpress": "^4.9.8",
         "roots/wp-password-bcrypt": "^1.0",
         "symfony/http-foundation": "^4.1",
-        "symfony/routing": "^4.1",
-        "symfony/var-dumper": "^4.1",
+        "symfony/routing": "^4.2",
+        "symfony/var-dumper": "^4.2",
         "vlucas/phpdotenv": "^2.5"
     },
     "require-dev": {

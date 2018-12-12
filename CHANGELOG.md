@@ -1,11 +1,14 @@
 # CHANGELOG
 
-## 7.0.0 (upcoming)
+## 7.0.0 (released 2018-12-12)
 
 - Added template_slug helper function
-- Updated default path to base path
-- Updated plugin loader registration
 - Removed WP_ENV environment variable
+- Updated default path to base path
+- Updated johnpbloch/wordpress to 5.0
+- Updated laravel-mix to 4.0
+- Updated default npm scripts
+- Updated plugin loader registration
 
 ## 6.3.1 (released 2018-09-14)
 

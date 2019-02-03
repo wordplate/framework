@@ -39,13 +39,6 @@ class HelpersTest extends TestCase
         $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
     }
 
-    public function testInfo()
-    {
-        $url = info('url');
-
-        $this->assertSame('https://martymcf.ly', $url);
-    }
-
     /**
      * @runInSeparateProcess
      */

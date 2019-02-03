@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace WordPlate;
 
 use Dotenv\Dotenv;
-use Dotenv\Exception\InvalidPathException;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -49,11 +48,7 @@ final class Application extends Container
     {
         $this->basePath = $basePath;
 
-        try {
-            (new Dotenv($this->basePath))->load();
-        } catch (InvalidPathException $e) {
-            //
-        }
+        Dotenv::create($this->basePath)->safeLoad();
 
         static::setInstance($this);
     }

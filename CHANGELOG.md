@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 7.1.0 (upcoming release)
+
+- Locked illuminate/support version
+- Removed info helper function
+- Updated vlucas/phpdotenv to 3.0
+
 ## 7.0.0 (released 2018-12-12)
 
 - Added template_slug helper function

@@ -25,7 +25,7 @@
         "ext-mbstring": "*",
         "composer/installers": "^1.6",
         "illuminate/support": "5.8.*",
-        "johnpbloch/wordpress": "^5.0",
+        "johnpbloch/wordpress": "^5.1",
         "laravel/helpers": "^1.0",
         "roots/wp-password-bcrypt": "^1.0",
         "symfony/http-foundation": "^4.2",

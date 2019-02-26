@@ -2,9 +2,14 @@
 
 ## 7.1.0 (upcoming release)
 
-- Locked illuminate/support version
-- Removed info helper function
+- Added laravel/helpers package
+- Deleted robots.txt file
+- Removed deprecated bloginfo function
+- Updated illuminate/support to 5.8
+- Updated johnpbloch/wordpress to 5.1
+- Updated laravel-mix to 4.0.14
 - Updated vlucas/phpdotenv to 3.0
+- Updated wordplate/plate to 4.1
 
 ## 7.0.0 (released 2018-12-12)
 

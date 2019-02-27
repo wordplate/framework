@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 7.1.0 (upcoming release)
+## 7.1.0 (released 2019-02-27)
 
 - Added laravel/helpers package
 - Deleted robots.txt file

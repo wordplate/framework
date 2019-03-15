@@ -10,4 +10,4 @@
 
 ## License
 
-[MIT](LICENSE) © [Vincent Klaiber](https://vinkla.com)
+[MIT](LICENSE) © [Vincent Klaiber](https://doubledip.se)

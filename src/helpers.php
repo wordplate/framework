@@ -11,8 +11,79 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\HtmlString;
-use Illuminate\Support\Str;
+use WordPlate\Container;
+
+if (!function_exists('asset')) {
+    /**
+     * Generate a url for the current theme directory.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function asset(string $path = ''): string
+    {
+        return stylesheet_url($path);
+    }
+}
+
+if (!function_exists('base_path')) {
+    /**
+     * Get the path to the base of the install.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function base_path(string $path = ''): string
+    {
+        $container = Container::getInstance();
+
+        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
+
+        return sprintf('%s%s', $container->getBasePath(), $path);
+    }
+}
+
+if (!function_exists('env')) {
+    /**
+     * Gets the value of an environment variable.
+     *
+     * @param string $key
+     * @param mixed $default
+     *
+     * @return mixed
+     */
+    function env($key, $default = null)
+    {
+        $value = getenv($key);
+
+        if ($value === false) {
+            return $default;
+        }
+
+        switch (strtolower($value)) {
+            case 'true':
+            case '(true)':
+                return true;
+            case 'false':
+            case '(false)':
+                return false;
+            case 'empty':
+            case '(empty)':
+                return '';
+            case 'null':
+            case '(null)':
+                return;
+        }
+
+        if (preg_match('/\A([\'"])(.*)\1\z/', $value, $matches)) {
+            return $matches[2];
+        }
+
+        return $value;
+    }
+}
 
 if (!function_exists('mix')) {
     /**
@@ -23,17 +94,17 @@ if (!function_exists('mix')) {
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Support\HtmlString
+     * @return string
      */
-    function mix(string $path, string $manifestDirectory = 'assets'): HtmlString
+    function mix(string $path, string $manifestDirectory = 'assets'): string
     {
         static $manifest;
 
-        if (!Str::startsWith($path, '/')) {
+        if (strpos($path, '/') !== 0) {
             $path = "/{$path}";
         }
 
-        if ($manifestDirectory && !Str::startsWith($manifestDirectory, '/')) {
+        if ($manifestDirectory && strpos($manifestDirectory, '/') !== 0) {
             $manifestDirectory = "/{$manifestDirectory}";
         }
 
@@ -49,6 +120,6 @@ if (!function_exists('mix')) {
             throw new Exception("Unable to locate Mix file: {$path}. Please check your webpack.mix.js output paths and try again.");
         }
 
-        return new HtmlString(get_theme_file_uri($manifestDirectory.$manifest[$path]));
+        return get_theme_file_uri($manifestDirectory.$manifest[$path]);
     }
 }

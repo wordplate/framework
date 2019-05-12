@@ -14,20 +14,6 @@ declare(strict_types=1);
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
-if (!function_exists('asset')) {
-    /**
-     * Generate a url for the current theme directory.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function asset(string $path = ''): string
-    {
-        return stylesheet_url($path);
-    }
-}
-
 if (!function_exists('mix')) {
     /**
      * Get the path to a versioned Mix file.
@@ -63,41 +49,6 @@ if (!function_exists('mix')) {
             throw new Exception("Unable to locate Mix file: {$path}. Please check your webpack.mix.js output paths and try again.");
         }
 
-        return new HtmlString(asset($manifestDirectory.$manifest[$path]));
-    }
-}
-
-if (!function_exists('stylesheet_url')) {
-    /**
-     * Generate a uri for the current/child theme directory.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function stylesheet_url(string $path = ''): string
-    {
-        $path = $path !== '/' ? ltrim($path, '/') : $path;
-        $path = $path && $path !== '/' ? '/'.$path : $path;
-
-        return sprintf('%s%s', get_stylesheet_directory_uri(), $path);
-    }
-}
-
-if (!function_exists('template_url')) {
-    /**
-     * Generate a uri for the current theme directory or to the parent theme
-     * if a child theme is being used.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function template_url(string $path = ''): string
-    {
-        $path = $path !== '/' ? ltrim($path, '/') : $path;
-        $path = $path && $path !== '/' ? '/'.$path : $path;
-
-        return sprintf('%s%s', get_template_directory_uri(), $path);
+        return new HtmlString(get_theme_file_uri($manifestDirectory.$manifest[$path]));
     }
 }

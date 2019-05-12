@@ -24,12 +24,6 @@ use PHPUnit\Framework\TestCase;
  */
 class HelpersTest extends TestCase
 {
-    public function testAsset()
-    {
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('style.css'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('/style.css'));
-    }
-
     /**
      * @runInSeparateProcess
      */
@@ -76,31 +70,5 @@ class HelpersTest extends TestCase
         $this->expectExceptionMessage('The Mix manifest does not exist.');
 
         mix('1985.js');
-    }
-
-    public function testStylesheetUrl()
-    {
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme', stylesheet_url());
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/', stylesheet_url('/'));
-
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets', stylesheet_url('assets'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets', stylesheet_url('/assets'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets/', stylesheet_url('/assets/'));
-
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('style.css'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('/style.css'));
-    }
-
-    public function testTemplateUrl()
-    {
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme', template_url());
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/', template_url('/'));
-
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets', template_url('assets'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets', template_url('/assets'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/assets/', template_url('/assets/'));
-
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_url('style.css'));
-        $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme/style.css', template_url('/style.css'));
     }
 }

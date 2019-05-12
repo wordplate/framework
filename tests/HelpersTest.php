@@ -23,6 +23,29 @@ use PHPUnit\Framework\TestCase;
  */
 class HelpersTest extends TestCase
 {
+    public function testEnv()
+    {
+        $this->assertSame('mcfly', env('DOTENV_DEFAULT', 'mcfly'));
+
+        $variables = [
+            'DOTENV_FALSE=false' => false,
+            'DOTENV_FALSE=(false)' => false,
+            'DOTENV_TRUE=true' => true,
+            'DOTENV_TRUE=(true)' => true,
+            'DOTENV_EMPTY=empty' => '',
+            'DOTENV_EMPTY=(empty)' => '',
+            'DOTENV_NULL=null' => null,
+            'DOTENV_NULL=(null)' => null,
+            'DOTENV_QUOTED="null"' => 'null',
+            "DOTENV_QUOTED='null'" => 'null',
+        ];
+
+        foreach ($variables as $variable => $expected) {
+            putenv($variable);
+            $this->assertSame($expected, env(explode('=', $variable)[0]));
+        }
+    }
+
     /**
      * @runInSeparateProcess
      */

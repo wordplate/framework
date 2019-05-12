@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use WordPlate\Container;
 
 if (!function_exists('asset')) {
     /**
@@ -26,24 +25,6 @@ if (!function_exists('asset')) {
     function asset(string $path = ''): string
     {
         return stylesheet_url($path);
-    }
-}
-
-if (!function_exists('base_path')) {
-    /**
-     * Get the path to the base of the install.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function base_path(string $path = ''): string
-    {
-        $container = Container::getInstance();
-
-        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
-
-        return sprintf('%s%s', $container->getBasePath(), $path);
     }
 }
 
@@ -71,7 +52,7 @@ if (!function_exists('mix')) {
         }
 
         if (!$manifest) {
-            if (!file_exists($manifestPath = stylesheet_path($manifestDirectory.'/mix-manifest.json'))) {
+            if (!file_exists($manifestPath = get_theme_file_path($manifestDirectory.'/mix-manifest.json'))) {
                 throw new Exception('The Mix manifest does not exist.');
             }
 
@@ -83,23 +64,6 @@ if (!function_exists('mix')) {
         }
 
         return new HtmlString(asset($manifestDirectory.$manifest[$path]));
-    }
-}
-
-if (!function_exists('stylesheet_path')) {
-    /**
-     * Generate a path for the current/child theme directory.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function stylesheet_path(string $path = ''): string
-    {
-        $path = $path !== DIRECTORY_SEPARATOR ? ltrim($path, DIRECTORY_SEPARATOR) : $path;
-        $path = $path && $path !== DIRECTORY_SEPARATOR ? '/'.$path : $path;
-
-        return sprintf('%s%s', get_stylesheet_directory(), $path);
     }
 }
 
@@ -120,21 +84,24 @@ if (!function_exists('stylesheet_url')) {
     }
 }
 
-if (!function_exists('template_path')) {
+if (!function_exists('template_slug')) {
     /**
-     * Generate a path for the current theme directory or to the parent theme
-     * if a child theme is being used.
+     * Get page template slug.
      *
-     * @param string $path
+     * @param int|\WP_Post|null $post
      *
-     * @return string
+     * @return string|null
      */
-    function template_path(string $path = ''): string
+    function template_slug($post = null): ?string
     {
-        $path = $path !== DIRECTORY_SEPARATOR ? ltrim($path, DIRECTORY_SEPARATOR) : $path;
-        $path = $path && $path !== DIRECTORY_SEPARATOR ? '/'.$path : $path;
+        if (!$post) {
+            return null;
+        }
 
-        return sprintf('%s%s', get_template_directory(), $path);
+        $slug = get_page_template_slug($post);
+        $filename = pathinfo($slug)['filename'];
+
+        return $filename !== '' ? $filename : null;
     }
 }
 

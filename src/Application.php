@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Vincent Klaiber <hello@doubledip.se>
  */
-final class Application extends Container
+final class Application
 {
     /**
      * The base path for the WordPlate installation.
@@ -49,8 +49,6 @@ final class Application extends Container
         $this->basePath = $basePath;
 
         Dotenv::create($this->basePath)->safeLoad();
-
-        static::setInstance($this);
     }
 
     /**

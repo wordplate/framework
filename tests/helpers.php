@@ -31,6 +31,11 @@ function get_option()
     return [];
 }
 
+function get_theme_file_path(string $path)
+{
+    return __DIR__.'/stubs/child-theme'.$path;
+}
+
 function get_stylesheet_directory()
 {
     return __DIR__.'/stubs/child-theme';

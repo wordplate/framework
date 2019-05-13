@@ -41,6 +41,11 @@ function get_stylesheet_directory()
     return __DIR__.'/stubs/child-theme';
 }
 
+function get_theme_file_uri(string $path)
+{
+    return 'https://wordplate.dev/wp-content/themes/child-theme'.$path;
+}
+
 function get_stylesheet_directory_uri()
 {
     return 'https://wordplate.dev/wp-content/themes/child-theme';

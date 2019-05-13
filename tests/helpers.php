@@ -21,11 +21,6 @@ function do_action()
     //
 }
 
-function get_bloginfo()
-{
-    return 'https://martymcf.ly';
-}
-
 function get_current_screen()
 {
     return json_decode(json_encode(['base' => 'plugins']));

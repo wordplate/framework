@@ -36,29 +36,9 @@ function get_theme_file_path(string $path)
     return __DIR__.'/stubs/child-theme'.$path;
 }
 
-function get_stylesheet_directory()
-{
-    return __DIR__.'/stubs/child-theme';
-}
-
 function get_theme_file_uri(string $path)
 {
     return 'https://wordplate.dev/wp-content/themes/child-theme'.$path;
-}
-
-function get_stylesheet_directory_uri()
-{
-    return 'https://wordplate.dev/wp-content/themes/child-theme';
-}
-
-function get_template_directory()
-{
-    return __DIR__.'/stubs/parent-theme';
-}
-
-function get_template_directory_uri()
-{
-    return 'https://wordplate.dev/wp-content/themes/parent-theme';
 }
 
 function is_blog_installed()

@@ -51,11 +51,7 @@ class HelpersTest extends TestCase
         $this->assertInstanceOf(HtmlString::class, mix('1955.js'));
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/assets/1955.js?id=740b8162ec', (string) mix('1955.js'));
 
-        mkdir(__DIR__.'/stubs/child-theme/assets/hot');
-        $this->assertSame('//localhost:8080/1955.js', (string) mix('1955.js'));
-
         unlink(__DIR__.'/stubs/child-theme/assets/mix-manifest.json');
-        rmdir(__DIR__.'/stubs/child-theme/assets/hot');
         rmdir(__DIR__.'/stubs/child-theme/assets');
         rmdir(__DIR__.'/stubs/child-theme');
     }

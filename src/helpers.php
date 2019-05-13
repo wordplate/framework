@@ -70,10 +70,6 @@ if (!function_exists('mix')) {
             $manifestDirectory = "/{$manifestDirectory}";
         }
 
-        if (file_exists(stylesheet_path($manifestDirectory.'/hot'))) {
-            return new HtmlString("//localhost:8080{$path}");
-        }
-
         if (!$manifest) {
             if (!file_exists($manifestPath = stylesheet_path($manifestDirectory.'/mix-manifest.json'))) {
                 throw new Exception('The Mix manifest does not exist.');

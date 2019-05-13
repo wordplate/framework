@@ -16,7 +16,6 @@ namespace WordPlate\Tests;
 use Exception;
 use Illuminate\Support\HtmlString;
 use PHPUnit\Framework\TestCase;
-use WordPlate\Application;
 
 /**
  * This is the helpers test class.
@@ -29,14 +28,6 @@ class HelpersTest extends TestCase
     {
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('style.css'));
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('/style.css'));
-    }
-
-    public function testBasePath()
-    {
-        new Application(__DIR__);
-
-        $this->assertSame(__DIR__, base_path());
-        $this->assertSame(__DIR__.'/88mph.php', base_path('88mph.php'));
     }
 
     /**
@@ -87,19 +78,6 @@ class HelpersTest extends TestCase
         mix('1985.js');
     }
 
-    public function testStylesheetPath()
-    {
-        $this->assertSame(__DIR__.'/stubs/child-theme', stylesheet_path());
-        $this->assertSame(__DIR__.'/stubs/child-theme/', stylesheet_path('/'));
-
-        $this->assertSame(__DIR__.'/stubs/child-theme/partials', stylesheet_path('partials'));
-        $this->assertSame(__DIR__.'/stubs/child-theme/partials', stylesheet_path('/partials'));
-        $this->assertSame(__DIR__.'/stubs/child-theme/partials/', stylesheet_path('/partials/'));
-
-        $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('partials/navigation.php'));
-        $this->assertSame(__DIR__.'/stubs/child-theme/partials/navigation.php', stylesheet_path('/partials/navigation.php'));
-    }
-
     public function testStylesheetUrl()
     {
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme', stylesheet_url());
@@ -111,19 +89,6 @@ class HelpersTest extends TestCase
 
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('style.css'));
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('/style.css'));
-    }
-
-    public function testTemplatePath()
-    {
-        $this->assertSame(__DIR__.'/stubs/parent-theme', template_path());
-        $this->assertSame(__DIR__.'/stubs/parent-theme/', template_path('/'));
-
-        $this->assertSame(__DIR__.'/stubs/parent-theme/partials', template_path('partials'));
-        $this->assertSame(__DIR__.'/stubs/parent-theme/partials', template_path('/partials'));
-        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/', template_path('/partials/'));
-
-        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('partials/navigation.php'));
-        $this->assertSame(__DIR__.'/stubs/parent-theme/partials/navigation.php', template_path('/partials/navigation.php'));
     }
 
     public function testTemplateUrl()

@@ -58,7 +58,7 @@ final class Application extends Container
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);

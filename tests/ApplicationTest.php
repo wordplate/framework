@@ -25,13 +25,15 @@ class ApplicationTest extends TestCase
 {
     public function testInvalidPathException()
     {
-        $application = new Application(__DIR__.'/stubs');
+        $basePath = __DIR__.'/stubs';
+        $application = new Application($basePath);
 
         putenv('WP_DIR=wordpress');
 
         $application->run();
 
         $this->assertInstanceOf(Application::class, $application);
+        $this->assertSame($basePath, $application->getBasePath());
     }
 
     /**

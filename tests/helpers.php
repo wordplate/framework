@@ -51,11 +51,6 @@ function get_template_directory_uri()
     return 'https://wordplate.dev/wp-content/themes/parent-theme';
 }
 
-function get_page_template_slug($page = null)
-{
-    return $page ? 'page-templates/about.php' : null;
-}
-
 function is_blog_installed()
 {
     return true;

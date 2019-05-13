@@ -11,40 +11,6 @@
 
 declare(strict_types=1);
 
-use WordPlate\Container;
-
-if (!function_exists('asset')) {
-    /**
-     * Generate a url for the current theme directory.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function asset(string $path = ''): string
-    {
-        return stylesheet_url($path);
-    }
-}
-
-if (!function_exists('base_path')) {
-    /**
-     * Get the path to the base of the install.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    function base_path(string $path = ''): string
-    {
-        $container = Container::getInstance();
-
-        $path = $path ? DIRECTORY_SEPARATOR.$path : $path;
-
-        return sprintf('%s%s', $container->getBasePath(), $path);
-    }
-}
-
 if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable.

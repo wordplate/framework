@@ -91,12 +91,6 @@ class HelpersTest extends TestCase
         $this->assertSame('https://wordplate.dev/wp-content/themes/child-theme/style.css', stylesheet_url('/style.css'));
     }
 
-    public function testTemplateSlug()
-    {
-        $this->assertNull(template_slug());
-        $this->assertSame('about', template_slug(1));
-    }
-
     public function testTemplateUrl()
     {
         $this->assertSame('https://wordplate.dev/wp-content/themes/parent-theme', template_url());

@@ -142,27 +142,6 @@ if (!function_exists('template_path')) {
     }
 }
 
-if (!function_exists('template_slug')) {
-    /**
-     * Get page template slug.
-     *
-     * @param int|\WP_Post|null $post
-     *
-     * @return string|null
-     */
-    function template_slug($post = null): ?string
-    {
-        if (!$post) {
-            return null;
-        }
-
-        $slug = get_page_template_slug($post);
-        $filename = pathinfo($slug)['filename'];
-
-        return $filename !== '' ? $filename : null;
-    }
-}
-
 if (!function_exists('template_url')) {
     /**
      * Generate a uri for the current theme directory or to the parent theme

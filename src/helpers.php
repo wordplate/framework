@@ -83,3 +83,21 @@ if (!function_exists('stylesheet_url')) {
         return sprintf('%s%s', get_stylesheet_directory_uri(), $path);
     }
 }
+
+if (!function_exists('template_url')) {
+    /**
+     * Generate a uri for the current theme directory or to the parent theme
+     * if a child theme is being used.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function template_url(string $path = ''): string
+    {
+        $path = $path !== '/' ? ltrim($path, '/') : $path;
+        $path = $path && $path !== '/' ? '/'.$path : $path;
+
+        return sprintf('%s%s', get_template_directory_uri(), $path);
+    }
+}

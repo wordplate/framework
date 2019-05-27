@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
 /**
  * This is the must use plugin loader class.
  *
- * @see https://codex.wordpress.org/Must_Use_Plugins
+ * @see https://wordpress.org/support/article/must-use-plugins/
  *
  * @author Daniel Gerdgren <daniel@gerdgren.se>
  * @author Oskar Joelson <oskar@joelson.org>

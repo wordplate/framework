@@ -51,7 +51,27 @@ class ApplicationTest extends TestCase
 
         $application->setPublicPath(__DIR__);
         $this->assertSame(__DIR__, $application->getPublicPath());
+        $this->assertSame($application->getBasePath(), $application->getEnvironmentFilePath());
 
         unlink(__DIR__.'/stubs/.env');
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function testCustomEnvirnomentFilePath()
+    {
+        $environmentFilePath = sys_get_temp_dir().'/.env';
+        file_put_contents($environmentFilePath, 'WP_DIR=wordpress');
+
+        $application = new Application(__DIR__.'/stubs');
+        $application->setEnvironmentFilePath($environmentFilePath);
+        $application->run();
+
+        $this->assertInstanceOf(Application::class, $application);
+        $this->assertSame($environmentFilePath, $application->getEnvironmentFilePath());
+
+        unlink($environmentFilePath);
     }
 }

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Added ability to customize `.env` path via `Application::setEnvironmentFilePath` method
+
 ## 7.1.0 (released 2019-02-27)
 
 - Added laravel/helpers package

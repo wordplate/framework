@@ -38,6 +38,13 @@ final class Application
     protected $publicPath;
 
     /**
+     * The environment file path.
+     *
+     * @var string
+     */
+    protected $environmentFilePath;
+
+    /**
      * Create a new application instance.
      *
      * @param string $basePath
@@ -47,8 +54,6 @@ final class Application
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
-
-        Dotenv::create($this->basePath)->safeLoad();
     }
 
     /**
@@ -58,6 +63,9 @@ final class Application
      */
     public function run(): void
     {
+        // Boot the environment
+        Dotenv::create($this->getEnvironmentFilePath())->safeLoad();
+
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);
         define('WP_DEBUG', $debug);
@@ -157,5 +165,25 @@ final class Application
     public function setPublicPath(string $publicPath)
     {
         $this->publicPath = $publicPath;
+    }
+
+    /**
+     * Get the environment file path.
+     *
+     * @return string
+     */
+    public function getEnvironmentFilePath(): string
+    {
+        return $this->environmentFilePath ?: $this->getBasePath();
+    }
+
+    /**
+     * Set the environment file path.
+     *
+     * @param string $environmentFilePath
+     */
+    public function setEnvironmentFilePath(string $environmentFilePath)
+    {
+        $this->environmentFilePath = $environmentFilePath;
     }
 }

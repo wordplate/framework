@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @author Vincent Klaiber <hello@doubledip.se>
  */
-final class Application
+class Application
 {
     /**
      * The base path for the WordPlate installation.

@@ -22,7 +22,6 @@
     ],
     "require": {
         "php": "^7.2",
-        "ext-mbstring": "*",
         "composer/installers": "^1.6",
         "johnpbloch/wordpress": "^5.2",
         "roots/wp-password-bcrypt": "^1.0",

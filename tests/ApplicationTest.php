@@ -23,35 +23,23 @@ use WordPlate\Application;
  */
 class ApplicationTest extends TestCase
 {
-    public function testInvalidPathException()
+    protected static $application;
+
+    public static function setUpBeforeClass(): void
     {
-        $basePath = __DIR__.'/stubs';
-        $application = new Application($basePath);
-
-        putenv('WP_DIR=wordpress');
-
-        $application->run();
-
-        $this->assertInstanceOf(Application::class, $application);
-        $this->assertSame($basePath, $application->getBasePath());
+        self::$application = new Application(__DIR__.'/stubs');
+        self::$application->run();
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function testStandard()
+    public function testBasePath()
     {
-        file_put_contents(__DIR__.'/stubs/.env', 'WP_DIR=wordpress');
+        $this->assertInstanceOf(Application::class, self::$application);
+        $this->assertSame(__DIR__.'/stubs', self::$application->getBasePath());
+    }
 
-        $application = new Application(__DIR__.'/stubs');
-        $application->run();
-
-        $this->assertInstanceOf(Application::class, $application);
-
-        $application->setPublicPath(__DIR__);
-        $this->assertSame(__DIR__, $application->getPublicPath());
-
-        unlink(__DIR__.'/stubs/.env');
+    public function testPublicPath()
+    {
+        self::$application->setPublicPath(__DIR__);
+        $this->assertSame(__DIR__, self::$application->getPublicPath());
     }
 }

@@ -24,52 +24,7 @@ use WordPlate\PluginLoader;
  */
 class PluginLoaderTest extends TestCase
 {
-    public function testLoad()
-    {
-        $this->definePaths();
-        $pluginLoader = new PluginLoader();
-
-        $this->assertNull($pluginLoader->load());
-    }
-
-    public function testShowAdvancedPlugins()
-    {
-        $this->definePaths();
-        $pluginLoader = new PluginLoader();
-
-        $this->assertFalse($pluginLoader->showAdvancedPlugins(false, 'notmustuse'));
-        $this->assertNull($pluginLoader->showAdvancedPlugins(false, 'mustuse'));
-    }
-
-    public function testPreOptionActivePlugins()
-    {
-        $this->definePaths();
-        $pluginLoader = new PluginLoader();
-
-        $this->assertFalse($pluginLoader->preOptionActivePlugins(false));
-    }
-
-    public function testOptionActivePlugins()
-    {
-        $this->definePaths();
-        $pluginLoader = new PluginLoader();
-
-        $activePlugins = $pluginLoader->optionActivePlugins(['mcfly/marty.php']);
-        $this->assertCount(1, $activePlugins);
-        $this->assertEquals('mcfly/marty.php', $activePlugins[0]);
-    }
-
-    public function testGetPlugins()
-    {
-        $this->definePaths();
-        $reflectionMethod = new ReflectionMethod('WordPlate\PluginLoader', 'getPlugins');
-        $reflectionMethod->setAccessible(true);
-        $plugins = $reflectionMethod->invoke(new PluginLoader());
-
-        $this->assertArrayHasKey('./../mu-plugins/emmett/brown.php', $plugins);
-    }
-
-    protected function definePaths()
+    protected function setUp(): void
     {
         if (!defined('ABSPATH')) {
             define('ABSPATH', __DIR__.'/stubs/public/wordpress/');
@@ -82,5 +37,39 @@ class PluginLoaderTest extends TestCase
         if (!defined('WPMU_PLUGIN_DIR')) {
             define('WPMU_PLUGIN_DIR', __DIR__.'/stubs/public/mu-plugins');
         }
+
+        $this->pluginLoader = new PluginLoader();
+    }
+
+    public function testLoad()
+    {
+        $this->assertNull($this->pluginLoader->load());
+    }
+
+    public function testShowAdvancedPlugins()
+    {
+        $this->assertFalse($this->pluginLoader->showAdvancedPlugins(false, 'notmustuse'));
+        $this->assertNull($this->pluginLoader->showAdvancedPlugins(false, 'mustuse'));
+    }
+
+    public function testPreOptionActivePlugins()
+    {
+        $this->assertFalse($this->pluginLoader->preOptionActivePlugins(false));
+    }
+
+    public function testOptionActivePlugins()
+    {
+        $activePlugins = $this->pluginLoader->optionActivePlugins(['mcfly/marty.php']);
+        $this->assertCount(1, $activePlugins);
+        $this->assertEquals('mcfly/marty.php', $activePlugins[0]);
+    }
+
+    public function testGetPlugins()
+    {
+        $reflectionMethod = new ReflectionMethod(PluginLoader::class, 'getPlugins');
+        $reflectionMethod->setAccessible(true);
+        $plugins = $reflectionMethod->invoke($this->pluginLoader);
+
+        $this->assertArrayHasKey('./../mu-plugins/emmett/brown.php', $plugins);
     }
 }

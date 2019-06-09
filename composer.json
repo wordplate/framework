@@ -54,7 +54,7 @@
             "WordPlate\\Tests\\": "tests/"
         },
         "files": [
-            "tests/helpers.php"
+            "tests/stubs/functions.php"
         ]
     },
     "minimum-stability": "dev",

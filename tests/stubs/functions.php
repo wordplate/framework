@@ -33,7 +33,7 @@ function get_option()
 
 function get_theme_file_path(string $path)
 {
-    return __DIR__.'/stubs/child-theme'.$path;
+    return __DIR__.'/child-theme'.$path;
 }
 
 function get_theme_file_uri(string $path)

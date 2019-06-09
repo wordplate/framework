@@ -23,23 +23,31 @@ use WordPlate\Application;
  */
 class ApplicationTest extends TestCase
 {
-    protected static $application;
-
-    public static function setUpBeforeClass(): void
-    {
-        self::$application = new Application(__DIR__.'/stubs');
-        self::$application->run();
-    }
-
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testBasePath()
     {
-        $this->assertInstanceOf(Application::class, self::$application);
-        $this->assertSame(__DIR__.'/stubs', self::$application->getBasePath());
+        $application = new Application(__DIR__.'/stubs');
+        $application->run();
+
+        $this->assertInstanceOf(Application::class, $application);
+        $this->assertSame(__DIR__.'/stubs', $application->getBasePath());
     }
 
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testPublicPath()
     {
-        self::$application->setPublicPath(__DIR__);
-        $this->assertSame(__DIR__, self::$application->getPublicPath());
+        $application = new Application(__DIR__.'/stubs');
+        $application->run();
+
+        $this->assertSame(__DIR__.'/stubs/public', $application->getPublicPath());
+
+        $application->setPublicPath(__DIR__);
+        $this->assertSame(__DIR__, $application->getPublicPath());
     }
 }

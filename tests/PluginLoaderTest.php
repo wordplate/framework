@@ -60,6 +60,7 @@ class PluginLoaderTest extends TestCase
     public function testOptionActivePlugins()
     {
         $activePlugins = $this->pluginLoader->optionActivePlugins(['mcfly/marty.php']);
+
         $this->assertCount(1, $activePlugins);
         $this->assertEquals('mcfly/marty.php', $activePlugins[0]);
     }
@@ -71,5 +72,13 @@ class PluginLoaderTest extends TestCase
         $plugins = $reflectionMethod->invoke($this->pluginLoader);
 
         $this->assertArrayHasKey('./../mu-plugins/emmett/brown.php', $plugins);
+    }
+
+    public function testPreUpdateOptionActivePlugins()
+    {
+        $plugins = $this->pluginLoader->preUpdateOptionActivePlugins(['plate']);
+
+        $this->assertIsArray($plugins);
+        $this->assertCount(1, $plugins);
     }
 }

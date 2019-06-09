@@ -37,6 +37,7 @@ class EnvironmentTest extends TestCase
             'DOTENV_NULL=(null)' => null,
             'DOTENV_QUOTED="null"' => 'null',
             "DOTENV_QUOTED='null'" => 'null',
+            "DOTENV_STRING=einstein" => 'einstein',
         ];
 
         foreach ($variables as $variable => $expected) {

@@ -74,6 +74,11 @@ class Application
         define('DB_CHARSET', env('DB_CHARSET', 'utf8mb4'));
         define('DB_COLLATE', env('DB_COLLATE', 'utf8mb4_unicode_ci'));
 
+        // Detect HTTPS behind a reverse proxy or a load balancer.
+        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+            $_SERVER['HTTPS'] = 'on';
+        }
+
         // Set the unique authentication keys and salts.
         define('AUTH_KEY', env('AUTH_KEY'));
         define('SECURE_AUTH_KEY', env('SECURE_AUTH_KEY'));

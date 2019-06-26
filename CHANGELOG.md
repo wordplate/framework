@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 8.0.0 (upcoming)
+
+- Added HTTPS detection behind a reverse proxy or a load balancer
+- Added WP_DISABLE_FATAL_ERROR_HANDLER constant
+- Updated application class as non-final
+- Removed asset, stylesheet_url and template_url functions
+- Removed base_path, stylesheet_path and template_path functions
+- Removed ext-mbstring dependency
+- Removed hot reloading support
+- Removed illuminate/support and laravel/helpers
+- Removed PHP 7.1 support
+- Removed template_slug function
+
 ## 7.1.0 (released 2019-02-27)
 
 - Added laravel/helpers package

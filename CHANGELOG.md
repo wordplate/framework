@@ -4,12 +4,16 @@
 
 - Added HTTPS detection behind a reverse proxy or a load balancer
 - Added WP_DISABLE_FATAL_ERROR_HANDLER constant
-- Updated application class as non-final
+- Updated the application class as non-final
+- Updated dotenv to 7.0.0
+- Updated johnpbloch/wordpress to 5.2
+- Updated laravel-mix to 4.0.16
+- Updated wordplate/plate to 6.0
 - Removed asset, stylesheet_url and template_url functions
 - Removed base_path, stylesheet_path and template_path functions
 - Removed ext-mbstring dependency
 - Removed hot reloading support
-- Removed illuminate/support and laravel/helpers
+- Removed illuminate/support and laravel/helpers packages
 - Removed PHP 7.1 support
 - Removed template_slug function
 

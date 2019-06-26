@@ -118,6 +118,9 @@ class Application
         // Prevent file edititing from the dashboard.
         define('DISALLOW_FILE_EDIT', env('DISALLOW_FILE_EDIT', true));
 
+        // Disable "Your Site is Experiencing a Technical Issue" emails
+        define('WP_DISABLE_FATAL_ERROR_HANDLER', env('WP_DISABLE_FATAL_ERROR_HANDLER', true));
+
         // Set the absolute path to the WordPress directory.
         if (!defined('ABSPATH')) {
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));

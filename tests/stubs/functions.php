@@ -31,16 +31,6 @@ function get_option()
     return [];
 }
 
-function get_theme_file_path(string $path)
-{
-    return __DIR__.'/child-theme'.$path;
-}
-
-function get_theme_file_uri(string $path)
-{
-    return 'https://wordplate.dev/wp-content/themes/child-theme'.$path;
-}
-
 function is_blog_installed()
 {
     return true;

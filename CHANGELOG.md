@@ -12,7 +12,7 @@
 - Updated symfony/routing to 4.3
 - Updated symfony/var-dumper to 4.3
 - Updated wordplate/plate to 6.0
-- Removed asset, stylesheet_url and template_url functions
+- Removed mix, asset, stylesheet_url and template_url functions
 - Removed base_path, stylesheet_path and template_path functions
 - Removed ext-mbstring dependency
 - Removed hot reloading support

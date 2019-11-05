@@ -7,6 +7,7 @@
 - Updated application class to non-final
 - Updated dotenv to 8.2.0
 - Updated johnpbloch/wordpress to 5.3
+- Updated cross-env to 6.0.0
 - Updated laravel-mix to 5.0.0
 - Updated symfony/http-foundation to 5.0
 - Updated symfony/routing to 5.0

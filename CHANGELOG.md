@@ -5,12 +5,12 @@
 - Added HTTPS detection behind a reverse proxy or a load balancer
 - Added WP_DISABLE_FATAL_ERROR_HANDLER constant
 - Updated application class to non-final
-- Updated dotenv to 7.0.0
-- Updated johnpbloch/wordpress to 5.2
-- Updated laravel-mix to 4.0.16
-- Updated symfony/http-foundation to 4.3
-- Updated symfony/routing to 4.3
-- Updated symfony/var-dumper to 4.3
+- Updated dotenv to 8.2.0
+- Updated johnpbloch/wordpress to 5.3
+- Updated laravel-mix to 5.0.0
+- Updated symfony/http-foundation to 5.0
+- Updated symfony/routing to 5.0
+- Updated symfony/var-dumper to 5.0
 - Updated wordplate/plate to 6.0
 - Removed mix, asset, stylesheet_url and template_url functions
 - Removed base_path, stylesheet_path and template_path functions

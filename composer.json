@@ -23,7 +23,7 @@
     "require": {
         "php": "^7.2",
         "composer/installers": "^1.7",
-        "johnpbloch/wordpress": "^5.2",
+        "johnpbloch/wordpress": "^5.3",
         "roots/wp-password-bcrypt": "^1.0",
         "symfony/http-foundation": "^5.0",
         "symfony/routing": "^5.0",

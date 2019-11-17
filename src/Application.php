@@ -122,6 +122,9 @@ class Application
         // https://make.wordpress.org/core/2019/04/16/fatal-error-recovery-mode-in-5-2/
         define('WP_DISABLE_FATAL_ERROR_HANDLER', env('WP_DISABLE_FATAL_ERROR_HANDLER', false));
 
+        // Set the cache constant for plugins such as WP Super Cache and W3 Total Cache.
+        define('WP_CACHE', env('WP_CACHE', true));
+
         // Set the absolute path to the WordPress directory.
         if (!defined('ABSPATH')) {
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));

@@ -121,8 +121,8 @@ class Application
         // Disable technical issues emails.
         // https://make.wordpress.org/core/2019/04/16/fatal-error-recovery-mode-in-5-2/
         define('WP_DISABLE_FATAL_ERROR_HANDLER', env('WP_DISABLE_FATAL_ERROR_HANDLER', false));
-        
-        // Set the WordPress cache constant
+
+        // Set the cache constant for plugins such as WP Super Cache and W3 Total Cache.
         define('WP_CACHE', env('WP_CACHE', true));
 
         // Set the absolute path to the WordPress directory.

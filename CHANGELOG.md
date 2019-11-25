@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 8.0.0 (upcoming)
+## 8.0.0 (released 2019-11-25)
 
 - Added HTTPS detection behind a reverse proxy or a load balancer
 - Added WP_DISABLE_FATAL_ERROR_HANDLER constant

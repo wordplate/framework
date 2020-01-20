@@ -153,7 +153,7 @@ class Application
     public function getPublicPath(): string
     {
         if (is_null($this->publicPath)) {
-            return $this->basePath.DIRECTORY_SEPARATOR.'public';
+            return $this->basePath . DIRECTORY_SEPARATOR . 'public';
         }
 
         return $this->publicPath;

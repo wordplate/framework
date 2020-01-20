@@ -29,11 +29,11 @@ class ApplicationTest extends TestCase
      */
     public function testBasePath()
     {
-        $application = new Application(__DIR__.'/stubs');
+        $application = new Application(__DIR__ . '/stubs');
         $application->run();
 
         $this->assertInstanceOf(Application::class, $application);
-        $this->assertSame(__DIR__.'/stubs', $application->getBasePath());
+        $this->assertSame(__DIR__ . '/stubs', $application->getBasePath());
     }
 
     /**
@@ -42,10 +42,10 @@ class ApplicationTest extends TestCase
      */
     public function testPublicPath()
     {
-        $application = new Application(__DIR__.'/stubs');
+        $application = new Application(__DIR__ . '/stubs');
         $application->run();
 
-        $this->assertSame(__DIR__.'/stubs/public', $application->getPublicPath());
+        $this->assertSame(__DIR__ . '/stubs/public', $application->getPublicPath());
 
         $application->setPublicPath(__DIR__);
         $this->assertSame(__DIR__, $application->getPublicPath());

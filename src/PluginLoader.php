@@ -48,7 +48,7 @@ final class PluginLoader
     public function load(): void
     {
         // Load WordPress's action and filter helper functions.
-        require_once ABSPATH.'wp-includes/plugin.php';
+        require_once ABSPATH . 'wp-includes/plugin.php';
 
         add_filter('pre_option_active_plugins', [$this, 'preOptionActivePlugins']);
         add_filter('show_advanced_plugins', [$this, 'showAdvancedPlugins'], 0, 2);
@@ -97,7 +97,7 @@ final class PluginLoader
         $haveUnactivatedPlugins = false;
         foreach (array_keys($this->getPlugins()) as $plugin) {
             if ($this->isPluginActive($plugin)) {
-                require_once WPMU_PLUGIN_DIR.'/'.$plugin;
+                require_once WPMU_PLUGIN_DIR . '/' . $plugin;
             } else {
                 $haveUnactivatedPlugins = true;
             }
@@ -130,7 +130,7 @@ final class PluginLoader
                 $plugins = array_diff($plugins, [$plugin]);
 
                 // Add plugin with relative url to WPMU_PLUGIN_DIR
-                $plugins[] = $this->getRelativePath().$plugin;
+                $plugins[] = $this->getRelativePath() . $plugin;
             }
         }
 
@@ -177,10 +177,10 @@ final class PluginLoader
         }
 
         // Load WordPress's plugin helper functions.
-        require_once ABSPATH.'wp-admin/includes/plugin.php';
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
         $plugins = array_diff_key(
-            get_plugins('/'.$this->getRelativePath()),
+            get_plugins('/' . $this->getRelativePath()),
             get_mu_plugins()
         );
 
@@ -242,9 +242,9 @@ final class PluginLoader
      */
     protected function activatePlugin(string $plugin): void
     {
-        require_once WPMU_PLUGIN_DIR.'/'.$plugin;
+        require_once WPMU_PLUGIN_DIR . '/' . $plugin;
 
-        do_action('activate_'.$plugin);
+        do_action('activate_' . $plugin);
 
         $plugins = $this->getActivePlugins();
         $plugins[] = $plugin;
@@ -260,7 +260,7 @@ final class PluginLoader
     protected function validatePlugins(): void
     {
         $plugins = array_filter($this->getActivePlugins(), function ($plugin) {
-            return file_exists(WPMU_PLUGIN_DIR.'/'.$plugin);
+            return file_exists(WPMU_PLUGIN_DIR . '/' . $plugin);
         });
 
         if (array_diff($plugins, $this->getActivePlugins())) {
@@ -276,8 +276,8 @@ final class PluginLoader
     protected function getRelativePath(): string
     {
         return UrlGenerator::getRelativePath(
-            WP_PLUGIN_DIR.'/',
-            WPMU_PLUGIN_DIR.'/'
+            WP_PLUGIN_DIR . '/',
+            WPMU_PLUGIN_DIR . '/'
         );
     }
 

@@ -27,15 +27,15 @@ class PluginLoaderTest extends TestCase
     protected function setUp(): void
     {
         if (!defined('ABSPATH')) {
-            define('ABSPATH', __DIR__.'/stubs/public/wordpress/');
+            define('ABSPATH', __DIR__ . '/stubs/public/wordpress/');
         }
 
         if (!defined('WP_PLUGIN_DIR')) {
-            define('WP_PLUGIN_DIR', __DIR__.'/stubs/public/plugins');
+            define('WP_PLUGIN_DIR', __DIR__ . '/stubs/public/plugins');
         }
 
         if (!defined('WPMU_PLUGIN_DIR')) {
-            define('WPMU_PLUGIN_DIR', __DIR__.'/stubs/public/mu-plugins');
+            define('WPMU_PLUGIN_DIR', __DIR__ . '/stubs/public/mu-plugins');
         }
 
         $this->pluginLoader = new PluginLoader();

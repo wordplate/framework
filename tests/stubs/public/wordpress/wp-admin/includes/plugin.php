@@ -16,7 +16,7 @@ function get_plugins($directory = '')
     // Simulate mu-plugin call to get_plugins.
     if (!empty($directory) && strpos($directory, '/mu-plugins/') !== false) {
         return [
-            '.'.$directory.'emmett/brown.php' => [],
+            '.' . $directory . 'emmett/brown.php' => [],
         ];
     }
 

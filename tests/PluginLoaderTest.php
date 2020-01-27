@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/framework
  */
 
 declare(strict_types=1);
@@ -17,11 +17,6 @@ use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 use WordPlate\PluginLoader;
 
-/**
- * This is the plugin loader test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class PluginLoaderTest extends TestCase
 {
     protected function setUp(): void

@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/framework
  */
 
 declare(strict_types=1);
@@ -16,34 +16,18 @@ namespace WordPlate;
 use Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * This is the application class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class Application
 {
     /**
-     * The base path for the WordPlate installation.
-     *
      * @var string
      */
     protected $basePath;
 
     /**
-     * The public web directory path.
-     *
      * @var string
      */
     protected $publicPath;
 
-    /**
-     * Create a new application instance.
-     *
-     * @param string $basePath
-     *
-     * @return void
-     */
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
@@ -51,11 +35,6 @@ class Application
         Dotenv::create($this->basePath)->safeLoad();
     }
 
-    /**
-     * Star the application engine.
-     *
-     * @return void
-     */
     public function run(): void
     {
         // For developers: WordPress debugging mode.
@@ -135,21 +114,11 @@ class Application
         $pluginLoader->load();
     }
 
-    /**
-     * Get the base path for the application.
-     *
-     * @return string
-     */
     public function getBasePath(): string
     {
         return $this->basePath;
     }
 
-    /**
-     * Get the public web directory path.
-     *
-     * @return string
-     */
     public function getPublicPath(): string
     {
         if (is_null($this->publicPath)) {
@@ -159,13 +128,6 @@ class Application
         return $this->publicPath;
     }
 
-    /**
-     * Set the public web directory path.
-     *
-     * @param string $publicPath
-     *
-     * @return void
-     */
     public function setPublicPath(string $publicPath)
     {
         $this->publicPath = $publicPath;

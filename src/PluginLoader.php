@@ -16,35 +16,20 @@ namespace WordPlate;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 
 /**
- * This is the must use plugin loader class.
- *
  * @see https://wordpress.org/support/article/must-use-plugins/
- *
- * @author Daniel Gerdgren <daniel@gerdgren.se>
- * @author Oskar Joelson <oskar@joelson.org>
- * @author Vincent Klaiber <hello@doubledip.se>
  */
 final class PluginLoader
 {
     /**
-     * The loaded must-use plugins.
-     *
      * @var array
      */
     protected $plugins;
 
     /**
-     * The active must-use plugins.
-     *
      * @var array
      */
     protected $activePlugins;
 
-    /**
-     * Run the plugin loader.
-     *
-     * @return void
-     */
     public function load(): void
     {
         // Load WordPress's action and filter helper functions.
@@ -57,12 +42,7 @@ final class PluginLoader
     }
 
     /**
-     * Show must-use plugins on the plugins page.
-     *
-     * @param bool $show
-     * @param string $type
-     *
-     * @return void
+     * @return bool|void
      */
     public function showAdvancedPlugins(bool $show, string $type)
     {
@@ -74,11 +54,7 @@ final class PluginLoader
     }
 
     /**
-     * Active plugins including must-use plugins.
-     *
-     * @param mixed $plugins
-     *
-     * @return mixed
+     * @return bool|array
      */
     public function preOptionActivePlugins($plugins)
     {
@@ -111,10 +87,7 @@ final class PluginLoader
     }
 
     /**
-     * Add plugins to active plugins, this makes is_plugin_active work.
-     *
      * @param array $plugins
-     *
      * @return array
      */
     public function optionActivePlugins($plugins): array
@@ -138,10 +111,7 @@ final class PluginLoader
     }
 
     /**
-     * Prevent active plugins to contain mu-plugins.
-     *
      * @param array $plugins
-     *
      * @return array
      */
     public function preUpdateOptionActivePlugins($plugins): array
@@ -151,11 +121,6 @@ final class PluginLoader
         });
     }
 
-    /**
-     * Active plugins not activated.
-     *
-     * @return void
-     */
     public function activatePlugins(): void
     {
         foreach (array_keys($this->getPlugins()) as $plugin) {
@@ -165,11 +130,6 @@ final class PluginLoader
         }
     }
 
-    /**
-     * Get the plugins and must-use plugins.
-     *
-     * @return array
-     */
     protected function getPlugins(): array
     {
         if ($this->plugins) {
@@ -189,11 +149,6 @@ final class PluginLoader
         return $this->plugins;
     }
 
-    /**
-     * Get the active must-use plugins.
-     *
-     * @return array
-     */
     protected function getActivePlugins(): array
     {
         if ($this->activePlugins) {
@@ -205,13 +160,6 @@ final class PluginLoader
         return $this->activePlugins;
     }
 
-    /**
-     * Set the active must-use plugins.
-     *
-     * @param array $plugins
-     *
-     * @return void
-     */
     protected function setActivePlugins(array $plugins): void
     {
         $plugins = array_unique($plugins, SORT_REGULAR);
@@ -221,25 +169,11 @@ final class PluginLoader
         $this->activePlugins = $plugins;
     }
 
-    /**
-     * Check whether a plugin is active.
-     *
-     * @param string $plugin
-     *
-     * @return bool
-     */
     protected function isPluginActive(string $plugin): bool
     {
         return in_array($plugin, $this->getActivePlugins());
     }
 
-    /**
-     * Activate plugin by their name.
-     *
-     * @param string $plugin
-     *
-     * @return void
-     */
     protected function activatePlugin(string $plugin): void
     {
         require_once WPMU_PLUGIN_DIR . '/' . $plugin;
@@ -252,11 +186,6 @@ final class PluginLoader
         $this->setActivePlugins($plugins);
     }
 
-    /**
-     * Validate active plugins and deactivate invalid plugins.
-     *
-     * @return void
-     */
     protected function validatePlugins(): void
     {
         $plugins = array_filter($this->getActivePlugins(), function ($plugin) {
@@ -268,11 +197,6 @@ final class PluginLoader
         }
     }
 
-    /**
-     * Get the relative must-use plugins path.
-     *
-     * @return string
-     */
     protected function getRelativePath(): string
     {
         return UrlGenerator::getRelativePath(
@@ -281,11 +205,6 @@ final class PluginLoader
         );
     }
 
-    /**
-     * Check if the current screen is plugins.
-     *
-     * @return bool
-     */
     protected function isPluginsScreen(): bool
     {
         if (!function_exists('get_current_screen')) {

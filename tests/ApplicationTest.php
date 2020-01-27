@@ -1,12 +1,12 @@
 <?php
 
-/*
- * This file is part of WordPlate.
- *
- * (c) Vincent Klaiber <hello@doubledip.se>
+/**
+ * Copyright (c) Vincent Klaiber.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @see https://github.com/wordplate/framework
  */
 
 declare(strict_types=1);
@@ -16,11 +16,6 @@ namespace WordPlate\Tests;
 use PHPUnit\Framework\TestCase;
 use WordPlate\Application;
 
-/**
- * This is the application test class.
- *
- * @author Vincent Klaiber <hello@doubledip.se>
- */
 class ApplicationTest extends TestCase
 {
     /**

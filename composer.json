@@ -2,22 +2,20 @@
     "name": "wordplate/framework",
     "description": "The WordPlate framework",
     "keywords": [
-        "wordplate",
+        "boilerplate",
         "framework",
-        "wordpress",
-        "boilerplate"
+        "wordplate",
+        "wordpress"
     ],
     "license": "MIT",
     "authors": [
         {
             "name": "Vincent Klaiber",
-            "email": "hello@doubledip.se",
-            "homepage": "https://doubledip.se"
+            "email": "hello@doubledip.se"
         },
         {
             "name": "Chris Andersson",
-            "email": "hello@puredazzle.se",
-            "homepage": "https://puredazzle.se"
+            "email": "hello@puredazzle.se"
         }
     ],
     "require": {

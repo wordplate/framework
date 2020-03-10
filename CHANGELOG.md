@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 8.1.0 (upcoming)
+
+- Replaced vlucas/dotenv with symfony/dotenv 
+
 ## 8.0.0 (released 2019-11-25)
 
 - Added HTTPS detection behind a reverse proxy or a load balancer

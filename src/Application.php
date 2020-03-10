@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace WordPlate;
 
-use Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\Dotenv\Exception\PathException;
 
 class Application
 {
@@ -32,7 +33,12 @@ class Application
     {
         $this->basePath = $basePath;
 
-        Dotenv::create($this->basePath)->safeLoad();
+        try {
+            $dotenv = new Dotenv();
+            $dotenv->load($this->basePath . '/.env');
+        } catch (PathException $exception) {
+            //
+        }
     }
 
     public function run(): void

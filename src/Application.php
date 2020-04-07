@@ -34,8 +34,8 @@ class Application
         $this->basePath = $basePath;
 
         try {
-            $dotenv = new Dotenv();
-            $dotenv->load($this->basePath . '/.env');
+            $environment = new Dotenv();
+            $environment->load($this->basePath . '/.env');
         } catch (PathException $exception) {
             //
         }

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace WordPlate\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Dotenv\Dotenv;
 
 class EnvironmentTest extends TestCase
 {
@@ -22,22 +23,24 @@ class EnvironmentTest extends TestCase
         $this->assertSame('mcfly', env('DOTENV_DEFAULT', 'mcfly'));
 
         $variables = [
-            'DOTENV_FALSE=false' => false,
-            'DOTENV_FALSE=(false)' => false,
-            'DOTENV_TRUE=true' => true,
-            'DOTENV_TRUE=(true)' => true,
-            'DOTENV_EMPTY=empty' => '',
-            'DOTENV_EMPTY=(empty)' => '',
-            'DOTENV_NULL=null' => null,
-            'DOTENV_NULL=(null)' => null,
-            'DOTENV_QUOTED="null"' => 'null',
-            "DOTENV_QUOTED='null'" => 'null',
-            'DOTENV_STRING=einstein' => 'einstein',
+            ['DOTENV_FALSE', 'false', false],
+            ['DOTENV_FALSE', '(false)', false],
+            ['DOTENV_TRUE', 'true', true],
+            ['DOTENV_TRUE', '(true)', true],
+            ['DOTENV_EMPTY', 'empty', ''],
+            ['DOTENV_EMPTY', '(empty)', ''],
+            ['DOTENV_NULL', 'null', null],
+            ['DOTENV_NULL', '(null)', null],
+            ['DOTENV_QUOTED', '"null"', 'null'],
+            ['DOTENV_QUOTED', "'null'", 'null'],
+            ['DOTENV_STRING', 'einstein', 'einstein'],
         ];
 
-        foreach ($variables as $variable => $expected) {
-            putenv($variable);
-            $this->assertSame($expected, env(explode('=', $variable)[0]));
+        $environment = new Dotenv();
+
+        foreach ($variables as [$key, $value, $expected]) {
+            $environment->populate([$key => $value]);
+            $this->assertSame($expected, env($key));
         }
     }
 }

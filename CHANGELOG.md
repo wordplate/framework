@@ -3,6 +3,9 @@
 ## 8.1.0 (upcoming)
 
 - Replaced vlucas/dotenv with symfony/dotenv 
+- Updated composer/installers to 1.9
+- Updated johnpbloch/wordpress to 5.4
+- Removed wordplate/plate dependency
 
 ## 8.0.0 (released 2019-11-25)
 

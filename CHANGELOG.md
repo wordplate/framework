@@ -1,10 +1,15 @@
 # CHANGELOG
 
-## 8.1.0 (upcoming)
+## 8.1.0 (released 2020-04-14)
 
-- Replaced vlucas/dotenv with symfony/dotenv 
+- Updated vlucas/dotenv to symfony/dotenv 
 - Updated composer/installers to 1.9
 - Updated johnpbloch/wordpress to 5.4
+- Updated toolbar front-end visibility
+- Updated viewport meta tag
+- Updated cross-env to 7.0
+- Updated composer 2.0 support
+- Removed HTML5 theme support
 - Removed wordplate/plate dependency
 
 ## 8.0.0 (released 2019-11-25)

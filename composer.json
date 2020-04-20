@@ -20,6 +20,7 @@
     ],
     "require": {
         "php": "^7.2",
+        "ext-json": "*",
         "composer/installers": "^1.9",
         "johnpbloch/wordpress": "^5.4",
         "roots/wp-password-bcrypt": "^1.0",

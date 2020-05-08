@@ -25,7 +25,7 @@ class Application
     protected $basePath;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $publicPath;
 

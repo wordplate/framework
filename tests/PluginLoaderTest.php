@@ -19,6 +19,11 @@ use WordPlate\PluginLoader;
 
 class PluginLoaderTest extends TestCase
 {
+    /**
+     * @var \WordPlate\PluginLoader
+     */
+    protected $pluginLoader;
+
     protected function setUp(): void
     {
         if (!defined('ABSPATH')) {
@@ -38,7 +43,7 @@ class PluginLoaderTest extends TestCase
 
     public function testLoad()
     {
-        $this->assertNull($this->pluginLoader->load());
+        $this->pluginLoader->load();
     }
 
     public function testShowAdvancedPlugins()

@@ -20,7 +20,7 @@ use WordPlate\PluginLoader;
 class PluginLoaderTest extends TestCase
 {
     /**
-     * @var PluginLoader
+     * @var \WordPlate\PluginLoader
      */
     protected $pluginLoader;
 

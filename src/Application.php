@@ -27,7 +27,7 @@ class Application
     /**
      * @var string
      */
-    protected $publicPath;
+    protected $publicPath|null;
 
     public function __construct(string $basePath)
     {

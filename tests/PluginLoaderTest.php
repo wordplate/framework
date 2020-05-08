@@ -43,7 +43,7 @@ class PluginLoaderTest extends TestCase
 
     public function testLoad()
     {
-        $this->assertNull($this->pluginLoader->load());
+        $this->pluginLoader->load();
     }
 
     public function testShowAdvancedPlugins()

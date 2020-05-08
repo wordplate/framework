@@ -39,10 +39,6 @@ class PluginLoaderTest extends TestCase
         }
 
         $this->pluginLoader = new PluginLoader();
-    }
-
-    public function testLoad()
-    {
         $this->pluginLoader->load();
     }
 

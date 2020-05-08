@@ -19,6 +19,11 @@ use WordPlate\PluginLoader;
 
 class PluginLoaderTest extends TestCase
 {
+    /**
+     * @var PluginLoader
+     */
+    protected $pluginLoader;
+
     protected function setUp(): void
     {
         if (!defined('ABSPATH')) {

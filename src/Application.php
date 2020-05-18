@@ -19,14 +19,10 @@ use Symfony\Component\Dotenv\Exception\PathException;
 
 class Application
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $basePath;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     protected $publicPath;
 
     public function __construct(string $basePath)

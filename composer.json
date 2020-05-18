@@ -53,10 +53,7 @@
     "autoload-dev": {
         "psr-4": {
             "WordPlate\\Tests\\": "tests/"
-        },
-        "files": [
-            "tests/stubs/functions.php"
-        ]
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

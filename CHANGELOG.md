@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## 8.1.0 (released 2020-04-14)
+## 9.0.0 (upcoming)
+
+- Added composer 2.0 support
+
+## 8.1.0
 
 - Updated vlucas/dotenv to symfony/dotenv 
 - Updated composer/installers to 1.9
@@ -12,7 +16,7 @@
 - Removed HTML5 theme support
 - Removed wordplate/plate dependency
 
-## 8.0.0 (released 2019-11-25)
+## 8.0.0
 
 - Added HTTPS detection behind a reverse proxy or a load balancer
 - Added WP_DISABLE_FATAL_ERROR_HANDLER constant
@@ -33,7 +37,7 @@
 - Removed PHP 7.1 support
 - Removed template_slug function
 
-## 7.1.0 (released 2019-02-27)
+## 7.1.0
 
 - Added laravel/helpers package
 - Deleted robots.txt file
@@ -44,7 +48,7 @@
 - Updated vlucas/phpdotenv to 3.0
 - Updated wordplate/plate to 4.1
 
-## 7.0.0 (released 2018-12-12)
+## 7.0.0
 
 - Added template_slug helper function
 - Removed WP_ENV environment variable
@@ -54,7 +58,7 @@
 - Updated default npm scripts
 - Updated plugin loader registration
 
-## 6.3.1 (released 2018-09-14)
+## 6.3.1
 
 - Added relative path support for mu-plugins
 - Updated resources directory structure
@@ -63,7 +67,7 @@
 - Updated illuminate/support to 5.7.0
 - Updated vlucas/phpdotenv to 2.5.0
 
-## 6.3.0 (released 2018-06-04)
+## 6.3.0
 
 - Added stylesheet url helper function
 - Added template url helper function
@@ -75,7 +79,7 @@
 - Updated symfony/routing to 4.1.0
 - Updated symfony/var-dumper to 4.1.0
 
-## 6.2.2 (released 2018-04-04)
+## 6.2.2
 
 - Updated default favicon
 - Updated laravel-mix to 2.1.11
@@ -85,13 +89,13 @@
 - Removed stylesheet loading from theme
 - Removed unused filters
 
-## 6.2.1 (released 2018-03-05)
+## 6.2.1
 
 - Added plate 4.0 support
 - Updated illuminate support to 5.6
 - Updated wordpress core to 4.9.4
 
-## 6.2.0 (released 2018-01-25)
+## 6.2.0
 
 - Added must-use plugin loader
 - Added symfony 4.0 support
@@ -101,7 +105,7 @@
 - Updated wordpress core
 - Removed php 7.0 support
 
-## 6.1.0 (released 2017-11-16)
+## 6.1.0
 
 - Add dotenv to laravel mix
 - Fix javascript paths for windows
@@ -109,7 +113,7 @@
 - Update laravel mix
 - Update wordpress core
 
-## 6.0.0 (released 2017-10-05)
+## 6.0.0
 
 - Add stylesheet path helper
 - Add shorthand bloginfo helper
@@ -118,29 +122,29 @@
 - Update laravel mix
 - Remove deprecated code
 
-## 5.3.1 (released 2017-06-21)
+## 5.3.1
 
 - Update laravel mix
 - Update mix helper function
 - Fixed assets directory bug
 
-## 5.3.0 (released 2017-06-20)
+## 5.3.0
 
 - Update illuminate support
 - Update laravel mix
 - Update wordpress
 - Update symfony packages
 
-## 5.2.2 (released 2017-05-31)
+## 5.2.2
 
 - Add core update constant
 
-## 5.2.1 (released 2017-05-10)
+## 5.2.1
 
 - Update laravel mix config
 - Fix target blank issue
 
-## 5.2.0 (released 2017-05-09)
+## 5.2.0
 
 - Add debug log constant
 - Fix bugs and typos
@@ -149,32 +153,32 @@
 - Update mail plugin
 - Update plate plugin
 
-## 5.1.0 (released 2017-04-27)
+## 5.1.0
 
 - Add container class
 - Add base_path helper function
 - Add mu-plugins to gitignore
 
-## 5.0.4 (released 2017-04-24)
+## 5.0.4
 
 - Add public path property
 
-## 5.0.3 (released 2017-04-18)
+## 5.0.3
 
 - Fix wp-cli support
 - Update default database charset
 - Update table prefix variable
 
-## 5.0.2 (released 2017-04-01)
+## 5.0.2
 
 - Added new theme assets
 
-## 5.0.1 (released 2017-03-28)
+## 5.0.1
 
 - Added environment variables
 - Updated environment loader
 
-## 5.0.0 (released 2017-03-27)
+## 5.0.0
 
 - Added asset() helper
 - Added template_path() helper
@@ -184,7 +188,7 @@
 - Removed deprecated helpers
 - Removed elixir() helper
 
-## 4.3.0 (released 2017-01-29)
+## 4.3.0
 
 - Added Laravel Mix
 - Update Laravel to 5.4
@@ -192,26 +196,26 @@
 - Update WordPress to 4.7
 - Remove PHP 5.6 support
 
-## 4.2.0 (released 2016-07-11)
+## 4.2.0
 
 - Drop php 5.5 support
 - Update Laravel to 5.3
 - Update Symfony to 3.1
 - Remove UUID plugin by default
 
-## 4.1.3 (released 2016-05-05)
+## 4.1.3
 
 - Remove Soil link
 
-## 4.1.2 (released 2016-05-02)
+## 4.1.2
 
 - Remove Soil plugin
 
-## 4.1.1 (released 2016-04-29)
+## 4.1.1
 
 - Update multisite support
 
-## 4.1.0 (released 2016-04-28)
+## 4.1.0
 
 - Add mail plugin
 - Add multisite plugin
@@ -220,50 +224,50 @@
 - Update documentation
 - Update plate plugin
 
-## 4.0.7 (released 2016-04-04)
+## 4.0.7
 
 - Add Illuminate support package
 - Add back ext-mbstring requirement
 
-## 4.0.6 (released 2016-04-03)
+## 4.0.6
 
 - Dropped ext-mbstring requirement
 - Update elixir manifest caching
 - Improved documentation
 
-## 4.0.5 (released 2016-03-20)
+## 4.0.5
 
 - Move documentation to README
 - Move library to Plate plugin
 - Replace permalink GUIDs with UUIDs
 
-## 4.0.4 (released 2016-03-06)
+## 4.0.4
 
 - Remove unused Whoops dependency
 - Add WordPlate website links
 - Cleanup license headers
 
-## 4.0.3 (released 2016-03-04)
+## 4.0.3
 
 - Add ACF helpers methods
 - Add elixir helper method
 - Add revisions to style and script assets
 - Update library structure
 
-## 4.0.2 (released 2016-03-02)
+## 4.0.2
 
 - Add roots/wp-password-bcrypt package
 - Add version number to theme
 - Hide welcome panel by default
 - Remove author and description meta tags
 
-## 4.0.1 (released 2016-03-01)
+## 4.0.1
 
 - Update theme paths
 - Update wpackagist url
 - Bugfixes
 
-## 4.0.0 (released 2016-02-29)
+## 4.0.0
 
 - Add new test suit
 - Add custom dd(), env() and value() helper methods
@@ -273,13 +277,13 @@
 - Remove Laravel components
 - Remove config repository
 
-## 3.1.1 (released 2016-01-20)
+## 3.1.1
 
 - Define WP_ENV constant
 - Remove babel support out of the box
 - Update Laravel Elixir
 
-## 3.1.0 (released 2016-01-22)
+## 3.1.0
 
 - Update to Laravel 5.2
 - Update to Symfony 3.0
@@ -288,15 +292,15 @@
 - Add .editorconfig file
 - Fix bug where mail config is empty
 
-## 3.0.2 (released 2015-09-25)
+## 3.0.2
 
 - Update description from config
 
-## 3.0.1 (released 2015-09-22)
+## 3.0.1
 
 - Update permalink from config
 
-## 3.0.0 (released 2015-09-08)
+## 3.0.0
 
 - Allow any ~4.0 WordPress version
 - Code cleanup
@@ -307,47 +311,47 @@
 - Remove google analytics out of the box
 - Update phpdotenv package
 
-## 2.7.1 (released 2015-08-21)
+## 2.7.1
 
 - Remove clear command
 
-## 2.7.0 (released 2015-08-20)
+## 2.7.0
 
 - Updated to WordPress 4.3
 - Removed unused server page
 - Removed the ability to hide updates
 - Code cleanup
 
-## 2.6.0 (released 2015-08-18)
+## 2.6.0
 
 - Added [Elixir](http://laravel.com/docs/elixir) Support ([#117](https://github.com/wordplate/wordplate/issues/117))
 
-## 2.5.4 (released 2015-07-01)
+## 2.5.4
 
 - Sanitize File Name on Save ([#113](https://github.com/wordplate/wordplate/issues/113))
 
-## 2.5.3 (released 2015-06-02)
+## 2.5.3
 
 - Fix Mail From and Name Bug ([#112](https://github.com/wordplate/wordplate/issues/112))
 
-## 2.5.2 (released 2015-05-28)
+## 2.5.2
 
 - Added Charset and Language Attributes to Header ([#111](https://github.com/wordplate/wordplate/issues/111))
 - Added wp_nav_menu to Header ([#108](https://github.com/wordplate/wordplate/issues/108))
 - Fixed wp_title Category Bug ([#107](https://github.com/wordplate/wordplate/issues/107))
 
-## 2.5.1 (released 2015-05-21)
+## 2.5.1
 
 - Remove Clear Command ([#105](https://github.com/wordplate/wordplate/issues/105))
 
-## 2.5.0 (released 2015-05-21)
+## 2.5.0
 
 - Fix Permalink Update Method Bug ([#104](https://github.com/wordplate/wordplate/issues/104))
 - Move Docs to Website ([#102](https://github.com/wordplate/wordplate/issues/102))
 - Add Test Coverage ([#103](https://github.com/wordplate/wordplate/issues/103))
 - Add Mail Configuration ([#100](https://github.com/wordplate/wordplate/issues/100))
 
-## 2.4.0 (released 2015-05-10)
+## 2.4.0
 
 - Add post revisions to config ([#98](https://github.com/wordplate/wordplate/issues/98))
 - Add IMAGE_EDIT_OVERWRITE ([#94](https://github.com/wordplate/wordplate/issues/94))
@@ -355,7 +359,7 @@
 - Disable plugin and theme update and installation ([#95](https://github.com/wordplate/wordplate/issues/95))
 - Make Whoops to handle all errors ([#93](https://github.com/wordplate/wordplate/issues/93))
 
-## 2.3.0 (released 2015-05-03)
+## 2.3.0
 
 - Add plate console commander ([#92](https://github.com/wordplate/wordplate/issues/92))
 - Add plate salts generator command ([#81](https://github.com/wordplate/wordplate/issues/81))
@@ -364,7 +368,7 @@
 - Update Soil plugin to latest version ([#90](https://github.com/wordplate/wordplate/issues/90))
 - Rename wp-content directory to public ([#88](https://github.com/wordplate/wordplate/issues/88))
 
-## 2.2.0 (released 2015-04-26)
+## 2.2.0
 
 - Add theme color meta tag ([#84](https://github.com/wordplate/wordplate/issues/84))
 - Add title tag theme support ([#83](https://github.com/wordplate/wordplate/issues/83))
@@ -376,21 +380,21 @@
 - Update @roots Soil plugin version ([#86](https://github.com/wordplate/wordplate/issues/86))
 - Remove ACF simple editor toolbar ([#87](https://github.com/wordplate/wordplate/issues/87))
 
-## 2.1.3 (released 2015-04-22)
+## 2.1.3
 
 - Fix template bug for pages ([#80](https://github.com/wordplate/wordplate/issues/80))
 
-## 2.1.2 (released 2015-04-21)
+## 2.1.2
 
 - Fix infinite pages issue ([#76](https://github.com/wordplate/wordplate/issues/76))
 
-## 2.1.1 (released 2015-04-21)
+## 2.1.1
 
 - Deregister jQuery by default ([#73](https://github.com/wordplate/wordplate/issues/73))
 - Fix login image URL bug ([#74](https://github.com/wordplate/wordplate/issues/74))
 - Fix infinite pages if the title key isn't available ([#75](https://github.com/wordplate/wordplate/issues/75))
 
-## 2.1.0 (released 2015-04-19)
+## 2.1.0
 
 - Added default screenshot and favicon ([#71](https://github.com/wordplate/wordplate/issues/71))
 - Added new directory structure ([#70](https://github.com/wordplate/wordplate/issues/70))
@@ -398,7 +402,7 @@
 - Added Google Analytics to configuration files ([#68](https://github.com/wordplate/wordplate/issues/68))
 - Added plugin activation on theme switch ([#66](https://github.com/wordplate/wordplate/issues/66))
 
-## 2.0.0 (released 2015-04-16)
+## 2.0.0
 
 - Rename the project to WordPlate
 - Moved project to an organization
@@ -409,35 +413,35 @@
 - Added changelog
 - Update @roots soil plugin to the latest version
 
-## 1.3.0 (released 2015-04-10)
+## 1.3.0
 
 - Added TinyPGN plugin ([#57](https://github.com/wordplate/wordplate/issues/57))
 - Added @laravel's helper methods ([#63](https://github.com/wordplate/wordplate/issues/63))
 - Added rename the home URL on theme setup ([#64](https://github.com/wordplate/wordplate/issues/64))
 
-## 1.2.2 (released 2015-04-10)
+## 1.2.2
 
 - Added Whoops php errors for cool kids ([#62](https://github.com/wordplate/wordplate/issues/62))
 
-## 1.2.1 (released 2015-04-10)
+## 1.2.1
 
 - Added configuration to disbale/enable updates
 
-## 1.2.0 (released 2015-03-31)
+## 1.2.0
 
 - Added config helper method ([#61](https://github.com/wordplate/wordplate/issues/61))
 
-## 1.1.1 (released 2015-03-27)
+## 1.1.1
 
 - Added WP Sweep plugin by @lesterchan ([#59](https://github.com/wordplate/wordplate/issues/59))
 
-## 1.1.0 (released 2015-03-20)
+## 1.1.0
 
 - Added Dotenv environment package by @vlucas ([#44](https://github.com/wordplate/wordplate/issues/44))
 - Added @roots Soil plugin ([#49](https://github.com/wordplate/wordplate/issues/49))
 - Added Google Analytics ([#52](https://github.com/wordplate/wordplate/issues/52))
 
-## 1.0.0 (released 2015-03-20)
+## 1.0.0
 
 - Move Boilerplate to Composer
 - Added Server Settings page

@@ -24,6 +24,7 @@
         "composer/installers": "^1.9",
         "johnpbloch/wordpress-core-installer": "^2.0",
         "johnpbloch/wordpress-core": "^5.4",
+        "roots/bedrock-autoloader": "^1.0",
         "roots/wp-password-bcrypt": "^1.0",
         "symfony/dotenv": "^5.0",
         "symfony/http-foundation": "^5.0",
@@ -53,10 +54,7 @@
     "autoload-dev": {
         "psr-4": {
             "WordPlate\\Tests\\": "tests/"
-        },
-        "files": [
-            "tests/stubs/functions.php"
-        ]
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

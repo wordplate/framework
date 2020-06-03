@@ -110,10 +110,6 @@ class Application
         if (!defined('ABSPATH')) {
             define('ABSPATH', sprintf('%s/%s/', $this->getPublicPath(), env('WP_DIR', 'wordpress')));
         }
-
-        // Load the must-use plugins.
-        $pluginLoader = new PluginLoader();
-        $pluginLoader->load();
     }
 
     public function getBasePath(): string

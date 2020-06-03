@@ -1,8 +1,14 @@
 # CHANGELOG
 
-## 9.0.0 (upcoming)
+## 9.0.0
 
 - Added composer 2.0 support
+- Added roots/bedrock-autoloader
+- Added johnpbloch/wordpress-core
+- Added johnpbloch/wordpress-core-installer
+- Added documentation to wordplate/wordplate
+- Removed plugin autoloader
+- Removed johnpbloch/wordpress
 
 ## 8.1.0
 

@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace WordPlate;
 
+use Dotenv\Dotenv;
+use Dotenv\Exception\InvalidPathException;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Dotenv\Dotenv;
-use Symfony\Component\Dotenv\Exception\PathException;
 
 class Application
 {
@@ -30,9 +30,9 @@ class Application
         $this->basePath = $basePath;
 
         try {
-            $environment = new Dotenv();
-            $environment->load($this->basePath . '/.env');
-        } catch (PathException $exception) {
+            $dotenv = Dotenv::createImmutable($this->basePath);
+            $dotenv->load();
+        } catch (InvalidPathException $exception) {
             //
         }
     }

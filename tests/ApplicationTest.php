@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace WordPlate\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Dotenv\Dotenv;
 use WordPlate\Application;
 
 class ApplicationTest extends TestCase
@@ -65,10 +64,8 @@ class ApplicationTest extends TestCase
             ['DOTENV_STRING', 'einstein', 'einstein'],
         ];
 
-        $environment = new Dotenv();
-
         foreach ($variables as [$key, $value, $expected]) {
-            $environment->populate([$key => $value]);
+            $_ENV[$key] = $value;
             $this->assertSame($expected, env($key));
         }
     }

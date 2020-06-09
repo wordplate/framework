@@ -7,6 +7,7 @@
 - Added johnpbloch/wordpress-core
 - Added johnpbloch/wordpress-core-installer
 - Added documentation to wordplate/wordplate
+- Updated symfony/dotenv to vlucas/dotenv
 - Removed plugin autoloader
 - Removed johnpbloch/wordpress
 

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 9.1.0
+
+- Added WP_ENV environment variable
+- Added WP_ENVIRONMENT_TYPE constant
+- Updated vlucas/dotenv to 5.0
+- Updated johnpbloch/wordpress-core to 5.5
+- Updated default DB_HOST to 127.0.0.1
+
 ## 9.0.0
 
 - Added composer 2.0 support

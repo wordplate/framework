@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 9.2.0
+
+- Updated to laravel-mix 6.0
+- Updated minimum PHP version to 7.3
+
 ## 9.1.0
 
 - Added WP_ENV environment variable

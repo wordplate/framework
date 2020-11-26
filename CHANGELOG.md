@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Added PHP 8.0 support
+
 ## 9.2.0
 
 - Updated to laravel-mix 6.0

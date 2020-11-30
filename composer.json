@@ -26,9 +26,9 @@
         "johnpbloch/wordpress-core": "^5.5",
         "roots/bedrock-autoloader": "^1.0",
         "roots/wp-password-bcrypt": "^1.0",
-        "symfony/http-foundation": "^5.0",
-        "symfony/routing": "^5.0",
-        "symfony/var-dumper": "^5.0",
+        "symfony/http-foundation": "^5.2",
+        "symfony/routing": "^5.2",
+        "symfony/var-dumper": "^5.2",
         "vlucas/phpdotenv": "^5.0"
     },
     "require-dev": {

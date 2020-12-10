@@ -1,8 +1,12 @@
 # CHANGELOG
 
-## Unreleased
+## 9.3.0
 
 - Added PHP 8.0 support
+- Updated johnpbloch/wordpress-core to 5.6
+- Updated symfony/http-foundation to 5.2
+- Updated symfony/routing to 5.2
+- Updated symfony/var-dumper to 5.2
 
 ## 9.2.0
 

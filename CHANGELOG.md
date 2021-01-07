@@ -1,8 +1,16 @@
 # CHANGELOG
 
+## 9.3.2
+
+- Added empty dummy favicon
+- Updated laravel-mix to stable version
+- Removed strict types from wordplate/wordplate
+- Removed default theme color from head in wordplate/wordplate
+- Removed license from wordplate/wordplate
+
 ## 9.3.1
 
-- Update wordplate/wordplate PHP version constraint
+- Updated wordplate/wordplate PHP version constraint
 
 ## 9.3.0
 

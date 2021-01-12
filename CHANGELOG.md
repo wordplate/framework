@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## next
+
+- Added WP_HOME constant
+- Added custom request class
+- Removed symfony/http-foundation
+
 ## 9.3.2
 
 - Added empty dummy favicon

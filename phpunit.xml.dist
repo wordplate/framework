@@ -10,4 +10,9 @@
             <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
+    <php>
+        <server name="HTTP_HOST" value="mcfly.dev"/>
+        <server name="HTTPS" value="off"/>
+        <server name="SERVER_PORT" value="80"/>
+    </php>
 </phpunit>

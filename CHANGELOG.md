@@ -5,6 +5,7 @@
 - Added WP_HOME constant
 - Added custom request class
 - Removed symfony/http-foundation
+- Removed symfony/routing
 
 ## 9.3.2
 

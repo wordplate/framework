@@ -20,7 +20,6 @@
     ],
     "require": {
         "php": "^7.3 || ^8.0",
-        "ext-json": "*",
         "composer/installers": "^1.9",
         "johnpbloch/wordpress-core-installer": "^2.0",
         "johnpbloch/wordpress-core": "^5.6",

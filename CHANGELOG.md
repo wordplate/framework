@@ -6,6 +6,7 @@
 - Added custom request class
 - Removed symfony/http-foundation
 - Removed symfony/routing
+- Removed ext-json requirement
 
 ## 9.3.2
 

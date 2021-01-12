@@ -73,9 +73,7 @@ class Application
         define('NONCE_SALT', env('NONCE_SALT'));
 
         // Set the home url to the current domain.
-        // TODO: Remove WP_URL in the next major version.
-        $url = env('WP_URL', Request::getSchemeAndHttpHost());
-        define('WP_HOME', env('WP_HOME', $url));
+        define('WP_HOME', env('WP_HOME', env('WP_URL', Request::getSchemeAndHttpHost()))); // TODO: Remove WP_URL in the next major version
 
         // Set the WordPress directory path.
         define('WP_SITEURL', env('WP_SITEURL', sprintf('%s/%s', WP_HOME, env('WP_DIR', 'wordpress'))));

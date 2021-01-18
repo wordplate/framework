@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## next
+## 9.4.0
 
 - Added WP_HOME constant
 - Added custom request class

@@ -5,7 +5,3 @@
 [![Latest Version](https://badgen.net/packagist/v/wordplate/framework)](https://packagist.org/packages/wordplate/framework)
 
 > **Note:** This repository contains the core code of WordPlate. If you want to build a WordPress application using WordPlate, visit the main [WordPlate repository](https://github.com/wordplate/wordplate).
-
-## License
-
-[MIT](LICENSE) © [Vincent Klaiber](https://vinkla.dev/)

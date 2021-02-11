@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Next
+
+- Updated johnpbloch/wordpress-core to 5.6.1
+
 ## 9.4.0
 
 - Added WP_HOME constant

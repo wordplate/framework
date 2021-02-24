@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 9.5.0
+## 9.4.1
 
 - Updated johnpbloch/wordpress-core to 5.6.2
 

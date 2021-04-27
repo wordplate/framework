@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 9.5.1
+
+- Updated default environment variables
+- Updated johnpbloch/wordpress-core to 5.7.1
+- Updated laravel-mix to 6.0.18
+
 ## 9.5.0
 
 - Updated johnpbloch/wordpress-core to 5.7.0

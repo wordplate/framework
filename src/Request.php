@@ -17,13 +17,23 @@ class Request
 {
     public static function isSecure(): bool
     {
-        return !isset($_SERVER['HTTPS']) && (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443;
+        if (isset($_SERVER['HTTPS']) === false) {
+            return false;
+        }
+
+        if (empty($_SERVER['HTTPS']) === false && $_SERVER['HTTPS'] !== 'off') {
+            return false;
+        }
+
+        return $_SERVER['SERVER_PORT'] == 443;
     }
 
     public static function getSchemeAndHttpHost(): string
     {
         $protocol = static::isSecure() ? 'https' : 'http';
 
-        return $protocol . '://' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost');
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+
+        return $protocol . '://' . $host;
     }
 }

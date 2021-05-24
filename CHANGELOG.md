@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 9.5.2
+
+- Updated johnpbloch/wordpress-core to 5.7.2
+- Fixed wp-cli issue on windows
+
 ## 9.5.1
 
 - Updated default environment variables

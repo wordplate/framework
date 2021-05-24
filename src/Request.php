@@ -24,6 +24,6 @@ class Request
     {
         $protocol = static::isSecure() ? 'https' : 'http';
 
-        return $protocol . '://' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
+        return $protocol . '://' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost');
     }
 }

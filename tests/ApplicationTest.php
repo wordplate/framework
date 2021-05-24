@@ -40,7 +40,7 @@ class ApplicationTest extends TestCase
         $application = new Application(__DIR__);
         $application->run();
 
-        $this->assertSame(__DIR__ . '/public', $application->getPublicPath());
+        $this->assertSame(__DIR__ . DIRECTORY_SEPARATOR . 'public', $application->getPublicPath());
 
         $application->setPublicPath(__DIR__);
         $this->assertSame(__DIR__, $application->getPublicPath());

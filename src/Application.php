@@ -86,7 +86,7 @@ class Application
         define('EMPTY_TRASH_DAYS', env('EMPTY_TRASH_DAYS', 7));
 
         // Set the default WordPress theme.
-        define('WP_DEFAULT_THEME', env('WP_THEME', 'wordplate'));
+        define('WP_DEFAULT_THEME', env('WP_DEFAULT_THEME', env('WP_THEME', 'wordplate'))); // TODO: Remove WP_THEME in the next major version
 
         // Constant to configure core updates.
         define('WP_AUTO_UPDATE_CORE', env('WP_AUTO_UPDATE_CORE', 'minor'));

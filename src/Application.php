@@ -39,7 +39,7 @@ class Application
     public function run(): void
     {
         // Set the environment type.
-        define('WP_ENVIRONMENT_TYPE', env('WP_ENV', 'production'));
+        define('WP_ENVIRONMENT_TYPE', env('WP_ENVIRONMENT_TYPE', 'production'));
 
         // For developers: WordPress debugging mode.
         $debug = env('WP_DEBUG', false);

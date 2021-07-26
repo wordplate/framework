@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 10.0.0
+
+- Removed WP_CACHE env variable
+- Removed WP_URL env variable
+- Updated johnpbloch/wordpress-core to 5.8.0
+- Updated minimum PHP version to 7.4
+- Updated WP_ENV to WP_ENVIRONMENT_TYPE
+- Updated WP_THEME to WP_THEME_DEFAULT
+
 ## 9.5.2
 
 - Updated johnpbloch/wordpress-core to 5.7.2

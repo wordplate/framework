@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace WordPlate;
 
-use Dotenv\Dotenv;
-use Dotenv\Exception\InvalidPathException;
-
 class Application
 {
     /** @var string */
@@ -28,12 +25,7 @@ class Application
     {
         $this->basePath = $basePath;
 
-        try {
-            $dotenv = Dotenv::createImmutable($this->basePath);
-            $dotenv->load();
-        } catch (InvalidPathException $exception) {
-            //
-        }
+        \Dotenv\Dotenv::createImmutable($this->basePath)->safeLoad();
     }
 
     public function run(): void

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 10.0.1
+
+- Updated johnpbloch/wordpress-core to 5.8.1
+- Updated composer/installers to 2.0.0
+
 ## 10.0.0
 
 - Removed WP_CACHE env variable

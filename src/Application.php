@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace WordPlate;
 
+use Dotenv\Dotenv;
+
 class Application
 {
     protected string $basePath;
@@ -23,7 +25,7 @@ class Application
     {
         $this->basePath = $basePath;
 
-        \Dotenv\Dotenv::createImmutable($this->basePath)->safeLoad();
+        Dotenv::createImmutable($this->basePath)->safeLoad();
     }
 
     public function run(): void

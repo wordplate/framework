@@ -15,11 +15,9 @@ namespace WordPlate;
 
 class Application
 {
-    /** @var string */
-    protected $basePath;
+    protected string $basePath;
 
-    /** @var string|null */
-    protected $publicPath;
+    protected ?string $publicPath = null;
 
     public function __construct(string $basePath)
     {

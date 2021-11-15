@@ -17,12 +17,10 @@ use Dotenv\Dotenv;
 
 class Application
 {
-    protected string $basePath;
-
-    protected ?string $publicPath = null;
-
-    public function __construct(string $basePath)
-    {
+    public function __construct(
+        protected string $basePath,
+        protected string|null $publicPath = null
+    ) {
         $this->basePath = $basePath;
 
         Dotenv::createImmutable($this->basePath)->safeLoad();

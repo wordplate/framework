@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 11.0.0
+
+- Removed PHP 7.0 support
+- Replaced laravel-mix with vite.js
+- Added allow-plugins to composer.json
+- Added type hints in wordplate/framework
+- Updated johnpbloch/wordpress-core to 5.9.0
+- Updated symfony/var-dumper to 6.0.0
+
 ## 10.0.1
 
 - Updated johnpbloch/wordpress-core to 5.8.1

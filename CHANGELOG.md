@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 11.1.0
+
+- Updated johnpbloch/wordpress-core to 6.0.0
+- Updated dotenv to 16.0.1
+
 ## 11.0.0
 
 - Removed PHP 7.0 support

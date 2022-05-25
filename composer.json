@@ -20,9 +20,9 @@
     ],
     "require": {
         "php": "^8.0",
-        "composer/installers": "^2.0",
+        "composer/installers": "^2.1",
         "johnpbloch/wordpress-core-installer": "^2.0",
-        "johnpbloch/wordpress-core": "^5.9",
+        "johnpbloch/wordpress-core": "^6.0",
         "roots/bedrock-autoloader": "^1.0",
         "roots/wp-password-bcrypt": "^1.1",
         "symfony/var-dumper": "^6.0",
